@@ -8,7 +8,7 @@
         "price":  "99990",
         "compareAtPrice":  "129990",
         "stock":  "10",
-        "image":  "img/spc-prismatic-es",
+        "image":  "img/spc-prismatic-es.webp",
         "tags":  "[\u0027SPC\u0027",
         "source":  "\u0027ES\u0027]",
         "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
@@ -22,7 +22,7 @@
         "price":  "49990",
         "compareAtPrice":  "69990",
         "stock":  "10",
-        "image":  "img/etb-prismatic-es",
+        "image":  "img/etb-prismatic-es.webp",
         "tags":  "[\u0027ETB\u0027",
         "source":  "\u0027ES\u0027]",
         "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
@@ -36,7 +36,7 @@
         "price":  "49990",
         "compareAtPrice":  "69990",
         "stock":  "10",
-        "image":  "img/etb-prismatic-en",
+        "image":  "img/etb-prismatic-en.webp",
         "tags":  "[\u0027ETB\u0027",
         "source":  "\u0027ES\u0027]",
         "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
@@ -50,7 +50,7 @@
         "price":  "59990",
         "compareAtPrice":  "67990",
         "stock":  "10",
-        "image":  "img/etb-white-flare-en",
+        "image":  "img/etb-white-flare-en.webp",
         "tags":  "[\u0027ETB\u0027",
         "source":  "\u0027EN\u0027]",
         "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
@@ -64,7 +64,7 @@
         "price":  "59990",
         "compareAtPrice":  "67990",
         "stock":  "10",
-        "image":  "img/etb-black-bolt-en",
+        "image":  "img/etb-black-bolt-en.webp",
         "tags":  "[\u0027ETB\u0027",
         "source":  "\u0027EN\u0027]",
         "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
@@ -78,7 +78,7 @@
         "price":  "49990",
         "compareAtPrice":  "54990",
         "stock":  "10",
-        "image":  "img/etb-black-bolt-es",
+        "image":  "img/etb-black-bolt-es.webp",
         "tags":  "[\u0027ETB\u0027",
         "source":  "\u0027ES\u0027]",
         "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
@@ -92,7 +92,7 @@
         "price":  "42990",
         "compareAtPrice":  "59990",
         "stock":  "10",
-        "image":  "img/etb-aventuras-es",
+        "image":  "img/etb-aventuras-es.webp",
         "tags":  "[\u0027ETB\u0027",
         "source":  "\u0027ES\u0027]",
         "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
@@ -106,7 +106,7 @@
         "price":  "49990",
         "compareAtPrice":  "54990",
         "stock":  "10",
-        "image":  "img/etb-white-flare-es",
+        "image":  "img/etb-white-flare-es.webp",
         "tags":  "[\u0027ETB\u0027",
         "source":  "\u0027ES\u0027]",
         "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
@@ -120,7 +120,7 @@
         "price":  "54990",
         "compareAtPrice":  "64990",
         "stock":  "10",
-        "image":  "img/etb-surging-sparks-en",
+        "image":  "img/etb-surging-sparks-en.webp",
         "tags":  "[\u0027ETB\u0027",
         "source":  "\u0027EN\u0027]",
         "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
