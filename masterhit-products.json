@@ -7,8 +7,8 @@
     "category": "Super Premium Collection",
     "price": 99990,
     "compareAtPrice": 129990,
-    "stock": 0,
-    "image": "https://dummyimage.com/600x400/111/fff&text=SPC+ES",
+    "stock": 5,
+    "image": "img/spc-prismatic-es.webp",
     "tags": [
       "SPC",
       "ES"
@@ -24,7 +24,7 @@
     "category": "Elite Trainer Box",
     "price": 49990,
     "compareAtPrice": 69990,
-    "stock": 0,
+    "stock": 5,
     "image": "https://dummyimage.com/600x400/111/fff&text=ETB+Prismatic+ES",
     "tags": [
       "ETB",
@@ -41,7 +41,7 @@
     "category": "Elite Trainer Box",
     "price": 59990,
     "compareAtPrice": 67990,
-    "stock": 0,
+    "stock": 5,
     "image": "https://dummyimage.com/600x400/111/fff&text=ETB+White+Flare+EN",
     "tags": [
       "ETB",
@@ -58,7 +58,7 @@
     "category": "Elite Trainer Box",
     "price": 59990,
     "compareAtPrice": 67990,
-    "stock": 0,
+    "stock": 5,
     "image": "https://dummyimage.com/600x400/111/fff&text=ETB+Black+Bolt+EN",
     "tags": [
       "ETB",
