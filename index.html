@@ -16,6 +16,7 @@
     a{color:inherit;text-decoration:none}
     img{max-width:100%;display:block}
     .container{max-width:1200px;margin:0 auto;padding:20px}
+    /* NAV */
     .nav{position:sticky;top:0;z-index:50;background:#000;border-bottom:2px solid var(--accent)}
     .nav-inner{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 20px}
     .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--accent-2)}
@@ -24,17 +25,25 @@
     .input,.select{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
     .btn{cursor:pointer;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:10px 14px}
     .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    /* HERO */
     .hero{padding:40px 20px;text-align:center;background:#111;color:#fff}
     .hero h1{font-size:2.2rem;color:var(--accent)}
+    /* GRID */
     .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:20px}
-    .product{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+    .product{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;position:relative}
     .product img{height:200px;object-fit:contain;background:#fff}
     .pad{padding:12px;flex:1;display:flex;flex-direction:column;gap:8px}
     .price{font-weight:700;color:var(--accent-2)}
     .badge{background:var(--accent);color:#fff;padding:4px 8px;border-radius:6px;font-size:.8rem;position:absolute;margin:6px}
+    .qty{display:flex;gap:8px;align-items:center;margin-top:4px}
+    .qty button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#0f1116;color:var(--fg)}
+    /* DRAWER */
     .drawer{position:fixed;right:0;top:0;height:100%;width:400px;max-width:100%;background:#111;color:#fff;border-left:2px solid var(--accent);transform:translateX(100%);transition:.3s;z-index:100;display:flex;flex-direction:column}
     .drawer.open{transform:translateX(0)}
+    .row{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px}
+    .row img{width:64px;height:64px;object-fit:contain;background:#fff}
     footer{padding:20px;text-align:center;background:#000;color:#fff;margin-top:30px}
+    .muted{color:var(--muted)}
   </style>
 </head>
 <body>
@@ -50,14 +59,14 @@
 
   <section class="hero">
     <h1>MasterHit Pokémon Store</h1>
-    <p>Compra cajas selladas, ETB, boosters y singles. Todo el stock de Pokémon disponible en Chile. Checkout por Webpay próximamente.</p>
+    <p>Compra cajas selladas, ETB, boosters y singles. Envíos a todo Chile. Checkout por Webpay próximamente.</p>
   </section>
 
   <section class="container">
-    <div id="grid" class="grid"></div>
+    <div id="grid" class="grid" aria-live="polite"></div>
   </section>
 
-  <aside id="drawer" class="drawer">
+  <aside id="drawer" class="drawer" aria-hidden="true">
     <header style="padding:12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
       <strong>Tu carrito</strong>
       <button id="btnClose" class="btn">✕</button>
@@ -67,6 +76,7 @@
       <div>Subtotal: <strong id="subtotal">—</strong></div>
       <div>Total: <strong id="grand">—</strong></div>
       <button id="btnCheckout" class="btn primary" style="margin-top:10px;width:100%">Proceder a pago (Webpay)</button>
+      <small class="muted">El botón de pago llama a tu backend (stub). Puedes pagar por Webpay/transferencia al coordinar.</small>
     </div>
   </aside>
 
@@ -75,66 +85,200 @@
   </footer>
 
 <script>
-const $ = s=>document.querySelector(s);
-const $$ = s=>Array.from(document.querySelectorAll(s));
-const fmt = n=> new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n);
+window.addEventListener('DOMContentLoaded', () => {
+  // ===== Utils =====
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
+  const fmt = n => new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0);
 
-let PRODUCTS = [
-  {id:'etb-151', name:'Elite Trainer Box 151', set:'SV151', type:'sealed', price:49990, stock:12, image:'https://dummyimage.com/300x200/fff/000&text=ETB+151'},
-  {id:'upc-charizard', name:'Ultra Premium Charizard', set:'Promo', type:'sealed', price:129990, stock:5, image:'https://dummyimage.com/300x200/fff/000&text=UPC+Charizard'},
-  {id:'booster-box', name:'Booster Box Scarlet & Violet', set:'SV Base', type:'sealed', price:159990, stock:3, image:'https://dummyimage.com/300x200/fff/000&text=Booster+Box'}
-];
+  // ===== Estado =====
+  let PRODUCTS = []; // se llena con JSON o fallback
+  const FALLBACK = [
+    {id:'etb-151', name:'Elite Trainer Box 151', set:'SV151', type:'sealed', price:49990, stock:12, image:'https://dummyimage.com/300x200/fff/000&text=ETB+151'},
+    {id:'upc-charizard', name:'Ultra Premium Charizard', set:'Promo', type:'sealed', price:129990, stock:5, image:'https://dummyimage.com/300x200/fff/000&text=UPC+Charizard'},
+    {id:'booster-box', name:'Booster Box Scarlet & Violet', set:'SV Base', type:'sealed', price:159990, stock:3, image:'https://dummyimage.com/300x200/fff/000&text=Booster+Box'}
+  ];
+  let CART = JSON.parse(localStorage.getItem('mh_cart') || '[]');
 
-let CART = [];
+  // ===== DOM =====
+  const grid = $('#grid');
+  const q = $('#q');
+  const drawer = $('#drawer');
+  const btnCart = $('#btnCart');
+  const btnClose = $('#btnClose');
+  const cartBody = $('#cartBody');
+  const subtotalEl = $('#subtotal');
+  const grandEl = $('#grand');
+  const cCount = $('#cCount');
+  const btnCheckout = $('#btnCheckout');
 
-function render(){
-  $('#grid').innerHTML = PRODUCTS.map(p=>`
-    <div class="product">
-      <img src="${p.image}" alt="${p.name}">
-      <div class="pad">
-        <strong>${p.name}</strong>
-        <span>${p.set}</span>
-        <span class="price">${fmt(p.price)}</span>
-        <button class="btn primary" onclick="addToCart('${p.id}')">Añadir</button>
+  // ===== Cargar catálogo =====
+  async function loadCatalog() {
+    // Cambia esta línea a 'data/masterhit-products.json' si lo pones en /data/
+    const url = './masterhit-products.json';
+    try {
+      const res = await fetch(url + '?_=' + Date.now());
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      PRODUCTS = Array.isArray(data) && data.length ? data : FALLBACK;
+    } catch (e) {
+      console.warn('No se cargó el JSON, usando fallback.', e);
+      PRODUCTS = FALLBACK;
+    }
+  }
+
+  // ===== Render listado =====
+  function renderList() {
+    const term = (q.value || '').toLowerCase().trim();
+    const list = PRODUCTS.filter(p => {
+      if (!term) return true;
+      return (p.name + ' ' + (p.set||'') + ' ' + (p.type||'') + ' ' + (p.category||'')).toLowerCase().includes(term);
+    });
+
+    grid.innerHTML = list.map(p => `
+      <article class="product">
+        ${p.stock>0 ? '' : `<span class="badge">Sin stock</span>`}
+        <img src="${p.image}" alt="${p.name}" loading="lazy">
+        <div class="pad">
+          <strong>${p.name}</strong>
+          <span class="muted">${p.set||''} ${p.type?`• ${p.type}`:''}</span>
+          <span class="price">${fmt(p.price)}</span>
+          <div class="qty">
+            <button class="btn" data-dec data-id="${p.id}">−</button>
+            <input class="input" style="width:60px;text-align:center" type="number" min="1" value="1" data-qty="${p.id}">
+            <button class="btn" data-inc data-id="${p.id}">+</button>
+          </div>
+          <button class="btn primary" data-add data-id="${p.id}" ${p.stock>0?'':'disabled'}>Añadir</button>
+        </div>
+      </article>
+    `).join('') || '<p class="muted">Sin resultados.</p>';
+  }
+
+  // ===== Carrito =====
+  function saveCart(){ localStorage.setItem('mh_cart', JSON.stringify(CART)); }
+  function cartLines(){
+    return CART.map(it => {
+      const p = PRODUCTS.find(x => x.id === it.id) || {};
+      const lineTotal = (p.price || 0) * it.qty;
+      return {...p, qty: it.qty, lineTotal};
+    });
+  }
+  function updateBadges(){ cCount.textContent = CART.reduce((s,i) => s + i.qty, 0); }
+  function drawCart(){
+    const lines = cartLines();
+    cartBody.innerHTML = lines.map(l => `
+      <div class="row">
+        <img src="${l.image}" alt="${l.name}">
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:8px">
+            <strong>${l.name}</strong><span>${fmt(l.price)}</span>
+          </div>
+          <div class="qty" style="margin-top:6px">
+            <button class="btn" data-minus data-id="${l.id}">−</button>
+            <input class="input" style="width:60px;text-align:center" type="number" min="1" value="${l.qty}" data-q="${l.id}">
+            <button class="btn" data-plus data-id="${l.id}">+</button>
+            <button class="btn" style="margin-left:auto" data-del data-id="${l.id}">🗑️</button>
+          </div>
+        </div>
+        <div><strong>${fmt(l.lineTotal)}</strong></div>
       </div>
-    </div>
-  `).join('');
-}
+    `).join('') || '<p class="muted">Tu carrito está vacío.</p>';
+    const subtotal = lines.reduce((s,l)=>s+l.lineTotal,0);
+    subtotalEl.textContent = fmt(subtotal);
+    grandEl.textContent = fmt(subtotal);
+  }
+  function addToCart(id, qty=1){
+    const p = PRODUCTS.find(x=>x.id===id);
+    if(!p) return;
+    if((p.stock|0)<=0) { alert('Sin stock'); return; }
+    const line = CART.find(x=>x.id===id);
+    if(line){ line.qty = Math.min(line.qty + qty, p.stock|0); }
+    else { CART.push({id, qty: Math.min(qty, p.stock|0 || qty)}); }
+    saveCart(); updateBadges(); openCart(); drawCart();
+  }
+  function setQty(id, qty){
+    qty = Math.max(1, qty|0);
+    const p = PRODUCTS.find(x=>x.id===id);
+    const line = CART.find(x=>x.id===id);
+    if(!line || !p) return;
+    line.qty = Math.min(qty, p.stock|0 || qty);
+    saveCart(); updateBadges(); drawCart();
+  }
+  function removeFromCart(id){
+    CART = CART.filter(x=>x.id!==id);
+    saveCart(); updateBadges(); drawCart();
+  }
 
-function addToCart(id){
-  const p = PRODUCTS.find(x=>x.id===id);
-  if(!p) return;
-  const item = CART.find(x=>x.id===id);
-  if(item) item.qty++; else CART.push({id,qty:1});
-  updateCart();
-}
+  // ===== Drawer =====
+  function openCart(){ drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); drawCart(); }
+  function closeCart(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
 
-function removeFromCart(id){
-  CART = CART.filter(x=>x.id!==id);
-  updateCart();
-}
+  // ===== Webpay (stub) =====
+  async function checkoutWebpay(){
+    const order = {
+      id: 'MH-'+Date.now(),
+      items: cartLines().map(l=>({id:l.id, name:l.name, qty:l.qty, price:l.price})),
+      subtotal: cartLines().reduce((s,l)=>s+l.lineTotal,0)
+    };
+    alert('Simulación /api/pay/webpay/create:\\n' + JSON.stringify(order, null, 2));
+    // En producción:
+    // const res = await fetch('/api/pay/webpay/create', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(order)});
+    // const data = await res.json();
+    // if(data?.redirect_url) location.href = data.redirect_url;
+  }
 
-function updateCart(){
-  const body = $('#cartBody');
-  let subtotal = 0;
-  body.innerHTML = CART.map(it=>{
-    const p = PRODUCTS.find(x=>x.id===it.id);
-    const total = p.price*it.qty; subtotal+=total;
-    return `<div style='display:flex;justify-content:space-between;align-items:center;margin-bottom:8px'>
-      <span>${it.qty} x ${p.name}</span>
-      <span>${fmt(total)}</span>
-      <button class='btn' onclick="removeFromCart('${p.id}')">🗑️</button>
-    </div>`;
-  }).join('') || '<p>Carrito vacío</p>';
-  $('#subtotal').textContent = fmt(subtotal);
-  $('#grand').textContent = fmt(subtotal);
-  $('#cCount').textContent = CART.reduce((a,b)=>a+b.qty,0);
-}
+  // ===== Bindings =====
+  $('#yy').textContent = new Date().getFullYear();
+  q.addEventListener('input', renderList);
+  btnCart.addEventListener('click', openCart);
+  btnClose.addEventListener('click', closeCart);
+  btnCheckout.addEventListener('click', checkoutWebpay);
+  window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeCart(); });
 
-$('#btnCart').onclick=()=> $('#drawer').classList.add('open');
-$('#btnClose').onclick=()=> $('#drawer').classList.remove('open');
-$('#yy').textContent=new Date().getFullYear();
-render();
+  // Delegación (lista)
+  grid.addEventListener('click', (e)=>{
+    const add = e.target.closest('[data-add]');
+    const inc = e.target.closest('[data-inc]');
+    const dec = e.target.closest('[data-dec]');
+    if(add){
+      const id = add.getAttribute('data-id');
+      const qtyEl = grid.querySelector(`[data-qty="${id}"]`);
+      const qty = Math.max(1, parseInt(qtyEl?.value||'1',10));
+      addToCart(id, qty);
+    }
+    if(inc){
+      const id = inc.getAttribute('data-id');
+      const qtyEl = grid.querySelector(`[data-qty="${id}"]`);
+      if(qtyEl) qtyEl.value = (parseInt(qtyEl.value||'1',10) + 1);
+    }
+    if(dec){
+      const id = dec.getAttribute('data-id');
+      const qtyEl = grid.querySelector(`[data-qty="${id}"]`);
+      if(qtyEl) qtyEl.value = Math.max(1, parseInt(qtyEl.value||'1',10) - 1);
+    }
+  });
+
+  // Delegación (carrito)
+  cartBody.addEventListener('click', (e)=>{
+    const plus = e.target.closest('[data-plus]');
+    const minus = e.target.closest('[data-minus]');
+    const del = e.target.closest('[data-del]');
+    if(plus){ const id = plus.getAttribute('data-id'); const inp = cartBody.querySelector(`[data-q="${id}"]`); if(inp){ inp.value = (parseInt(inp.value||'1',10)+1); setQty(id, +inp.value); } }
+    if(minus){ const id = minus.getAttribute('data-id'); const inp = cartBody.querySelector(`[data-q="${id}"]`); if(inp){ inp.value = Math.max(1, parseInt(inp.value||'1',10)-1); setQty(id, +inp.value); } }
+    if(del){ const id = del.getAttribute('data-id'); removeFromCart(id); }
+  });
+  cartBody.addEventListener('change', (e)=>{
+    const qInput = e.target.closest('[data-q]');
+    if(qInput){ const id = qInput.getAttribute('data-q'); setQty(id, +qInput.value||1); }
+  });
+
+  // ===== Init =====
+  (async () => {
+    await loadCatalog();     // carga JSON si existe
+    renderList();            // pinta grilla
+    updateBadges();          // contador carrito
+  })();
+});
 </script>
 </body>
 </html>
