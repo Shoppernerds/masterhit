@@ -1,0 +1,257 @@
+[
+  {
+    "id": "spc-prismatic-es",
+    "name": "Scarlet & Violet: Evoluciones Prismáticas – Super Premium Collection – Español",
+    "set": "SV Prismatic Evolutions",
+    "type": "sealed",
+    "category": "Super Premium Collection",
+    "price": 99990,
+    "compareAtPrice": 129990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=SPC+ES",
+    "tags": [
+      "SPC",
+      "ES"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1757822265443
+  },
+  {
+    "id": "etb-prismatic-es",
+    "name": "Escarlata y Púrpura: Evoluciones Prismaticas – Elite Trainer Box – Español",
+    "set": "SV Prismatic Evolutions",
+    "type": "sealed",
+    "category": "Elite Trainer Box",
+    "price": 49990,
+    "compareAtPrice": 69990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=ETB+Prismatic+ES",
+    "tags": [
+      "ETB",
+      "ES"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1757735865443
+  },
+  {
+    "id": "etb-white-flare-en",
+    "name": "Scarlet & Violet: White Flare - Elite Trainer Box - Ingles",
+    "set": "SV White Flare",
+    "type": "sealed",
+    "category": "Elite Trainer Box",
+    "price": 59990,
+    "compareAtPrice": 67990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=ETB+White+Flare+EN",
+    "tags": [
+      "ETB",
+      "EN"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1757649465443
+  },
+  {
+    "id": "etb-black-bolt-en",
+    "name": "Scarlet & Violet: Black Bolt - Elite Trainer Box - Ingles",
+    "set": "SV Black Bolt",
+    "type": "sealed",
+    "category": "Elite Trainer Box",
+    "price": 59990,
+    "compareAtPrice": 67990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=ETB+Black+Bolt+EN",
+    "tags": [
+      "ETB",
+      "EN"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1757563065443
+  },
+  {
+    "id": "box-mewtwo-es",
+    "name": "Pokemon TCG Team Rocket's Mewtwo ex Box – Español",
+    "set": "Team Rocket Mewtwo ex",
+    "type": "sealed",
+    "category": "Collection",
+    "price": 21990,
+    "compareAtPrice": 26990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=Mewtwo+Box+ES",
+    "tags": [
+      "Box",
+      "ES"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1757476665443
+  },
+  {
+    "id": "etb-black-bolt-es",
+    "name": "Scarlet & Violet: Black Bolt- Elite Trainer Box - Español",
+    "set": "SV Black Bolt",
+    "type": "sealed",
+    "category": "Elite Trainer Box",
+    "price": 49990,
+    "compareAtPrice": 54990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=ETB+Black+Bolt+ES",
+    "tags": [
+      "ETB",
+      "ES"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1757390265443
+  },
+  {
+    "id": "box-mewtwo-en",
+    "name": "Pokemon TCG Team Rocket's Mewtwo ex Box – Inglés",
+    "set": "Team Rocket Mewtwo ex",
+    "type": "sealed",
+    "category": "Collection",
+    "price": 24990,
+    "compareAtPrice": 28990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=Mewtwo+Box+EN",
+    "tags": [
+      "Box",
+      "EN"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1757303865443
+  },
+  {
+    "id": "bb-paldean-fates-es",
+    "name": "Escarlata y Púrpura: Destinos de Paldea – Booster Bundle – Español",
+    "set": "SV Paldean Fates",
+    "type": "sealed",
+    "category": "Booster Bundle",
+    "price": 29990,
+    "compareAtPrice": 34990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=BB+Paldea+ES",
+    "tags": [
+      "Booster Bundle",
+      "ES"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1757217465443
+  },
+  {
+    "id": "bb-destined-rivals-box-es",
+    "name": "Escarlata y Purpura: Rivales Predestinados – Booster Box – Español",
+    "set": "SV Destined Rivals",
+    "type": "sealed",
+    "category": "Booster Box",
+    "price": 159990,
+    "compareAtPrice": 179990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=Booster+Box+ES",
+    "tags": [
+      "Booster Box",
+      "ES"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1757131065443
+  },
+  {
+    "id": "etb-aventuras-es",
+    "name": "Escarlata y Púrpura - Aventuras Compartidas – Elite Trainer Box – Español",
+    "set": "SV Twilight Masquerade",
+    "type": "sealed",
+    "category": "Elite Trainer Box",
+    "price": 42990,
+    "compareAtPrice": 59990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=ETB+Aventuras+ES",
+    "tags": [
+      "ETB",
+      "ES"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1757044665443
+  },
+  {
+    "id": "etb-white-flare-es",
+    "name": "Scarlet & Violet: White Flare - Elite Trainer Box - Español",
+    "set": "SV White Flare",
+    "type": "sealed",
+    "category": "Elite Trainer Box",
+    "price": 49990,
+    "compareAtPrice": 54990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=ETB+White+Flare+ES",
+    "tags": [
+      "ETB",
+      "ES"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1756958265443
+  },
+  {
+    "id": "bb-black-bolt-en",
+    "name": "Scarlet & Violet: Black Bolt – Booster Bundle – Ingles",
+    "set": "SV Black Bolt",
+    "type": "sealed",
+    "category": "Booster Bundle",
+    "price": 35990,
+    "compareAtPrice": 0,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=BB+Black+Bolt+EN",
+    "tags": [
+      "Booster Bundle",
+      "EN"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1756871865443
+  },
+  {
+    "id": "bb-white-flare-en",
+    "name": "Scarlet & Violet: White Flare – Booster Bundle – Ingles",
+    "set": "SV White Flare",
+    "type": "sealed",
+    "category": "Booster Bundle",
+    "price": 35990,
+    "compareAtPrice": 0,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=BB+White+Flare+EN",
+    "tags": [
+      "Booster Bundle",
+      "EN"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1756785465443
+  },
+  {
+    "id": "victini-illustration-en",
+    "name": "Black Bolt & White Flare: Victini Illustration Collection – Ingles",
+    "set": "SV Black Bolt / White Flare",
+    "type": "sealed",
+    "category": "Collection",
+    "price": 31990,
+    "compareAtPrice": 0,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=Victini+Collection",
+    "tags": [
+      "Collection",
+      "EN"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1756699065443
+  },
+  {
+    "id": "etb-surging-sparks-en",
+    "name": "Scarlet & Violet: Surging Sparks – Elite Trainer Box – Ingles",
+    "set": "SV Surging Sparks",
+    "type": "sealed",
+    "category": "Elite Trainer Box",
+    "price": 54990,
+    "compareAtPrice": 64990,
+    "stock": 0,
+    "image": "https://dummyimage.com/600x400/111/fff&text=ETB+Surging+Sparks+EN",
+    "tags": [
+      "ETB",
+      "EN"
+    ],
+    "source": "https://collectorcenter.cl/collections/ver-todo-pokemon",
+    "createdAt": 1756612665443
+  }
+]
