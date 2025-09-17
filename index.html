@@ -35,11 +35,6 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .hero{padding:36px 20px;text-align:center;background:#111}
 .hero h1{font-size:1.6rem;color:#fff;margin:0}
 
-/* TRUST */
-.trust{display:grid;grid-template-columns:1fr;gap:10px;padding:14px 20px}
-.tile{background:#0f1116;border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;gap:10px;align-items:flex-start}
-.tile b{display:block}
-
 /* GRID */
 .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:0 20px}
 .counter{color:var(--muted)}
@@ -97,14 +92,15 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   <h1>Pokemon TCG al mejor precio y con entrega rápida en Huechuraba, Lampa, Colina y Quilicura.</h1>
 </section>
 
-<!-- TRUST (solo despacho) -->
-<div class="trust container" aria-label="Sellos de confianza">
-  <div class="tile">⚡ <div><b>Despachos en 24 horas o menos</b><span class="muted"> en Zona Norte de Santiago</span></div></div>
+<!-- MENSAJE DE DESPACHO (una sola línea, sin tarjeta) -->
+<div class="container" aria-label="Despacho">
+  <p style="margin:6px 0 0 0;color:#9aa2ae">⚡ Despachos en 24 horas o menos en Zona Norte de Santiago</p>
 </div>
 
 <!-- CONTROLS -->
 <div class="controls container">
-  <span id="counter" class="counter">Cargando productos…</span>
+  <!-- Se oculta el contador para no mostrar “X resultados” -->
+  <span id="counter" class="counter" style="display:none;"></span>
 </div>
 
 <!-- GRID -->
@@ -157,7 +153,7 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   </div>
 </div>
 
-<!-- FOOTER (botón a la derecha y centrado verticalmente en desktop) -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
@@ -185,17 +181,23 @@ window.addEventListener('DOMContentLoaded', () => {
         cartBody=$('#cartBody'),subtotalEl=$('#subtotal'),grandEl=$('#grand'),cCount=$('#cCount'),
         btnCheckout=$('#btnCheckout'),
         modal=$('#modal'),mClose=$('#mClose'),mTitle=$('#mTitle'),mImage=$('#mImage'),mThumbs=$('#mThumbs'),
-        mMeta=$('#mMeta'),mPrice=$('#mPrice'),mQty=$('#mQty'),mDec=$('#mDec'),mInc=$('#mInc'),mAdd=$('#mAdd'),mView=$('#mView'),mDesc=$('#mDesc');
+        mMeta=$('#mMeta'),mPrice=$('#mPrice'),mQty=$('#mQty'),mDec=$('#mDec'),mInc=$('#mInc'),mAdd=$('#mAdd'),mView=$('#mView'),mDesc=$('#mDesc']);
 
   async function loadCatalog(){
-    try{const r=await fetch('./masterhit-products.json?_='+Date.now()); if(!r.ok) throw 0; const d=await r.json(); PRODUCTS=Array.isArray(d)&&d.length?d:FALLBACK;}
-    catch{PRODUCTS=FALLBACK}
-    counter.textContent=`${PRODUCTS.length} productos cargados`;
+    try{
+      const r=await fetch('./masterhit-products.json?_='+Date.now());
+      if(!r.ok) throw 0;
+      const d=await r.json();
+      PRODUCTS=Array.isArray(d)&&d.length?d:FALLBACK;
+    }catch{PRODUCTS=FALLBACK}
+    // No mostrar “X productos cargados”
+    if(counter){counter.textContent='';}
   }
 
   function getList(){ // sin filtro ni ordenar: solo stock primero
     const list=[...PRODUCTS].sort((a,b)=>(b.stock|0)-(a.stock|0));
-    counter.textContent=`${list.length} resultados`;
+    // No mostrar “X resultados”
+    if(counter){counter.textContent='';}
     return list;
   }
 
