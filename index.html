@@ -36,7 +36,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .hero h1{font-size:1.6rem;color:#fff;margin:0}
 .hero .hero-sub{margin:8px 0 0 0;font-size:1rem;color:#f0f0f0}
 
-/* GRID / CONTROLS */
+/* CONTROLS + GRID */
 .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:0 20px}
 .counter{color:var(--fg);font-weight:800;font-size:1.1rem;padding:10px 14px;border-left:3px solid var(--accent);border-radius:8px;background:#0f1116}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:20px}
@@ -67,10 +67,24 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;gap:6px}
 .footer-title{font-weight:800;font-size:1.1rem}
-/* Desktop: dos columnas, botón a la derecha centrado verticalmente */
+
+/* —— Desktop intacto —— */
 @media (min-width:768px){
   .footer-inner{grid-template-columns:1fr auto;align-items:center}
   .footer-btn{justify-self:end}
+}
+
+/* —— SOLO MOBILE ≤640px —— */
+@media (max-width:640px){
+  /* productos en 2 columnas */
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .product img{height:150px}
+  .pad{padding:10px}
+
+  /* botón arriba, centrado; datos debajo y centrados */
+  .footer-inner{grid-template-columns:1fr;gap:10px;text-align:center}
+  .footer-btn{grid-row:1;justify-self:center;margin-bottom:10px}
+  .footer-info{grid-row:2}
 }
 </style>
 </head>
@@ -88,10 +102,10 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   </div>
 </nav>
 
-<!-- HERO (mensaje + segunda línea) -->
+<!-- HERO -->
 <section class="hero" aria-label="Mensaje principal">
-  <h1>Pokemon TCG al mejor precio y con entrega rápida en Huechuraba, Lampa, Colina y Quilicura.</h1>
-  <p class="hero-sub">Despachos en 24 horas o menos en Zona Norte de Santiago</p>
+  <h1>Pokemon TCG al mejor precio y con entrega rápida en el Norte de Santiago</h1>
+  <p class="hero-sub">Despachos en 24 horas o menos en Quilicura, Lampa y Colina</p>
 </section>
 
 <!-- CONTROLS -->
@@ -152,7 +166,7 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div>
+    <div class="footer-info">
       <div class="footer-title">MasterHit</div>
       <div>Los Nogales 1135, Valle Grande, Lampa</div>
       <div>Lunes a Viernes 14:00 a 21:00 hrs</div>
@@ -188,14 +202,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }catch{
       PRODUCTS=FALLBACK
     }
-    // Etiqueta fija, sin número: "Sellados Disponibles:"
-    counter.innerHTML = 'Sellados Disponibles:';
+    counter.innerHTML='Sellados Disponibles:';
   }
 
-  function getList(){ // sin filtro ni ordenar: solo stock primero
+  function getList(){
     const list=[...PRODUCTS].sort((a,b)=>(b.stock|0)-(a.stock|0));
-    // Mantener rótulo fijo (sin “X resultados”)
-    counter.innerHTML = 'Sellados Disponibles:';
+    counter.innerHTML='Sellados Disponibles:';
     return list;
   }
 
