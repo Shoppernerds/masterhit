@@ -110,19 +110,5 @@
         "tags":  "[\u0027ETB\u0027",
         "source":  "\u0027ES\u0027]",
         "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
-    },
-    {
-        "id":  "etb-surging-sparks-en",
-        "name":  "Scarlet \u0026 Violet: Surging Sparks – Elite Trainer Box – Inglés",
-        "set":  "SV Surging Sparks",
-        "type":  "EN",
-        "category":  "Elite Trainer Box",
-        "price":  "54990",
-        "compareAtPrice":  "64990",
-        "stock":  "10",
-        "image":  "img/etb-surging-sparks-en.webp",
-        "tags":  "[\u0027ETB\u0027",
-        "source":  "\u0027EN\u0027]",
-        "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
     }
 ]
