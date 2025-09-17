@@ -1,8 +1,8 @@
 ﻿[
     {
         "id":  "spc-prismatic-es",
-        "name":  "Evoluciones Prismáticas – Super Premium Collection – Español",
-        "set":  "SV Prismatic Evolutions",
+        "name":  "Evoluciones Prismáticas – Super Premium Collection",
+        "set":  "SPC",
         "type":  "ESPAÑOL",
         "category":  "SPC",
         "price":  "99990",
@@ -15,8 +15,8 @@
     },
     {
         "id":  "etb-prismatic-es",
-        "name":  "Evoluciones Prismáticas – Elite Trainer Box – Español",
-        "set":  "SV Prismatic Evolutions",
+        "name":  "Evoluciones Prismáticas – Elite Trainer Box",
+        "set":  "ETB",
         "type":  "ESPAÑOL",
         "category":  "ETB",
         "price":  "49990",
@@ -29,8 +29,8 @@
     },
     {
         "id":  "etb-prismatic-en",
-        "name":  "Evoluciones Prismáticas – Elite Trainer Box – Inglés",
-        "set":  "SV Prismatic Evolutions",
+        "name":  "Evoluciones Prismáticas – Elite Trainer Box",
+        "set":  "ETB",
         "type":  "INGLÉS",
         "category":  "ETB",
         "price":  "49990",
@@ -43,8 +43,8 @@
     },
     {
         "id":  "etb-white-flare-en",
-        "name":  "White Flare – Elite Trainer Box – Inglés",
-        "set":  "SV White Flare",
+        "name":  "White Flare – Elite Trainer Box",
+        "set":  "ETB",
         "type":  "INGLÉS",
         "category":  "ETB",
         "price":  "59990",
@@ -57,8 +57,8 @@
     },
     {
         "id":  "etb-black-bolt-en",
-        "name":  "Black Bolt – Elite Trainer Box – Inglés",
-        "set":  "SV Black Bolt",
+        "name":  "Black Bolt – Elite Trainer Box",
+        "set":  "ETB",
         "type":  "INGLÉS",
         "category":  "ETB",
         "price":  "59990",
@@ -71,8 +71,8 @@
     },
     {
         "id":  "etb-black-bolt-es",
-        "name":  "Black Bolt – Elite Trainer Box – Español",
-        "set":  "SV Black Bolt",
+        "name":  "Black Bolt – Elite Trainer Box",
+        "set":  "ETB",
         "type":  "ESPAÑOL",
         "category":  "ETB",
         "price":  "49990",
@@ -85,8 +85,8 @@
     },
     {
         "id":  "etb-aventuras-es",
-        "name":  "Aventuras Compartidas – Elite Trainer Box – Español",
-        "set":  "SV Journey Together",
+        "name":  "Aventuras Compartidas – Elite Trainer Box",
+        "set":  "ETB",
         "type":  "ESPAÑOL",
         "category":  "ETB",
         "price":  "42990",
@@ -99,8 +99,8 @@
     },
     {
         "id":  "etb-white-flare-es",
-        "name":  "Llama Blanca – Elite Trainer Box – Español",
-        "set":  "SV White Flare",
+        "name":  "Llama Blanca – Elite Trainer Box",
+        "set":  "ETB",
         "type":  "ESPAÑOL",
         "category":  "ETB",
         "price":  "49990",

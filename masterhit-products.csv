@@ -1,9 +1,9 @@
 id,name,set,type,category,price,compareAtPrice,stock,image,tags,source,createdAt
-spc-prismatic-es,Evoluciones Prismáticas – Super Premium Collection – Español,SV Prismatic Evolutions,ESPAÑOL,SPC,99990,129990,10,img/spc-prismatic-es.webp,['SPC', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757822265443
-etb-prismatic-es,Evoluciones Prismáticas – Elite Trainer Box – Español,SV Prismatic Evolutions,ESPAÑOL,ETB,49990,69990,10,img/etb-prismatic-es.webp,['ETB', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757735865443
-etb-prismatic-en,Evoluciones Prismáticas – Elite Trainer Box – Inglés,SV Prismatic Evolutions,INGLÉS,ETB,49990,69990,10,img/etb-prismatic-en.webp,['ETB', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757735865443
-etb-white-flare-en,White Flare – Elite Trainer Box – Inglés,SV White Flare,INGLÉS,ETB,59990,67990,10,img/etb-white-flare-en.webp,['ETB', 'EN'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757649465443
-etb-black-bolt-en,Black Bolt – Elite Trainer Box – Inglés,SV Black Bolt,INGLÉS,ETB,59990,67990,10,img/etb-black-bolt-en.webp,['ETB', 'EN'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757563065443
-etb-black-bolt-es,Black Bolt – Elite Trainer Box – Español,SV Black Bolt,ESPAÑOL,ETB,49990,54990,10,img/etb-black-bolt-es.webp,['ETB', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757390265443
-etb-aventuras-es,Aventuras Compartidas – Elite Trainer Box – Español,SV Journey Together,ESPAÑOL,ETB,42990,59990,10,img/etb-aventuras-es.webp,['ETB', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757044665443
-etb-white-flare-es,Llama Blanca – Elite Trainer Box – Español,SV White Flare,ESPAÑOL,ETB,49990,54990,10,img/etb-white-flare-es.webp,['ETB', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1756958265443
+spc-prismatic-es,Evoluciones Prismáticas – Super Premium Collection,SPC,ESPAÑOL,SPC,99990,129990,10,img/spc-prismatic-es.webp,['SPC', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757822265443
+etb-prismatic-es,Evoluciones Prismáticas – Elite Trainer Box,ETB,ESPAÑOL,ETB,49990,69990,10,img/etb-prismatic-es.webp,['ETB', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757735865443
+etb-prismatic-en,Evoluciones Prismáticas – Elite Trainer Box,ETB,INGLÉS,ETB,49990,69990,10,img/etb-prismatic-en.webp,['ETB', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757735865443
+etb-white-flare-en,White Flare – Elite Trainer Box,ETB,INGLÉS,ETB,59990,67990,10,img/etb-white-flare-en.webp,['ETB', 'EN'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757649465443
+etb-black-bolt-en,Black Bolt – Elite Trainer Box,ETB,INGLÉS,ETB,59990,67990,10,img/etb-black-bolt-en.webp,['ETB', 'EN'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757563065443
+etb-black-bolt-es,Black Bolt – Elite Trainer Box,ETB,ESPAÑOL,ETB,49990,54990,10,img/etb-black-bolt-es.webp,['ETB', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757390265443
+etb-aventuras-es,Aventuras Compartidas – Elite Trainer Box,ETB,ESPAÑOL,ETB,42990,59990,10,img/etb-aventuras-es.webp,['ETB', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1757044665443
+etb-white-flare-es,Llama Blanca – Elite Trainer Box,ETB,ESPAÑOL,ETB,49990,54990,10,img/etb-white-flare-es.webp,['ETB', 'ES'],https://collectorcenter.cl/collections/ver-todo-pokemon,1756958265443
