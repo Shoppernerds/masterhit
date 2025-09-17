@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MasterHit | Cartas Pokémon en Chile</title>
+  <meta name="description" content="MasterHit: tienda de cartas Pokémon con carrito y checkout por Webpay. Envíos a todo Chile." />
+  <meta property="og:title" content="MasterHit | Cartas Pokémon en Chile">
+  <meta property="og:description" content="Cajas selladas, ETB, boosters y singles. Envíos a todo Chile.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='128' r='120' fill='%23e60000'/%3E%3Ccircle cx='128' cy='128' r='88' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='40' fill='%23000'/%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg:#0b0b0c;--card:#111215;--muted:#9aa2ae;--line:#20242b;--fg:#f5f7fb;--accent:#e60000;--accent-2:#ffffff;
+      --radius:16px;--shadow:0 10px 30px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:20px}
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;background:#000;border-bottom:2px solid var(--accent)}
+    .nav-inner{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--accent-2)}
+    .brand-badge{width:28px;height:28px;border-radius:999px;background:#e60000}
+    .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .input,.select{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+    .btn{cursor:pointer;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:10px 14px;transition:transform .06s ease}
+    .btn:active{transform:scale(.98)}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    /* HERO */
+    .hero{padding:36px 20px;text-align:center;background:#111;color:#fff}
+    .hero h1{font-size:2rem;color:var(--accent);margin:0 0 6px}
+    /* CONTROLS */
+    .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:0 20px}
+    .counter{color:var(--muted);font-size:.95rem}
+    /* GRID */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:20px}
+    .product{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;position:relative}
+    .product img{height:200px;object-fit:contain;background:#fff}
+    .pad{padding:12px;flex:1;display:flex;flex-direction:column;gap:8px}
+    .price{font-weight:700;color:var(--accent-2)}
+    .badge{background:var(--accent);color:#fff;padding:4px 8px;border-radius:6px;font-size:.8rem;position:absolute;margin:6px}
+    .qty{display:flex;gap:8px;align-items:center;margin-top:4px}
+    .qty button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#0f1116;color:var(--fg)}
+    .link{color:#fff;text-decoration:underline dotted 1px}
+    /* DRAWER */
+    .drawer{position:fixed;right:0;top:0;height:100%;width:420px;max-width:100%;background:#111;color:#fff;border-left:2px solid var(--accent);transform:translateX(100%);transition:.3s;z-index:100;display:flex;flex-direction:column}
+    .drawer.open{transform:translateX(0)}
+    .row{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px}
+    .row img{width:64px;height:64px;object-fit:contain;background:#fff}
+    footer{padding:20px;text-align:center;background:#000;color:#fff;margin-top:30px}
+    .muted{color:var(--muted)}
+    /* MODAL */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:90}
+    .modal.open{display:grid}
+    .modal-card{width:min(900px,95vw);background:#111;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+    .modal-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
+    .thumbs{display:flex;gap:8px;flex-wrap:wrap}
+    .thumbs img{width:64px;height:64px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;cursor:pointer}
+    @media (max-width:800px){ .modal-body{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Barra superior">
+    <div class="nav-inner container">
+      <a href="#" class="brand" aria-label="MasterHit inicio"><span class="brand-badge"></span> MASTERHIT</a>
+      <div class="toolbar">
+        <input id="q" class="input" type="search" placeholder="Buscar cartas..." aria-label="Buscar" />
+        <select id="filter" class="select" aria-label="Filtro">
+          <option value="">Todo</option>
+          <option value="in">Con stock</option>
+          <option value="sealed">Sealed</option>
+          <option value="booster">Booster</option>
+          <option value="collection">Collection</option>
+        </select>
+        <select id="sort" class="select" aria-label="Ordenar">
+          <option value="rel">Ordenar: Relevancia</option>
+          <option value="price-asc">Precio ↑</option>
+          <option value="price-desc">Precio ↓</option>
+          <option value="name-asc">Nombre A-Z</option>
+        </select>
+        <button id="btnCart" class="btn primary" aria-haspopup="dialog" aria-controls="drawer">🛒 <span id="cCount">0</span></button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>MasterHit Pokémon Store</h1>
+    <p>Compra cajas selladas, ETB, boosters y singles. Envíos a todo Chile. Checkout por Webpay próximamente.</p>
+  </section>
+
+  <div class="controls container">
+    <span id="counter" class="counter">Cargando productos…</span>
+  </div>
+
+  <section class="container">
+    <div id="grid" class="grid" aria-live="polite"></div>
+  </section>
+
+  <aside id="drawer" class="drawer" aria-hidden="true" role="dialog" aria-label="Carrito de compras">
+    <header style="padding:12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
+      <strong>Tu carrito</strong>
+      <button id="btnClose" class="btn" aria-label="Cerrar carrito">✕</button>
+    </header>
+    <div id="cartBody" style="flex:1;overflow:auto;padding:12px"></div>
+    <div style="padding:12px;border-top:1px solid var(--line)">
+      <div>Subtotal: <strong id="subtotal">—</strong></div>
+      <div>Total: <strong id="grand">—</strong></div>
+      <button id="btnCheckout" class="btn primary" style="margin-top:10px;width:100%">Proceder a pago (Webpay)</button>
+      <small class="muted">El pago es simulado; conecta tu backend Webpay en <span class="link">/api/pay/webpay/create</span>.</small>
+    </div>
+  </aside>
+
+  <!-- Modal detalle -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Detalle de producto">
+    <div class="modal-card">
+      <header style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)">
+        <strong id="mTitle"></strong>
+        <button id="mClose" class="btn" aria-label="Cerrar detalle">✕</button>
+      </header>
+      <div class="modal-body">
+        <div>
+          <img id="mImage" src="" alt="" style="width:100%;height:360px;object-fit:contain;background:#fff" />
+          <div id="mThumbs" class="thumbs" aria-label="Galería miniaturas"></div>
+        </div>
+        <div>
+          <p id="mMeta" class="muted"></p>
+          <p><strong id="mPrice"></strong></p>
+          <div class="qty" style="margin:10px 0">
+            <button class="btn" id="mDec">−</button>
+            <input class="input" id="mQty" style="width:60px;text-align:center" type="number" min="1" value="1">
+            <button class="btn" id="mInc">+</button>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button id="mAdd" class="btn primary">Añadir al carrito</button>
+            <button id="mView" class="btn">Ver imagen completa</button>
+          </div>
+          <p id="mDesc" class="muted" style="margin-top:12px"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <small>© <span id="yy"></span> MasterHit. Todos los derechos reservados.</small>
+  </footer>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  // ===== Utils =====
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
+  const fmt = n => new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0);
+
+  // ===== Estado =====
+  let PRODUCTS = [];
+  const FALLBACK = [
+    {id:'etb-151', name:'Elite Trainer Box 151', set:'SV151', type:'sealed', category:'Elite Trainer Box', price:49990, stock:12, image:'https://dummyimage.com/600x400/fff/000&text=ETB+151'},
+    {id:'upc-charizard', name:'Ultra Premium Charizard', set:'Promo', type:'sealed', category:'Ultra Premium', price:129990, stock:5, image:'https://dummyimage.com/600x400/fff/000&text=UPC+Charizard'},
+    {id:'booster-box', name:'Booster Box Scarlet & Violet', set:'SV Base', type:'sealed', category:'Booster Box', price:159990, stock:3, image:'https://dummyimage.com/600x400/fff/000&text=Booster+Box'}
+  ];
+  let CART = JSON.parse(localStorage.getItem('mh_cart') || '[]');
+  let CURRENT = null; // producto seleccionado para modal
+
+  // ===== DOM =====
+  const grid = $('#grid'), q = $('#q'), drawer = $('#drawer'), btnCart = $('#btnCart'), btnClose = $('#btnClose');
+  const cartBody = $('#cartBody'), subtotalEl = $('#subtotal'), grandEl = $('#grand'), cCount = $('#cCount'), btnCheckout = $('#btnCheckout');
+  const filter = $('#filter'), sort = $('#sort'), counter = $('#counter');
+  const modal = $('#modal'), mClose = $('#mClose'), mTitle = $('#mTitle'), mImage = $('#mImage'), mThumbs = $('#mThumbs');
+  const mMeta = $('#mMeta'), mPrice = $('#mPrice'), mQty = $('#mQty'), mDec = $('#mDec'), mInc = $('#mInc'), mAdd = $('#mAdd'), mView = $('#mView'), mDesc = $('#mDesc');
+
+  // ===== Cargar catálogo =====
+  async function loadCatalog() {
+    const url = './masterhit-products.json';
+    try {
+      const res = await fetch(url + '?_=' + Date.now());
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      PRODUCTS = Array.isArray(data) && data.length ? data : FALLBACK;
+    } catch (e) {
+      console.warn('No se cargó el JSON, usando fallback.', e);
+      PRODUCTS = FALLBACK;
+    }
+    counter.textContent = `${PRODUCTS.length} productos cargados`;
+  }
+
+  // ===== Filtros/orden =====
+  function getFilteredSorted(){
+    const term = (q.value || '').toLowerCase().trim();
+    const f = filter.value;
+    let list = PRODUCTS.filter(p => {
+      let ok = true;
+      if (term) ok = (p.name + ' ' + (p.set||'') + ' ' + (p.type||'') + ' ' + (p.category||'')).toLowerCase().includes(term);
+      if (ok && f==='in') ok = (p.stock|0) > 0;
+      if (ok && (f==='sealed'||f==='booster'||f==='collection')) ok = (p.category||p.type||'').toLowerCase().includes(f);
+      return ok;
+    });
+    switch (sort.value){
+      case 'price-asc': list.sort((a,b)=> (a.price|0) - (b.price|0)); break;
+      case 'price-desc': list.sort((a,b)=> (b.price|0) - (a.price|0)); break;
+      case 'name-asc': list.sort((a,b)=> (a.name||'').localeCompare(b.name||'')); break;
+      default: /* relevancia básica: stock primero */ list.sort((a,b)=> (b.stock|0)-(a.stock|0)); break;
+    }
+    counter.textContent = `${list.length} resultados`;
+    return list;
+  }
+
+  // ===== Render listado =====
+  function renderList() {
+    const list = getFilteredSorted();
+    grid.innerHTML = list.map(p => `
+      <article class="product">
+        ${p.stock>0 ? '' : `<span class="badge">Sin stock</span>`}
+        <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async">
+        <div class="pad">
+          <strong>${p.name}</strong>
+          <span class="muted">${p.set||''}${p.type?` • ${p.type}`:''}</span>
+          <span class="price">${fmt(p.price)}</span>
+          <div class="qty">
+            <button class="btn" data-dec data-id="${p.id}" aria-label="Disminuir cantidad">−</button>
+            <input class="input" style="width:60px;text-align:center" type="number" min="1" value="1" data-qty="${p.id}" aria-label="Cantidad">
+            <button class="btn" data-inc data-id="${p.id}" aria-label="Aumentar cantidad">+</button>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn primary" data-add data-id="${p.id}" ${p.stock>0?'':'disabled'}>Añadir</button>
+            <button class="btn" data-view data-id="${p.id}">Ver detalle</button>
+          </div>
+        </div>
+      </article>
+    `).join('') || '<p class="muted">Sin resultados.</p>';
+  }
+
+  // ===== Modal detalle =====
+  function openModal(p){
+    CURRENT = p;
+    mTitle.textContent = p.name;
+    mImage.src = p.image; mImage.alt = p.name;
+    mMeta.textContent = [p.set, p.type, p.category].filter(Boolean).join(' • ');
+    mPrice.textContent = fmt(p.price);
+    mDesc.textContent = p.description || '';
+    mQty.value = 1;
+    // Galería
+    const gallery = Array.isArray(p.images) && p.images.length ? p.images : [p.image];
+    mThumbs.innerHTML = gallery.map(src => `<img src="${src}" alt="thumb" loading="lazy" data-src="${src}">`).join('');
+    modal.classList.add('open');
+  }
+  function closeModal(){ modal.classList.remove('open'); CURRENT=null; }
+
+  // ===== Carrito =====
+  function saveCart(){ localStorage.setItem('mh_cart', JSON.stringify(CART)); }
+  function cartLines(){
+    return CART.map(it => {
+      const p = PRODUCTS.find(x => x.id === it.id) || {};
+      const lineTotal = (p.price || 0) * it.qty;
+      return {...p, qty: it.qty, lineTotal};
+    });
+  }
+  function updateBadges(){ cCount.textContent = CART.reduce((s,i) => s + i.qty, 0); }
+  function drawCart(){
+    const lines = cartLines();
+    cartBody.innerHTML = lines.map(l => `
+      <div class="row">
+        <img src="${l.image}" alt="${l.name}">
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:8px">
+            <strong>${l.name}</strong><span>${fmt(l.price)}</span>
+          </div>
+          <div class="qty" style="margin-top:6px">
+            <button class="btn" data-minus data-id="${l.id}">−</button>
+            <input class="input" style="width:60px;text-align:center" type="number" min="1" value="${l.qty}" data-q="${l.id}">
+            <button class="btn" data-plus data-id="${l.id}">+</button>
+            <button class="btn" style="margin-left:auto" data-del data-id="${l.id}">🗑️</button>
+          </div>
+        </div>
+        <div><strong>${fmt(l.lineTotal)}</strong></div>
+      </div>
+    `).join('') || '<p class="muted">Tu carrito está vacío.</p>';
+    const subtotal = lines.reduce((s,l)=>s+l.lineTotal,0);
+    subtotalEl.textContent = fmt(subtotal);
+    grandEl.textContent = fmt(subtotal);
+  }
+  function addToCart(id, qty=1){
+    const p = PRODUCTS.find(x=>x.id===id);
+    if(!p) return;
+    if((p.stock|0)<=0) { alert('Sin stock'); return; }
+    const line = CART.find(x=>x.id===id);
+    if(line){ line.qty = Math.min(line.qty + qty, p.stock|0); }
+    else { CART.push({id, qty: Math.min(qty, p.stock|0 || qty)}); }
+    saveCart(); updateBadges(); openCart(); drawCart();
+  }
+  function setQty(id, qty){
+    qty = Math.max(1, qty|0);
+    const p = PRODUCTS.find(x=>x.id===id);
+    const line = CART.find(x=>x.id===id);
+    if(!line || !p) return;
+    line.qty = Math.min(qty, p.stock|0 || qty);
+    saveCart(); updateBadges(); drawCart();
+  }
+  function removeFromCart(id){
+    CART = CART.filter(x=>x.id!==id);
+    saveCart(); updateBadges(); drawCart();
+  }
+
+  // ===== Drawer =====
+  function openCart(){ drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); drawCart(); }
+  function closeCart(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
+
+  // ===== Webpay (stub) =====
+  async function checkoutWebpay(){
+    const order = {
+      id: 'MH-'+Date.now(),
+      items: cartLines().map(l=>({id:l.id, name:l.name, qty:l.qty, price:l.price})),
+      subtotal: cartLines().reduce((s,l)=>s+l.lineTotal,0)
+    };
+    alert('Simulación /api/pay/webpay/create:\n' + JSON.stringify(order, null, 2));
+  }
+
+  // ===== Bindings =====
+  $('#yy').textContent = new Date().getFullYear();
+  q.addEventListener('input', renderList);
+  filter.addEventListener('change', renderList);
+  sort.addEventListener('change', renderList);
+  btnCart.addEventListener('click', openCart);
+  btnClose.addEventListener('click', closeCart);
+  btnCheckout.addEventListener('click', checkoutWebpay);
+  window.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeCart(); closeModal(); } });
+
+  // Lista: delegación
+  grid.addEventListener('click', (e)=>{
+    const add = e.target.closest('[data-add]');
+    const inc = e.target.closest('[data-inc]');
+    const dec = e.target.closest('[data-dec]');
+    const view = e.target.closest('[data-view]');
+    if(add){
+      const id = add.getAttribute('data-id');
+      const qtyEl = grid.querySelector(`[data-qty="${id}"]`);
+      const qty = Math.max(1, parseInt(qtyEl?.value||'1',10));
+      addToCart(id, qty);
+    }
+    if(inc){
+      const id = inc.getAttribute('data-id');
+      const qtyEl = grid.querySelector(`[data-qty="${id}"]`);
+      if(qtyEl) qtyEl.value = (parseInt(qtyEl.value||'1',10) + 1);
+    }
+    if(dec){
+      const id = dec.getAttribute('data-id');
+      const qtyEl = grid.querySelector(`[data-qty="${id}"]`);
+      if(qtyEl) qtyEl.value = Math.max(1, parseInt(qtyEl.value||'1',10) - 1);
+    }
+    if(view){
+      const id = view.getAttribute('data-id');
+      const p = PRODUCTS.find(x=>x.id===id);
+      if(p) openModal(p);
+    }
+  });
+
+  // Carrito: delegación
+  cartBody.addEventListener('click', (e)=>{
+    const plus = e.target.closest('[data-plus]');
+    const minus = e.target.closest('[data-minus]');
+    const del = e.target.closest('[data-del]');
+    if(plus){ const id = plus.getAttribute('data-id'); const inp = cartBody.querySelector(`[data-q="${id}"]`); if(inp){ inp.value = (parseInt(inp.value||'1',10)+1); setQty(id, +inp.value); } }
+    if(minus){ const id = minus.getAttribute('data-id'); const inp = cartBody.querySelector(`[data-q="${id}"]`); if(inp){ inp.value = Math.max(1, parseInt(inp.value||'1',10)-1); setQty(id, +inp.value); } }
+    if(del){ const id = del.getAttribute('data-id'); removeFromCart(id); }
+  });
+  cartBody.addEventListener('change', (e)=>{
+    const qInput = e.target.closest('[data-q]');
+    if(qInput){ const id = qInput.getAttribute('data-q'); setQty(id, +qInput.value||1); }
+  });
+
+  // Modal: bindings
+  mClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+  mDec.addEventListener('click', ()=> mQty.value = Math.max(1, (+mQty.value||1)-1));
+  mInc.addEventListener('click', ()=> mQty.value = (+mQty.value||1)+1);
+  mAdd.addEventListener('click', ()=>{ if(CURRENT) addToCart(CURRENT.id, +mQty.value||1); });
+  mView.addEventListener('click', ()=>{ if(CURRENT) window.open(CURRENT.image, '_blank'); });
+  mThumbs.addEventListener('click', (e)=>{ const t = e.target.closest('img'); if(t){ mImage.src = t.dataset.src; } });
+
+  // ===== Init =====
+  (async () => {
+    await loadCatalog();
+    renderList();
+    updateBadges();
+  })();
+});
+</script>
+</body>
+</html>
