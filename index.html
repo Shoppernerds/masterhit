@@ -3,472 +3,389 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>MasterHit | Pokémon TCG en Chile: ETB, UPC y cartas selladas</title>
-  <meta name="description" content="MasterHit: tienda rápida y barata de Pokémon TCG en Chile. ETB, UPC y sellados con stock real, precios claros y envío a todo Chile.">
-  <link rel="canonical" href="https://shoppernerds.github.io/masterhit/">
-
-  <!-- Favicon (SVG simple, liviano) -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 128 128'%3E%3Ccircle cx='64' cy='64' r='60' fill='%23e60000'/%3E%3Cpath d='M12 64h104' stroke='%23000' stroke-width='8'/%3E%3Ccircle cx='64' cy='64' r='18' fill='%23fff' stroke='%23000' stroke-width='6'/%3E%3C/svg%3E" />
-
-  <!-- Open Graph / Twitter -->
-  <meta property="og:title" content="MasterHit | Pokémon TCG en Chile">
-  <meta property="og:description" content="ETB, UPC y sellados con envío a todo Chile y pago seguro.">
+  <title>MasterHit | Cartas Pokémon en Chile</title>
+  <meta name="description" content="MasterHit: tienda de cartas Pokémon con carrito y checkout por Webpay. Envíos a todo Chile." />
+  <meta property="og:title" content="MasterHit | Cartas Pokémon en Chile">
+  <meta property="og:description" content="Cajas selladas, ETB, boosters y singles. Envíos a todo Chile.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://shoppernerds.github.io/masterhit/">
-  <meta property="og:image" content="https://shoppernerds.github.io/masterhit/og-image.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-
-  <!-- Preconnects mínimos -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-  <!-- Fuente liviana -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap" rel="stylesheet">
-
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='128' r='120' fill='%23e60000'/%3E%3Ccircle cx='128' cy='128' r='88' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='40' fill='%23000'/%3E%3C/svg%3E" />
   <style>
     :root{
-      --bg:#0b0b0c;
-      --card:#121316;
-      --muted:#8f95a1;
-      --text:#f5f7fb;
-      --primary:#e60000; /* Rojo protagonista */
-      --primary-600:#c70000;
-      --accent:#ffffff;
-      --ok:#16a34a;
-      --warn:#f59e0b;
-      --shadow: 0 8px 24px rgba(0,0,0,.4);
-      --radius:18px;
-      --radius-sm:12px;
+      --bg:#0b0b0c;--card:#111215;--muted:#9aa2ae;--line:#20242b;--fg:#f5f7fb;--accent:#e60000;--accent-2:#ffffff;
+      --radius:16px;--shadow:0 10px 30px rgba(0,0,0,.45);
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:linear-gradient(180deg,#0b0b0c 0%, #0e1013 60%, #101216 100%);
-      color:var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
-    }
+    html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
     a{color:inherit;text-decoration:none}
-    img{display:block;max-width:100%;height:auto;border-radius:12px}
-
-    .container{max-width:1120px;margin:0 auto;padding:20px}
-
-    /* Header */
-    .nav{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:saturate(180%) blur(10px);
-      background:rgba(16,18,22,.6);
-      border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .nav__inner{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:40px;height:40px;border-radius:50%;
-      background: radial-gradient(100% 100% at 65% 30%, #ff3b30 0%, #e60000 55%, #7a0000 100%);
-      box-shadow:0 6px 16px rgba(230,0,0,.45), inset 0 0 0 3px #000, inset 0 0 0 6px #fff;
-      position:relative;
-    }
-    .logo:after{
-      content:"";position:absolute;left:50%;top:50%;
-      transform:translate(-50%,-50%);
-      width:14px;height:14px;border-radius:50%;
-      background:#fff;border:3px solid #000;
-    }
-    .brand__name{font-weight:800;letter-spacing:.4px}
-    .nav__actions{display:flex;align-items:center;gap:10px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.08);
-      background:#16181d;color:var(--text);
-      box-shadow:0 2px 0 rgba(255,255,255,.04) inset;
-      transition:.18s ease-in-out;
-      cursor:pointer;font-weight:600
-    }
-    .btn:hover{transform:translateY(-1px)}
-    .btn--primary{
-      background:linear-gradient(180deg,var(--primary) 0%, var(--primary-600) 100%);
-      border:none;box-shadow:0 8px 24px rgba(230,0,0,.35)
-    }
-
-    /* Hero */
-    .hero{padding:48px 20px 24px}
-    .hero__wrap{
-      display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center
-    }
-    .chip{
-      display:inline-flex;gap:8px;align-items:center;
-      font-size:12px;color:#111;background:#fff;border-radius:999px;padding:6px 10px;font-weight:700
-    }
-    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.05;margin:14px 0 10px}
-    .hero p{color:var(--muted);margin:0 0 18px}
-    .hero__cta{display:flex;flex-wrap:wrap;gap:10px}
-    .hero__card{
-      background:linear-gradient(180deg,#121316, #0f1114);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)
-    }
-
-    /* Trust */
-    .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
-    .trust__item{display:flex;gap:12px;align-items:flex-start;background:#0f1114;border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:12px}
-    .trust__item b{display:block}
-
-    /* Grid de productos */
-    .section{padding:10px 20px}
-    .section h2{font-size:22px;margin:12px 0 8px}
-    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-    .card{
-      background:linear-gradient(180deg,#13151a,#101317);
-      border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-sm);
-      padding:12px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px
-    }
-    .price{font-size:18px;font-weight:800}
-    .badge{
-      display:inline-flex;align-items:center;gap:6px;
-      font-size:12px;border-radius:999px;padding:4px 8px;border:1px solid rgba(255,255,255,.1);color:#dbeafe
-    }
-    .badge--ok{background:rgba(22,163,74,.12);border-color:rgba(22,163,74,.24);color:#bbf7d0}
-    .badge--warn{background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.24);color:#fde68a}
-
-    .qty{display:flex;gap:8px;align-items:center}
-    .qty input{
-      width:56px;padding:8px;border-radius:10px;border:1px solid rgba(255,255,255,.08);
-      background:#0e1116;color:var(--text);text-align:center;font-weight:700
-    }
-
-    /* Carrito (drawer) */
-    .drawer{
-      position:fixed;right:16px;bottom:16px;width:360px;max-width:92vw;
-      background:#0f1114;border:1px solid rgba(255,255,255,.08);border-radius:16px;
-      box-shadow:0 12px 40px rgba(0,0,0,.55);overflow:hidden;display:none;flex-direction:column
-    }
-    .drawer__head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid rgba(255,255,255,.06)}
-    .drawer__body{max-height:50vh;overflow:auto;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
-    .drawer__foot{padding:12px 14px;border-top:1px solid rgba(255,255,255,.06);display:grid;gap:10px}
-    .row{display:flex;justify-content:space-between;align-items:center}
-    .total{font-size:18px;font-weight:800}
-    .muted{color:var(--muted);font-size:13px}
-
-    /* Footer */
-    footer{margin-top:32px;border-top:1px solid rgba(255,255,255,.08);background:#0d0f13}
-    .footer__grid{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;padding:20px}
-    .mini{font-size:12px;color:var(--muted)}
-
-    /* Responsivo */
-    @media (max-width:980px){
-      .hero__wrap{grid-template-columns:1fr}
-      .grid{grid-template-columns:repeat(2,1fr)}
-      .trust{grid-template-columns:1fr}
-    }
-    @media (max-width:520px){
-      .grid{grid-template-columns:1fr}
-    }
-
-    /* A11y focus */
-    :focus-visible{outline:2px solid #fff2;outline-offset:2px;border-radius:8px}
+    img{max-width:100%;display:block}
+    .container{max-width:1200px;margin:0 auto;padding:20px}
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:50;background:#000;border-bottom:2px solid var(--accent)}
+    .nav-inner{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--accent-2)}
+    .brand-badge{width:28px;height:28px;border-radius:999px;background:#e60000}
+    .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .input,.select{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
+    .btn{cursor:pointer;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:10px 14px;transition:transform .06s ease}
+    .btn:active{transform:scale(.98)}
+    .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    /* HERO */
+    .hero{padding:36px 20px;text-align:center;background:#111;color:#fff}
+    .hero h1{font-size:2rem;color:var(--accent);margin:0 0 6px}
+    /* CONTROLS */
+    .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:0 20px}
+    .counter{color:var(--muted);font-size:.95rem}
+    /* GRID */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:20px}
+    .product{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;position:relative}
+    .product img{height:200px;object-fit:contain;background:#fff}
+    .pad{padding:12px;flex:1;display:flex;flex-direction:column;gap:8px}
+    .price{font-weight:700;color:var(--accent-2)}
+    .badge{background:var(--accent);color:#fff;padding:4px 8px;border-radius:6px;font-size:.8rem;position:absolute;margin:6px}
+    .qty{display:flex;gap:8px;align-items:center;margin-top:4px}
+    .qty button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#0f1116;color:var(--fg)}
+    .link{color:#fff;text-decoration:underline dotted 1px}
+    /* DRAWER */
+    .drawer{position:fixed;right:0;top:0;height:100%;width:420px;max-width:100%;background:#111;color:#fff;border-left:2px solid var(--accent);transform:translateX(100%);transition:.3s;z-index:100;display:flex;flex-direction:column}
+    .drawer.open{transform:translateX(0)}
+    .row{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px}
+    .row img{width:64px;height:64px;object-fit:contain;background:#fff}
+    footer{padding:20px;text-align:center;background:#000;color:#fff;margin-top:30px}
+    .muted{color:var(--muted)}
+    /* MODAL */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:90}
+    .modal.open{display:grid}
+    .modal-card{width:min(900px,95vw);background:#111;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+    .modal-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
+    .thumbs{display:flex;gap:8px;flex-wrap:wrap}
+    .thumbs img{width:64px;height:64px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;cursor:pointer}
+    @media (max-width:800px){ .modal-body{grid-template-columns:1fr} }
   </style>
-
-  <!-- Datos estructurados básicos (Organization + WebSite) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"MasterHit",
-    "url":"https://shoppernerds.github.io/masterhit/",
-    "logo":"https://shoppernerds.github.io/masterhit/logo.png",
-    "sameAs":["https://www.instagram.com/","https://www.facebook.com/"]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"WebSite",
-    "url":"https://shoppernerds.github.io/masterhit/",
-    "potentialAction":{
-      "@type":"SearchAction",
-      "target":"https://shoppernerds.github.io/masterhit/?q={search_term_string}",
-      "query-input":"required name=search_term_string"
-    }
-  }
-  </script>
 </head>
 <body>
-  <!-- NAV -->
-  <nav class="nav" aria-label="Principal">
-    <div class="nav__inner container">
-      <div class="brand">
-        <span class="logo" aria-hidden="true"></span>
-        <span class="brand__name">MasterHit</span>
-      </div>
-      <div class="nav__actions">
-        <button class="btn" id="btn-open-cart" aria-haspopup="dialog" aria-controls="cart-drawer">
-          🛒 <span id="cart-count">0</span>
-        </button>
-        <a class="btn btn--primary" href="#productos">Comprar ahora</a>
+  <nav class="nav" aria-label="Barra superior">
+    <div class="nav-inner container">
+      <a href="#" class="brand" aria-label="MasterHit inicio"><span class="brand-badge"></span> MASTERHIT</a>
+      <div class="toolbar">
+        <input id="q" class="input" type="search" placeholder="Buscar cartas..." aria-label="Buscar" />
+        <select id="filter" class="select" aria-label="Filtro">
+          <option value="">Todo</option>
+          <option value="in">Con stock</option>
+          <option value="sealed">Sealed</option>
+          <option value="booster">Booster</option>
+          <option value="collection">Collection</option>
+        </select>
+        <select id="sort" class="select" aria-label="Ordenar">
+          <option value="rel">Ordenar: Relevancia</option>
+          <option value="price-asc">Precio ↑</option>
+          <option value="price-desc">Precio ↓</option>
+          <option value="name-asc">Nombre A-Z</option>
+        </select>
+        <button id="btnCart" class="btn primary" aria-haspopup="dialog" aria-controls="drawer">🛒 <span id="cCount">0</span></button>
       </div>
     </div>
   </nav>
 
-  <!-- HERO -->
-  <header class="hero container">
-    <div class="hero__wrap">
-      <div>
-        <span class="chip">⚡ Rápido & barato</span>
-        <h1>Pokémon TCG en Chile — ETB, UPC y sellados con <span style="color:var(--primary)">envío inmediato</span></h1>
-        <p>Stock real, precios claros y pago seguro. Arma tu pedido en segundos y recibe en tu casa. <b>MasterHit</b> prioriza releases actuales y best-sellers.</p>
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="#productos">Ver productos</a>
-          <a class="btn" href="https://wa.me/56900000000" target="_blank" rel="noopener">💬 WhatsApp</a>
-        </div>
+  <section class="hero">
+    <h1>MasterHit Pokémon Store</h1>
+    <p>Compra cajas selladas, ETB, boosters y singles. Envíos a todo Chile. Checkout por Webpay próximamente.</p>
+  </section>
 
-        <div class="trust" aria-label="Sellos de confianza">
-          <div class="trust__item">
-            <div>🧾</div>
-            <div><b>Pago Seguro</b><span class="muted"> Webpay / Transferencia</span></div>
-          </div>
-          <div class="trust__item">
-            <div>🚚</div>
-            <div><b>Envíos a todo Chile</b><span class="muted"> Starken / Chilexpress</span></div>
-          </div>
-          <div class="trust__item">
-            <div>⚡</div>
-            <div><b>Despacho Rápido</b><span class="muted"> Preparación 24-48h hábiles</span></div>
-          </div>
-        </div>
-      </div>
+  <div class="controls container">
+    <span id="counter" class="counter">Cargando productos…</span>
+  </div>
 
-      <div class="hero__card">
-        <picture>
-          <!-- Reemplaza con tu imagen destacada -->
-          <source srcset="assets/hero@2x.webp" type="image/webp">
-          <img src="assets/hero.jpg" alt="Productos destacados Pokémon TCG: ETB y UPC" loading="lazy" width="820" height="520">
-        </picture>
-      </div>
-    </div>
-  </header>
+  <section class="container">
+    <div id="grid" class="grid" aria-live="polite"></div>
+  </section>
 
-  <!-- PRODUCTOS -->
-  <main class="section container" id="productos">
-    <h2>Productos destacados</h2>
-    <div class="grid" id="product-grid" aria-live="polite"></div>
-  </main>
-
-  <!-- DRAWER CARRITO -->
-  <aside class="drawer" id="cart-drawer" role="dialog" aria-label="Carrito">
-    <div class="drawer__head">
+  <aside id="drawer" class="drawer" aria-hidden="true" role="dialog" aria-label="Carrito de compras">
+    <header style="padding:12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
       <strong>Tu carrito</strong>
-      <button class="btn" id="btn-close-cart" aria-label="Cerrar carrito">✕</button>
-    </div>
-    <div class="drawer__body" id="cart-items"></div>
-    <div class="drawer__foot">
-      <div class="row">
-        <span class="muted">Subtotal</span>
-        <span id="subtotal">$0</span>
-      </div>
-      <div class="row">
-        <span class="muted">Envío</span>
-        <span id="shipping">$0</span>
-      </div>
-      <div class="row">
-        <span class="total">Total</span>
-        <span class="total" id="total">$0</span>
-      </div>
-      <button class="btn btn--primary" id="btn-checkout">Pagar seguro</button>
-      <span class="mini">👆 Conectar a Webpay/Flow o mostrar instrucciones de transferencia.</span>
+      <button id="btnClose" class="btn" aria-label="Cerrar carrito">✕</button>
+    </header>
+    <div id="cartBody" style="flex:1;overflow:auto;padding:12px"></div>
+    <div style="padding:12px;border-top:1px solid var(--line)">
+      <div>Subtotal: <strong id="subtotal">—</strong></div>
+      <div>Total: <strong id="grand">—</strong></div>
+      <button id="btnCheckout" class="btn primary" style="margin-top:10px;width:100%">Proceder a pago (Webpay)</button>
+      <small class="muted">El pago es simulado; conecta tu backend Webpay en <span class="link">/api/pay/webpay/create</span>.</small>
     </div>
   </aside>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer__grid">
-      <div>
-        <div class="brand" style="margin-bottom:8px">
-          <span class="logo" aria-hidden="true"></span>
-          <span class="brand__name">MasterHit</span>
+  <!-- Modal detalle -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Detalle de producto">
+    <div class="modal-card">
+      <header style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)">
+        <strong id="mTitle"></strong>
+        <button id="mClose" class="btn" aria-label="Cerrar detalle">✕</button>
+      </header>
+      <div class="modal-body">
+        <div>
+          <img id="mImage" src="" alt="" style="width:100%;height:360px;object-fit:contain;background:#fff" loading="lazy" decoding="async" />
+          <div id="mThumbs" class="thumbs" aria-label="Galería miniaturas"></div>
         </div>
-        <p class="mini">Somos fanáticos del TCG. Traemos releases recientes a buen precio y con envío rápido.</p>
-        <p class="mini">© <span id="year"></span> MasterHit. Santiago, Chile.</p>
-      </div>
-      <div>
-        <p class="mini"><b>Soporte:</b> <a href="mailto:soporte@masterhit.cl">soporte@masterhit.cl</a> · <a href="https://wa.me/56900000000" target="_blank" rel="noopener">WhatsApp</a></p>
-        <p class="mini"><b>Medios de pago:</b> Webpay, Transferencia, Contraentrega (a convenir).</p>
-        <p class="mini"><b>Políticas:</b> Despachos · Cambios/Devoluciones · Garantías.</p>
+        <div>
+          <p id="mMeta" class="muted"></p>
+          <p><strong id="mPrice"></strong></p>
+          <div class="qty" style="margin:10px 0">
+            <button class="btn" id="mDec">−</button>
+            <input class="input" id="mQty" style="width:60px;text-align:center" type="number" min="1" value="1">
+            <button class="btn" id="mInc">+</button>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button id="mAdd" class="btn primary">Añadir al carrito</button>
+            <button id="mView" class="btn">Ver imagen completa</button>
+          </div>
+          <p id="mDesc" class="muted" style="margin-top:12px"></p>
+        </div>
       </div>
     </div>
+  </div>
+
+  <footer>
+    <small>© <span id="yy"></span> MasterHit. Todos los derechos reservados.</small>
   </footer>
 
-  <!-- JS -->
-  <script defer>
-  // ==== Datos de productos (reemplaza imágenes y precios) ====
-  const PRODUCTS = [
-    {
-      id:"etb-prismatic-es",
-      name:"ETB — Evoluciones Prismáticas (ES)",
-      price: 54990,
-      stock: 6,
-      image: "assets/etb-prismatic-es.webp",
-      alt: "Elite Trainer Box Prismatic Evolutions en español",
-      badges:["🔥 Top ventas","Sellado"]
-    },
-    {
-      id:"upc-mega-charizard-x",
-      name:"UPC — Mega Charizard X (EN)",
-      price: 135990,
-      stock: 3,
-      image: "assets/upc-charizard-x.webp",
-      alt: "Ultra Premium Collection Mega Charizard X en inglés",
-      badges:["✨ Premium","Sellado"]
-    },
-    {
-      id:"box-mewtwo-es",
-      name:"Colección Mewtwo ex (ES)",
-      price: 28990,
-      stock: 9,
-      image: "assets/box-mewtwo.webp",
-      alt: "Caja colección Mewtwo ex en español",
-      badges:["Novedad"]
-    },
-    {
-      id:"etb-black-bolt-en",
-      name:"ETB — Black Bolt (EN)",
-      price: 59990,
-      stock: 0,
-      image: "assets/etb-black-bolt.webp",
-      alt: "Elite Trainer Box Black Bolt en inglés",
-      badges:["Limited"]
-    }
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  // ===== Utils =====
+  const $ = s => document.querySelector(s);
+  const $$ = s => Array.from(document.querySelectorAll(s));
+  const fmt = n => new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0);
+
+  // ===== Estado =====
+  let PRODUCTS = [];
+  const FALLBACK = [
+    {id:'etb-151', name:'Elite Trainer Box 151', set:'SV151', type:'sealed', category:'Elite Trainer Box', price:49990, stock:12, image:'https://dummyimage.com/600x400/fff/000&text=ETB+151'},
+    {id:'upc-charizard', name:'Ultra Premium Charizard', set:'Promo', type:'sealed', category:'Ultra Premium', price:129990, stock:5, image:'https://dummyimage.com/600x400/fff/000&text=UPC+Charizard'},
+    {id:'booster-box', name:'Booster Box Scarlet & Violet', set:'SV Base', type:'sealed', category:'Booster Box', price:159990, stock:3, image:'https://dummyimage.com/600x400/fff/000&text=Booster+Box'}
   ];
+  let CART = JSON.parse(localStorage.getItem('mh_cart') || '[]');
+  let CURRENT = null; // producto seleccionado para modal
 
-  // ==== Utilidades ====
-  const $ = (sel,ctx=document)=>ctx.querySelector(sel);
-  const $$ = (sel,ctx=document)=>[...ctx.querySelectorAll(sel)];
-  const fmt = (n)=>n.toLocaleString('es-CL',{style:'currency',currency:'CLP'});
+  // ===== DOM =====
+  const grid = $('#grid'), q = $('#q'), drawer = $('#drawer'), btnCart = $('#btnCart'), btnClose = $('#btnClose');
+  const cartBody = $('#cartBody'), subtotalEl = $('#subtotal'), grandEl = $('#grand'), cCount = $('#cCount'), btnCheckout = $('#btnCheckout');
+  const filter = $('#filter'), sort = $('#sort'), counter = $('#counter');
+  const modal = $('#modal'), mClose = $('#mClose'), mTitle = $('#mTitle'), mImage = $('#mImage'), mThumbs = $('#mThumbs');
+  const mMeta = $('#mMeta'), mPrice = $('#mPrice'), mQty = $('#mQty'), mDec = $('#mDec'), mInc = $('#mInc'), mAdd = $('#mAdd'), mView = $('#mView'), mDesc = $('#mDesc');
 
-  // ==== Render de productos ====
-  function renderProducts(){
-    const grid = $('#product-grid');
-    grid.innerHTML = "";
-    PRODUCTS.forEach(p=>{
-      const lowStock = p.stock>0 && p.stock<=3;
-      const oos = p.stock===0;
-      const card = document.createElement('article');
-      card.className = 'card';
-      card.innerHTML = `
-        <picture>
-          <source srcset="${p.image}" type="image/webp">
-          <img src="${p.image.replace('.webp','.jpg')}" alt="${p.alt}" loading="lazy" width="480" height="320">
-        </picture>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          ${p.badges.map(b=>`<span class="badge">${b}</span>`).join('')}
-          ${lowStock?`<span class="badge badge--warn">Quedan ${p.stock}</span>`:''}
-          ${oos?`<span class="badge">Sin stock</span>`:''}
-        </div>
-        <h3 style="margin:6px 0 0;font-size:16px">${p.name}</h3>
-        <div class="row">
+  // ===== Cargar catálogo =====
+  async function loadCatalog() {
+    const url = './masterhit-products.json';
+    try {
+      const res = await fetch(url + '?_=' + Date.now());
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      PRODUCTS = Array.isArray(data) && data.length ? data : FALLBACK;
+    } catch (e) {
+      console.warn('No se cargó el JSON, usando fallback.', e);
+      PRODUCTS = FALLBACK;
+    }
+    counter.textContent = `${PRODUCTS.length} productos cargados`;
+  }
+
+  // ===== Filtros/orden =====
+  function getFilteredSorted(){
+    const term = (q.value || '').toLowerCase().trim();
+    const f = filter.value;
+    let list = PRODUCTS.filter(p => {
+      let ok = true;
+      if (term) ok = (p.name + ' ' + (p.set||'') + ' ' + (p.type||'') + ' ' + (p.category||'')).toLowerCase().includes(term);
+      if (ok && f==='in') ok = (p.stock|0) > 0;
+      if (ok && (f==='sealed'||f==='booster'||f==='collection')) ok = (p.category||p.type||'').toLowerCase().includes(f);
+      return ok;
+    });
+    switch (sort.value){
+      case 'price-asc': list.sort((a,b)=> (a.price|0) - (b.price|0)); break;
+      case 'price-desc': list.sort((a,b)=> (b.price|0) - (a.price|0)); break;
+      case 'name-asc': list.sort((a,b)=> (a.name||'').localeCompare(b.name||'')); break;
+      default: list.sort((a,b)=> (b.stock|0)-(a.stock|0)); break;
+    }
+    counter.textContent = `${list.length} resultados`;
+    return list;
+  }
+
+  // ===== Render listado (sin tocar rutas de imagen) =====
+  function renderList() {
+    const list = getFilteredSorted();
+    grid.innerHTML = list.map(p => `
+      <article class="product">
+        ${p.stock>0 ? '' : `<span class="badge">Sin stock</span>`}
+        <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <div class="pad">
+          <strong>${p.name}</strong>
+          <span class="muted">${p.set||''}${p.type?` • ${p.type}`:''}</span>
           <span class="price">${fmt(p.price)}</span>
           <div class="qty">
-            <label class="mini" for="q-${p.id}">Cant.</label>
-            <input id="q-${p.id}" type="number" min="1" value="1" ${oos?'disabled':''} inputmode="numeric" pattern="[0-9]*" aria-label="Cantidad para ${p.name}">
+            <button class="btn" data-dec data-id="${p.id}" aria-label="Disminuir cantidad">−</button>
+            <input class="input" style="width:60px;text-align:center" type="number" min="1" value="1" data-qty="${p.id}" aria-label="Cantidad">
+            <button class="btn" data-inc data-id="${p.id}" aria-label="Aumentar cantidad">+</button>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn primary" data-add data-id="${p.id}" ${p.stock>0?'':'disabled'}>Añadir</button>
+            <button class="btn" data-view data-id="${p.id}">Ver detalle</button>
           </div>
         </div>
-        <button class="btn ${oos?'':'btn--primary'}" ${oos?'disabled':''} data-add="${p.id}">Añadir al carrito</button>
-      `;
-      grid.appendChild(card);
-    });
+      </article>
+    `).join('') || '<p class="muted">Sin resultados.</p>';
   }
 
-  // ==== Carrito ====
-  const CART = new Map(); // id -> {qty, product}
+  // ===== Modal detalle (sin tocar rutas de imagen) =====
+  function openModal(p){
+    CURRENT = p;
+    mTitle.textContent = p.name;
+    mImage.src = p.image; mImage.alt = p.name;
+    mMeta.textContent = [p.set, p.type, p.category].filter(Boolean).join(' • ');
+    mPrice.textContent = fmt(p.price);
+    mDesc.textContent = p.description || '';
+    mQty.value = 1;
+    // Galería (usa p.images si existe; si no, usa p.image)
+    const gallery = Array.isArray(p.images) && p.images.length ? p.images : [p.image];
+    mThumbs.innerHTML = gallery.map(src => `<img src="${src}" alt="thumb" loading="lazy" decoding="async" data-src="${src}">`).join('');
+    modal.classList.add('open');
+  }
+  function closeModal(){ modal.classList.remove('open'); CURRENT=null; }
+
+  // ===== Carrito =====
+  function saveCart(){ localStorage.setItem('mh_cart', JSON.stringify(CART)); }
+  function cartLines(){
+    return CART.map(it => {
+      const p = PRODUCTS.find(x => x.id === it.id) || {};
+      const lineTotal = (p.price || 0) * it.qty;
+      return {...p, qty: it.qty, lineTotal};
+    });
+  }
+  function updateBadges(){ cCount.textContent = CART.reduce((s,i) => s + i.qty, 0); }
+  function drawCart(){
+    const lines = cartLines();
+    cartBody.innerHTML = lines.map(l => `
+      <div class="row">
+        <img src="${l.image}" alt="${l.name}" loading="lazy" decoding="async">
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:8px">
+            <strong>${l.name}</strong><span>${fmt(l.price)}</span>
+          </div>
+          <div class="qty" style="margin-top:6px">
+            <button class="btn" data-plus data-id="${l.id}">+</button>
+            <input class="input" style="width:60px;text-align:center" type="number" min="1" value="${l.qty}" data-q="${l.id}">
+            <button class="btn" data-minus data-id="${l.id}">−</button>
+            <button class="btn" style="margin-left:auto" data-del data-id="${l.id}">🗑️</button>
+          </div>
+        </div>
+        <div><strong>${fmt(l.lineTotal)}</strong></div>
+      </div>
+    `).join('') || '<p class="muted">Tu carrito está vacío.</p>';
+    const subtotal = lines.reduce((s,l)=>s+l.lineTotal,0);
+    subtotalEl.textContent = fmt(subtotal);
+    grandEl.textContent = fmt(subtotal);
+  }
   function addToCart(id, qty=1){
-    const prod = PRODUCTS.find(x=>x.id===id);
-    if(!prod || prod.stock===0) return;
-    const current = CART.get(id) || {qty:0, product: prod};
-    current.qty += qty;
-    // limitar por stock
-    if(current.qty > prod.stock) current.qty = prod.stock;
-    CART.set(id, current);
-    updateCartUI();
-    openCart();
+    const p = PRODUCTS.find(x=>x.id===id);
+    if(!p) return;
+    if((p.stock|0)<=0) { alert('Sin stock'); return; }
+    const line = CART.find(x=>x.id===id);
+    if(line){ line.qty = Math.min(line.qty + qty, p.stock|0); }
+    else { CART.push({id, qty: Math.min(qty, p.stock|0 || qty)}); }
+    saveCart(); updateBadges(); openCart(); drawCart();
   }
-
+  function setQty(id, qty){
+    qty = Math.max(1, qty|0);
+    const p = PRODUCTS.find(x=>x.id===id);
+    const line = CART.find(x=>x.id===id);
+    if(!line || !p) return;
+    line.qty = Math.min(qty, p.stock|0 || qty);
+    saveCart(); updateBadges(); drawCart();
+  }
   function removeFromCart(id){
-    CART.delete(id);
-    updateCartUI();
+    CART = CART.filter(x=>x.id!==id);
+    saveCart(); updateBadges(); drawCart();
   }
 
-  function updateCartUI(){
-    const list = $('#cart-items');
-    list.innerHTML = "";
-    let subtotal = 0;
-    for(const {qty, product} of CART.values()){
-      subtotal += qty * product.price;
-      const row = document.createElement('div');
-      row.className = 'row';
-      row.style.gap = '10px';
-      row.innerHTML = `
-        <div style="display:flex;gap:10px;align-items:center;flex:1">
-          <img src="${product.image}" alt="" width="52" height="36" loading="lazy">
-          <div>
-            <div style="font-weight:700">${product.name}</div>
-            <div class="mini">${qty} × ${fmt(product.price)}</div>
-          </div>
-        </div>
-        <button class="btn" data-del="${product.id}" aria-label="Eliminar ${product.name}">🗑️</button>
-      `;
-      list.appendChild(row);
-    }
-    $('#subtotal').textContent = fmt(subtotal);
-    const shipping = subtotal>80000?0:3990;
-    $('#shipping').textContent = shipping===0?'Gratis':fmt(shipping);
-    $('#total').textContent = fmt(subtotal+shipping);
-    $('#cart-count').textContent = [...CART.values()].reduce((a,b)=>a+b.qty,0);
-    $('#cart-drawer').style.display = CART.size>0 ? 'flex' : 'none';
+  // ===== Drawer =====
+  function openCart(){ drawer.classList.add('open'); drawer.setAttribute('aria-hidden','false'); drawCart(); }
+  function closeCart(){ drawer.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
 
-    // listeners delete
-    $$('[data-del]').forEach(btn=>{
-      btn.onclick = ()=> removeFromCart(btn.getAttribute('data-del'));
-    });
-  }
-
-  function openCart(){ $('#cart-drawer').style.display='flex'; }
-  function closeCart(){ $('#cart-drawer').style.display='none'; }
-
-  // ==== Eventos ====
-  document.addEventListener('DOMContentLoaded', ()=>{
-    renderProducts();
-    // add handlers
-    document.body.addEventListener('click', (e)=>{
-      const addBtn = e.target.closest('[data-add]');
-      if(addBtn){
-        const id = addBtn.getAttribute('data-add');
-        const qInput = document.getElementById('q-'+id);
-        const qty = Math.max(1, parseInt(qInput?.value || '1',10));
-        addToCart(id, qty);
-      }
-    });
-
-    $('#btn-open-cart').onclick = openCart;
-    $('#btn-close-cart').onclick = closeCart;
-
-    // Checkout (placeholder)
-    $('#btn-checkout').onclick = ()=>{
-      // Aquí puedes redirigir a Webpay/Flow o mostrar pasos de transferencia.
-      alert('Redirigiendo a pago seguro...\n(Conecta Webpay/Flow o muestra instrucciones)');
-      // window.location.href = '/pago.html';
+  // ===== Webpay (stub) =====
+  async function checkoutWebpay(){
+    const order = {
+      id: 'MH-'+Date.now(),
+      items: cartLines().map(l=>({id:l.id, name:l.name, qty:l.qty, price:l.price})),
+      subtotal: cartLines().reduce((s,l)=>s+l.lineTotal,0)
     };
+    alert('Simulación /api/pay/webpay/create:\n' + JSON.stringify(order, null, 2));
+  }
 
-    // Año footer
-    $('#year').textContent = new Date().getFullYear();
+  // ===== Bindings =====
+  $('#yy').textContent = new Date().getFullYear();
+  q.addEventListener('input', renderList);
+  filter.addEventListener('change', renderList);
+  sort.addEventListener('change', renderList);
+  btnCart.addEventListener('click', openCart);
+  btnClose.addEventListener('click', closeCart);
+  btnCheckout.addEventListener('click', checkoutWebpay);
+  window.addEventListener('keydown', e=>{ if(e.key==='Escape'){ closeCart(); closeModal(); } });
+
+  // Lista: delegación
+  grid.addEventListener('click', (e)=>{
+    const add = e.target.closest('[data-add]');
+    const inc = e.target.closest('[data-inc]');
+    const dec = e.target.closest('[data-dec]');
+    const view = e.target.closest('[data-view]');
+    if(add){
+      const id = add.getAttribute('data-id');
+      const qtyEl = grid.querySelector(`[data-qty="${id}"]`);
+      const qty = Math.max(1, parseInt(qtyEl?.value||'1',10));
+      addToCart(id, qty);
+    }
+    if(inc){
+      const id = inc.getAttribute('data-id');
+      const qtyEl = grid.querySelector(`[data-qty="${id}"]`);
+      if(qtyEl) qtyEl.value = (parseInt(qtyEl.value||'1',10) + 1);
+    }
+    if(dec){
+      const id = dec.getAttribute('data-id');
+      const qtyEl = grid.querySelector(`[data-qty="${id}"]`);
+      if(qtyEl) qtyEl.value = Math.max(1, parseInt(qtyEl.value||'1',10) - 1);
+    }
+    if(view){
+      const id = view.getAttribute('data-id');
+      const p = PRODUCTS.find(x=>x.id===id);
+      if(p) openModal(p);
+    }
   });
 
-  // Accesibilidad: cerrar con ESC
-  document.addEventListener('keydown', (e)=>{
-    if(e.key==='Escape') closeCart();
+  // Carrito: delegación
+  cartBody.addEventListener('click', (e)=>{
+    const plus = e.target.closest('[data-plus]');
+    const minus = e.target.closest('[data-minus]');
+    const del = e.target.closest('[data-del]');
+    if(plus){ const id = plus.getAttribute('data-id'); const inp = cartBody.querySelector(`[data-q="${id}"]`); if(inp){ inp.value = (parseInt(inp.value||'1',10)+1); setQty(id, +inp.value); } }
+    if(minus){ const id = minus.getAttribute('data-id'); const inp = cartBody.querySelector(`[data-q="${id}"]`); if(inp){ inp.value = Math.max(1, parseInt(inp.value||'1',10)-1); setQty(id, +inp.value); } }
+    if(del){ const id = del.getAttribute('data-id'); removeFromCart(id); }
   });
-  </script>
+  cartBody.addEventListener('change', (e)=>{
+    const qInput = e.target.closest('[data-q]');
+    if(qInput){ const id = qInput.getAttribute('data-q'); setQty(id, +qInput.value||1); }
+  });
 
-  <!-- (Opcional) Métricas: pega tu snippet de Analytics aquí -->
+  // Modal: bindings
+  mClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+  mDec.addEventListener('click', ()=> mQty.value = Math.max(1, (+mQty.value||1)-1));
+  mInc.addEventListener('click', ()=> mQty.value = (+mQty.value||1)+1);
+  mAdd.addEventListener('click', ()=>{ if(CURRENT) addToCart(CURRENT.id, +mQty.value||1); });
+  mView.addEventListener('click', ()=>{ if(CURRENT) window.open(CURRENT.image, '_blank'); });
+  mThumbs.addEventListener('click', (e)=>{ const t = e.target.closest('img'); if(t){ mImage.src = t.dataset.src; } });
+
+  // ===== Init =====
+  (async () => {
+    await loadCatalog();
+    renderList();
+    updateBadges();
+  })();
+});
+</script>
 </body>
 </html>
