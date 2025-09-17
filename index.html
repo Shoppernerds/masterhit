@@ -34,15 +34,11 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 /* HERO */
 .hero{padding:36px 20px;text-align:center;background:#111}
 .hero h1{font-size:1.6rem;color:#fff;margin:0}
+.hero .hero-sub{margin:8px 0 0 0;font-size:1rem;color:#f0f0f0}
 
-/* TRUST */
-.trust{display:grid;grid-template-columns:1fr;gap:10px;padding:14px 20px}
-.tile{background:#0f1116;border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;gap:10px;align-items:flex-start}
-.tile b{display:block}
-
-/* GRID */
+/* GRID / CONTROLS */
 .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:0 20px}
-.counter{color:var(--muted)}
+.counter{color:var(--fg);font-weight:800;font-size:1.1rem;padding:10px 14px;border-left:3px solid var(--accent);border-radius:8px;background:#0f1116}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:20px}
 .product{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;position:relative}
 .product img{height:200px;object-fit:contain;background:#fff}
@@ -92,19 +88,15 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   </div>
 </nav>
 
-<!-- HERO (mensaje único) -->
+<!-- HERO (mensaje + segunda línea) -->
 <section class="hero" aria-label="Mensaje principal">
   <h1>Pokemon TCG al mejor precio y con entrega rápida en Huechuraba, Lampa, Colina y Quilicura.</h1>
+  <p class="hero-sub">Despachos en 24 horas o menos en Zona Norte de Santiago</p>
 </section>
-
-<!-- TRUST (solo despacho) -->
-<div class="trust container" aria-label="Sellos de confianza">
-  <div class="tile">⚡ <div><b>Despachos en 24 horas o menos</b><span class="muted"> en Zona Norte de Santiago</span></div></div>
-</div>
 
 <!-- CONTROLS -->
 <div class="controls container">
-  <span id="counter" class="counter">Cargando productos…</span>
+  <span id="counter" class="counter">Sellados Disponibles:</span>
 </div>
 
 <!-- GRID -->
@@ -157,7 +149,7 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   </div>
 </div>
 
-<!-- FOOTER (botón a la derecha y centrado verticalmente en desktop) -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div>
@@ -188,14 +180,22 @@ window.addEventListener('DOMContentLoaded', () => {
         mMeta=$('#mMeta'),mPrice=$('#mPrice'),mQty=$('#mQty'),mDec=$('#mDec'),mInc=$('#mInc'),mAdd=$('#mAdd'),mView=$('#mView'),mDesc=$('#mDesc');
 
   async function loadCatalog(){
-    try{const r=await fetch('./masterhit-products.json?_='+Date.now()); if(!r.ok) throw 0; const d=await r.json(); PRODUCTS=Array.isArray(d)&&d.length?d:FALLBACK;}
-    catch{PRODUCTS=FALLBACK}
-    counter.textContent=`${PRODUCTS.length} productos cargados`;
+    try{
+      const r=await fetch('./masterhit-products.json?_='+Date.now());
+      if(!r.ok) throw 0;
+      const d=await r.json();
+      PRODUCTS=Array.isArray(d)&&d.length?d:FALLBACK;
+    }catch{
+      PRODUCTS=FALLBACK
+    }
+    // Etiqueta fija, sin número: "Sellados Disponibles:"
+    counter.innerHTML = 'Sellados Disponibles:';
   }
 
   function getList(){ // sin filtro ni ordenar: solo stock primero
     const list=[...PRODUCTS].sort((a,b)=>(b.stock|0)-(a.stock|0));
-    counter.textContent=`${list.length} resultados`;
+    // Mantener rótulo fijo (sin “X resultados”)
+    counter.innerHTML = 'Sellados Disponibles:';
     return list;
   }
 
@@ -209,7 +209,6 @@ window.addEventListener('DOMContentLoaded', () => {
           <strong>${p.name}</strong>
           <span class="muted">${[p.set,p.type].filter(Boolean).join(' • ')}</span>
           <span class="price">${fmt(p.price)}</span>
-          <!-- Cantidad removida en la tarjeta. El Add añade 1 por defecto -->
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <button class="btn primary" data-add data-id="${p.id}" ${oos?'disabled':''}>Añadir</button>
             <button class="btn" data-view data-id="${p.id}">Ver detalle</button>
@@ -261,13 +260,13 @@ window.addEventListener('DOMContentLoaded', () => {
   btnCart.addEventListener('click',openCart); btnClose.addEventListener('click',closeCart);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeModal()}});
 
-  // Clicks en el grid (sin controles de cantidad)
+  // Clicks en el grid
   grid.addEventListener('click',e=>{
     const add=e.target.closest('[data-add]');
     const view=e.target.closest('[data-view]');
     if(add){
       const id=add.dataset.id;
-      addToCart(id,1); // siempre 1 desde la tarjeta
+      addToCart(id,1);
     }
     if(view){
       const id=view.dataset.id;
