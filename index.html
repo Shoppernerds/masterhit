@@ -51,8 +51,6 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .badge{background:var(--accent);color:#fff;padding:4px 8px;border-radius:6px;font-size:.8rem;position:absolute;margin:6px}
 .badge.low{background:rgba(245,158,11,.15);color:#fde68a;border:1px solid rgba(245,158,11,.35)}
 .badge.oos{background:#444;color:#ddd;border:1px solid #666}
-.qty{display:flex;gap:8px;align-items:center;margin-top:4px}
-.qty button{width:30px;height:30px;border-radius:8px;border:1px solid var(--line);background:#0f1116;color:var(--fg)}
 
 /* Drawer */
 .drawer{position:fixed;right:0;top:0;height:100%;width:420px;max-width:100%;background:#111;color:#fff;border-left:2px solid var(--accent);transform:translateX(100%);transition:.3s;z-index:100;display:flex;flex-direction:column}
@@ -71,8 +69,13 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 
 /* Footer */
 footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
-.footer-inner{max-width:1200px;margin:0 auto;display:grid;gap:6px;justify-items:start}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;gap:6px}
 .footer-title{font-weight:800;font-size:1.1rem}
+/* Desktop: dos columnas, botón a la derecha centrado verticalmente */
+@media (min-width:768px){
+  .footer-inner{grid-template-columns:1fr auto;align-items:center}
+  .footer-btn{justify-self:end}
+}
 </style>
 </head>
 <body>
@@ -154,14 +157,18 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- FOOTER (botón a la derecha y centrado verticalmente en desktop) -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-title">MasterHit</div>
-    <div>Los Nogales 1135, Valle Grande, Lampa</div>
-    <div>Lunes a Viernes 14:00 a 21:00 hrs</div>
-    <div>Sábados y Domingos 12:00 a 20:00 hrs</div>
-    <a class="btn primary" href="https://wa.me/56975121963" target="_blank" rel="noopener">📲 Contacta a un ejecutivo</a>
+    <div>
+      <div class="footer-title">MasterHit</div>
+      <div>Los Nogales 1135, Valle Grande, Lampa</div>
+      <div>Lunes a Viernes 14:00 a 21:00 hrs</div>
+      <div>Sábados y Domingos 12:00 a 20:00 hrs</div>
+    </div>
+    <div class="footer-btn">
+      <a class="btn primary" href="https://wa.me/56975121963" target="_blank" rel="noopener">📲 Contacta a un ejecutivo</a>
+    </div>
   </div>
 </footer>
 
@@ -202,11 +209,7 @@ window.addEventListener('DOMContentLoaded', () => {
           <strong>${p.name}</strong>
           <span class="muted">${[p.set,p.type].filter(Boolean).join(' • ')}</span>
           <span class="price">${fmt(p.price)}</span>
-          <div class="qty">
-            <button class="btn" data-dec data-id="${p.id}">−</button>
-            <input class="input" style="width:60px;text-align:center" type="number" min="1" value="1" data-qty="${p.id}">
-            <button class="btn" data-inc data-id="${p.id}">+</button>
-          </div>
+          <!-- Cantidad removida en la tarjeta. El Add añade 1 por defecto -->
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <button class="btn primary" data-add data-id="${p.id}" ${oos?'disabled':''}>Añadir</button>
             <button class="btn" data-view data-id="${p.id}">Ver detalle</button>
@@ -258,14 +261,22 @@ window.addEventListener('DOMContentLoaded', () => {
   btnCart.addEventListener('click',openCart); btnClose.addEventListener('click',closeCart);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeModal()}});
 
+  // Clicks en el grid (sin controles de cantidad)
   grid.addEventListener('click',e=>{
-    const add=e.target.closest('[data-add]'),inc=e.target.closest('[data-inc]'),dec=e.target.closest('[data-dec]'),view=e.target.closest('[data-view]');
-    if(add){const id=add.dataset.id;const qtyEl=grid.querySelector(`[data-qty="${id}"]`); addToCart(id,Math.max(1,parseInt(qtyEl?.value||'1',10)));}
-    if(inc){const id=inc.dataset.id;const qEl=grid.querySelector(`[data-qty="${id}"]`); if(qEl) qEl.value=(parseInt(qEl.value||'1',10)+1)}
-    if(dec){const id=dec.dataset.id;const qEl=grid.querySelector(`[data-qty="${id}"]`); if(qEl) qEl.value=Math.max(1,parseInt(qEl.value||'1',10)-1)}
-    if(view){const id=view.dataset.id;const p=PRODUCTS.find(x=>x.id===id); if(p) openModal(p);}
+    const add=e.target.closest('[data-add]');
+    const view=e.target.closest('[data-view]');
+    if(add){
+      const id=add.dataset.id;
+      addToCart(id,1); // siempre 1 desde la tarjeta
+    }
+    if(view){
+      const id=view.dataset.id;
+      const p=PRODUCTS.find(x=>x.id===id);
+      if(p) openModal(p);
+    }
   });
 
+  // Carrito
   cartBody.addEventListener('click',e=>{
     const plus=e.target.closest('[data-plus]'),minus=e.target.closest('[data-minus]'),del=e.target.closest('[data-del]');
     if(plus){const id=plus.dataset.id;const inp=cartBody.querySelector(`[data-q="${id}"]`); if(inp){inp.value=parseInt(inp.value||'1',10)+1; setQty(id,+inp.value)}}
@@ -274,6 +285,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   cartBody.addEventListener('change',e=>{const i=e.target.closest('[data-q]'); if(i){setQty(i.dataset.q,+i.value||1)}});
 
+  // Modal
   mClose.addEventListener('click',closeModal);
   modal.addEventListener('click',e=>{if(e.target===modal) closeModal()});
   mDec.addEventListener('click',()=>mQty.value=Math.max(1,(+mQty.value||1)-1));
