@@ -43,21 +43,21 @@
     .nav-inner{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 20px}
     .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--accent-2)}
     .brand-badge{width:28px;height:28px;border-radius:999px;background:#e60000;box-shadow:0 0 0 3px #000,0 0 0 6px #fff}
-    .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;width:100%;justify-content:flex-end}
     .input,.select{background:var(--card);color:var(--fg);border:1px solid var(--line);border-radius:12px;padding:10px 12px}
-    .btn{cursor:pointer;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:10px 14px;transition:transform .06s ease}
+    .btn{cursor:pointer;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:10px 14px;transition:transform .06s ease;display:inline-flex;align-items:center;gap:8px}
     .btn:active{transform:scale(.98)}
     .btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+    .cart-count{display:inline-flex;min-width:22px;height:22px;border-radius:999px;align-items:center;justify-content:center;background:#fff;color:#000;font-weight:800;font-size:.85rem;padding:0 6px}
 
     /* HERO */
     .hero{padding:36px 20px;text-align:center;background:#111;color:#fff}
-    .hero h1{font-size:2rem;color:var(--accent);margin:0 0 6px}
-    .hero p{margin:8px 0 14px}
-    .hero-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+    .hero h1{font-size:1.9rem;color:var(--accent);margin:0 0 8px}
+    .hero p{margin:6px 0 0;color:#fff}
 
     /* TRUST/Sellos */
     .trust{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px 20px}
-    .trust .tile{background:#0f1116;border:1px solid var(--line);border-radius:12px;padding:10px;display:flex;gap:8px;align-items:flex-start}
+    .trust .tile{background:#0f1116;border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;gap:10px;align-items:flex-start}
     .trust .tile b{display:block}
     @media (max-width:800px){ .trust{grid-template-columns:1fr} }
 
@@ -93,8 +93,11 @@
     .thumbs img{width:64px;height:64px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;cursor:pointer}
     @media (max-width:800px){ .modal-body{grid-template-columns:1fr} }
 
-    footer{padding:20px;text-align:center;background:#000;color:#fff;margin-top:30px}
-    .muted{color:var(--muted)}
+    /* FOOTER IZQUIERDA */
+    footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
+    .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:10px;justify-items:start}
+    .footer-title{font-weight:800;font-size:1.1rem}
+    .footer-btn{margin-top:8px}
   </style>
 </head>
 <body>
@@ -103,46 +106,37 @@
     <div class="nav-inner container">
       <a href="#" class="brand" aria-label="MasterHit inicio"><span class="brand-badge" aria-hidden="true"></span> MASTERHIT</a>
       <div class="toolbar">
-        <input id="q" class="input" type="search" placeholder="Buscar cartas..." aria-label="Buscar" />
-        <select id="filter" class="select" aria-label="Filtro">
-          <option value="">Todo</option>
-          <option value="in">Con stock</option>
-          <option value="sealed">Sealed</option>
-          <option value="booster">Booster</option>
-          <option value="collection">Collection</option>
-        </select>
+        <input id="q" class="input" type="search" placeholder="Buscar sellados o singles" aria-label="Buscar" />
+        <!-- Se mantiene ordenar; se elimina filtro por categoría -->
         <select id="sort" class="select" aria-label="Ordenar">
           <option value="rel">Ordenar: Relevancia</option>
           <option value="price-asc">Precio ↑</option>
           <option value="price-desc">Precio ↓</option>
           <option value="name-asc">Nombre A-Z</option>
         </select>
-        <button id="btnCart" class="btn primary" aria-haspopup="dialog" aria-controls="drawer">🛒 <span id="cCount">0</span></button>
+        <button id="btnCart" class="btn primary" aria-haspopup="dialog" aria-controls="drawer">
+          🛒 <span>Ver tu Carrito de Compras</span> <span class="cart-count" id="cCount">0</span>
+        </button>
       </div>
     </div>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <h1>Pokémon TCG en Chile con envío rápido</h1>
-    <p>Compra <b>cajas selladas, ETB, boosters y singles</b> con <u>precios claros</u> y <u>stock real</u>. Checkout por Webpay próximamente.</p>
-    <div class="hero-cta">
-      <a href="#grid" class="btn primary">🛍️ Ver productos</a>
-      <a href="https://wa.me/56900000000" class="btn" target="_blank" rel="noopener">💬 WhatsApp</a>
-    </div>
+    <h1>Única tienda Pokemon TCG en RM Norte</h1>
+    <p>Compra sellados, sobres o singles al mejor precio y con entrega rápida en Huechuraba, Lampa, Colina y Quilicura.</p>
   </section>
 
-  <!-- TRUST -->
+  <!-- TRUST (reordenado y nuevo texto) -->
   <div class="trust container" aria-label="Sellos de confianza">
-    <div class="tile">🧾 <div><b>Pago Seguro</b><span class="muted"> Webpay / Transferencia</span></div></div>
-    <div class="tile">🚚 <div><b>Envíos a todo Chile</b><span class="muted"> Starken / Chilexpress</span></div></div>
-    <div class="tile">⚡ <div><b>Despacho 24–48h hábiles</b><span class="muted"> Seguimiento por mail</span></div></div>
+    <div class="tile">⚡ <div><b>Despachos en 24 horas o menos</b><span class="muted"> en Zona Norte de Santiago</span></div></div>
+    <div class="tile">🧾 <div><b>Pago Seguro</b><span class="muted"> Tarjetas y Transferencia. Todo con factura o boleta.</span></div></div>
+    <div class="tile">✅ <div><b>Calidad MasterHit</b><span class="muted"> Productos 100% Originales</span></div></div>
   </div>
 
   <!-- CONTROLS -->
   <div class="controls container">
     <span id="counter" class="counter">Cargando productos…</span>
-    <span class="hint">📦 Envío <b>gratis</b> por compras sobre <b>$80.000</b>.</span>
   </div>
 
   <!-- GRID -->
@@ -159,9 +153,8 @@
     <div id="cartBody" style="flex:1;overflow:auto;padding:12px"></div>
     <div style="padding:12px;border-top:1px solid var(--line);display:grid;gap:6px">
       <div>Subtotal: <strong id="subtotal">—</strong></div>
-      <div>Envío: <strong id="ship">—</strong> <span class="muted" id="shipNote"></span></div>
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <span>Total: <strong id="grand">—</strong></span>
+      <div>Total: <strong id="grand">—</strong></div>
+      <div style="display:flex;justify-content:flex-end">
         <button id="btnCheckout" class="btn primary">Proceder a pago (Webpay)</button>
       </div>
       <small class="muted">* Simulado; conecta tu backend Webpay en <span class="link">/api/pay/webpay/create</span>.</small>
@@ -198,8 +191,15 @@
     </div>
   </div>
 
+  <!-- FOOTER (alineado a la izquierda con botón de WhatsApp) -->
   <footer>
-    <small>© <span id="yy"></span> MasterHit. Todos los derechos reservados.</small>
+    <div class="footer-inner">
+      <div class="footer-title">MasterHit</div>
+      <div>Los Nogales 1135, Valle Grande, Lampa</div>
+      <div>Lunes a Viernes 14:00 a 21:00 hrs</div>
+      <div>Sábados y Domingos 12:00 a 20:00 hrs</div>
+      <a class="btn primary footer-btn" href="https://wa.me/56975121963" target="_blank" rel="noopener">📲 Contacta a un ejecutivo</a>
+    </div>
   </footer>
 
 <script>
@@ -221,16 +221,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // ===== DOM =====
   const grid = $('#grid'), q = $('#q'), drawer = $('#drawer'), btnCart = $('#btnCart'), btnClose = $('#btnClose');
-  const cartBody = $('#cartBody'), subtotalEl = $('#subtotal'), shipEl = $('#ship'), shipNote = $('#shipNote'), grandEl = $('#grand'), cCount = $('#cCount'), btnCheckout = $('#btnCheckout');
-  const filter = $('#filter'), sort = $('#sort'), counter = $('#counter');
+  const cartBody = $('#cartBody'), subtotalEl = $('#subtotal'), grandEl = $('#grand'), cCount = $('#cCount'), btnCheckout = $('#btnCheckout');
+  const sort = $('#sort'), counter = $('#counter');
   const modal = $('#modal'), mClose = $('#mClose'), mTitle = $('#mTitle'), mImage = $('#mImage'), mThumbs = $('#mThumbs');
   const mMeta = $('#mMeta'), mPrice = $('#mPrice'), mQty = $('#mQty'), mDec = $('#mDec'), mInc = $('#mInc'), mAdd = $('#mAdd'), mView = $('#mView'), mDesc = $('#mDesc');
 
-  // ===== Config envío =====
-  const FREE_SHIP_THRESHOLD = 80000;
-  const SHIP_FLAT = 3990;
-
-  // ===== Cargar catálogo =====
+  // ===== Cargar catálogo (respeta rutas de imagen del JSON) =====
   async function loadCatalog() {
     const url = './masterhit-products.json';
     try {
@@ -248,25 +244,22 @@ window.addEventListener('DOMContentLoaded', () => {
   // ===== Filtros/orden =====
   function getFilteredSorted(){
     const term = (q.value || '').toLowerCase().trim();
-    const f = filter.value;
     let list = PRODUCTS.filter(p => {
       let ok = true;
       if (term) ok = (p.name + ' ' + (p.set||'') + ' ' + (p.type||'') + ' ' + (p.category||'')).toLowerCase().includes(term);
-      if (ok && f==='in') ok = (p.stock|0) > 0;
-      if (ok && (f==='sealed'||f==='booster'||f==='collection')) ok = (p.category||p.type||'').toLowerCase().includes(f);
       return ok;
     });
     switch (sort.value){
       case 'price-asc': list.sort((a,b)=> (a.price|0) - (b.price|0)); break;
       case 'price-desc': list.sort((a,b)=> (b.price|0) - (a.price|0)); break;
       case 'name-asc': list.sort((a,b)=> (a.name||'').localeCompare(b.name||'')); break;
-      default: list.sort((a,b)=> (b.stock|0)-(a.stock|0)); break; // relevancia simple: stock primero
+      default: list.sort((a,b)=> (b.stock|0)-(a.stock|0)); break;
     }
     counter.textContent = `${list.length} resultados`;
     return list;
   }
 
-  // ===== Render listado (respeta rutas de imagen) =====
+  // ===== Render listado =====
   function renderList() {
     const list = getFilteredSorted();
     grid.innerHTML = list.map(p => {
@@ -294,7 +287,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }).join('') || '<p class="muted">Sin resultados.</p>';
   }
 
-  // ===== Modal detalle (respeta rutas de imagen) =====
+  // ===== Modal detalle =====
   function openModal(p){
     CURRENT = p;
     mTitle.textContent = p.name;
@@ -303,7 +296,6 @@ window.addEventListener('DOMContentLoaded', () => {
     mPrice.textContent = fmt(p.price);
     mDesc.textContent = p.description || '';
     mQty.value = 1;
-    // Galería
     const gallery = Array.isArray(p.images) && p.images.length ? p.images : [p.image];
     mThumbs.innerHTML = gallery.map(src => `<img src="${src}" alt="thumb" loading="lazy" decoding="async" data-src="${src}">`).join('');
     modal.classList.add('open');
@@ -342,13 +334,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const subtotal = lines.reduce((s,l)=>s+l.lineTotal,0);
     subtotalEl.textContent = fmt(subtotal);
-
-    // Envío
-    const ship = subtotal >= FREE_SHIP_THRESHOLD ? 0 : (lines.length ? SHIP_FLAT : 0);
-    shipEl.textContent = ship === 0 ? 'Gratis' : fmt(ship);
-    shipNote.textContent = ship === 0 ? '' : `Gratis sobre ${fmt(FREE_SHIP_THRESHOLD)}`;
-
-    grandEl.textContent = fmt(subtotal + ship);
+    grandEl.textContent = fmt(subtotal);
   }
   function addToCart(id, qty=1){
     const p = PRODUCTS.find(x=>x.id===id);
@@ -387,9 +373,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // ===== Bindings =====
-  $('#yy').textContent = new Date().getFullYear();
   q.addEventListener('input', renderList);
-  filter.addEventListener('change', renderList);
   sort.addEventListener('change', renderList);
   btnCart.addEventListener('click', openCart);
   btnClose.addEventListener('click', closeCart);
@@ -441,19 +425,21 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // Modal: bindings
-  mClose.addEventListener('click', closeModal);
-  modal.addEventListener('click', e=>{ if(e.target===modal) closeModal(); });
+  const modal = $('#modal'), mClose = $('#mClose'), mImage = $('#mImage'), mThumbs = $('#mThumbs');
+  const mTitle = $('#mTitle'), mMeta = $('#mMeta'), mPrice = $('#mPrice'), mQty = $('#mQty'), mDec = $('#mDec'), mInc = $('#mInc'), mAdd = $('#mAdd'), mView = $('#mView'), mDesc = $('#mDesc');
+  mClose.addEventListener('click', ()=> modal.classList.remove('open'));
+  modal.addEventListener('click', e=>{ if(e.target===modal) modal.classList.remove('open'); });
   mDec.addEventListener('click', ()=> mQty.value = Math.max(1, (+mQty.value||1)-1));
   mInc.addEventListener('click', ()=> mQty.value = (+mQty.value||1)+1);
   mAdd.addEventListener('click', ()=>{ if(CURRENT) addToCart(CURRENT.id, +mQty.value||1); });
-  mView.addEventListener('click', ()=>{ if(CURRENT) window.open(CURRENT.image || CURRENT.images?.[0] || '', '_blank'); });
-  mThumbs.addEventListener('click', (e)=>{ const t = e.target.closest('img'); if(t){ mImage.src = t.dataset.src; } });
+  mView.addEventListener('click', ()=>{ if(CURRENT) window.open(CURRENT.image || (CURRENT.images&&CURRENT.images[0]) || '', '_blank'); });
 
   // ===== Init =====
   (async () => {
     await loadCatalog();
     renderList();
-    updateBadges();
+    // actualizar badge carrito
+    cCount.textContent = (JSON.parse(localStorage.getItem('mh_cart')||'[]')).reduce((s,i)=>s+i.qty,0);
   })();
 });
 </script>
