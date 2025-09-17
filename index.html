@@ -1,301 +1,301 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MasterHit | Cartas Pokémon en Chile</title>
-  <meta name="description" content="Compra sellados, sobres o singles de Pokemon TCG al mejor precio y con entrega rápida en Huechuraba, Lampa, Colina y Quilicura." />
-  <meta property="og:title" content="MasterHit | Cartas Pokémon en Chile">
-  <meta property="og:description" content="Cajas selladas, ETB, boosters y singles. Envíos a todo Chile.">
-  <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='128' r='120' fill='%23e60000'/%3E%3Cpath d='M8 128a120 120 0 01240 0' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='40' fill='%23000'/%3E%3Ccircle cx='128' cy='128' r='24' fill='%23fff'/%3E%3C/svg%3E" />
-  <style>
-    :root{
-      --bg:#0b0b0c;
-      --panel:#101113;
-      --card:#141518;
-      --muted:#aab0b6;
-      --text:#f2f4f6;
-      --brand:#e60000; /* rojo poké */
-      --brand-700:#b80000;
-      --accent:#ffae00;
-      --success:#12c27d;
-      --radius:14px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-      background: radial-gradient(1200px 600px at 50% -10%, #141518 0%, var(--bg) 60%);
-      color:var(--text);
-    }
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1200px;margin:0 auto;padding:20px}
-    header{
-      position:sticky;top:0;z-index:50;
-      background: linear-gradient(180deg, #0b0b0ccc 0, #0b0b0caa 70%, transparent);
-      backdrop-filter: blur(8px);
-      border-bottom:1px solid #1b1c20;
-    }
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 20px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:40px;height:40px;border-radius:50%;display:grid;place-items:center;
-      background: radial-gradient(circle at 50% 40%, #fff 0 48%, #000 50% 52%, #e60000 54% 100%);
-      box-shadow: inset 0 -10px 18px rgba(0,0,0,.4), 0 0 0 2px #000;
-      position:relative;
-    }
-    .logo::after{content:"";position:absolute;inset:0;border-radius:50%;
-      background: radial-gradient(circle at 50% 50%, transparent 0 34%, #000 35% 36%, transparent 37% 100%);
-    }
-    .brand-name{font-weight:800;letter-spacing:.4px}
-    .cart-btn{
-      display:inline-flex;align-items:center;gap:10px;background:var(--brand);
-      padding:12px 16px;border-radius:999px;border:none;color:#fff;font-weight:700;
-      box-shadow:0 6px 14px rgba(230,0,0,.35);cursor:pointer;transition:.2s;
-    }
-    .cart-btn:hover{background:var(--brand-700)}
-    .cart-count{
-      display:inline-grid;place-items:center;min-width:24px;height:24px;padding:0 6px;
-      background:#fff;color:#000;border-radius:999px;font-weight:800;font-size:.9rem;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MasterHit | Cartas Pokémon en Chile</title>
+<meta name="description" content="MasterHit: tienda de cartas Pokémon con carrito y checkout por Webpay. Envíos a todo Chile." />
+<meta property="og:title" content="MasterHit | Cartas Pokémon en Chile">
+<meta property="og:description" content="Cajas selladas, ETB, boosters y singles. Envíos a todo Chile.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='128' r='120' fill='%23e60000'/%3E%3Ccircle cx='128' cy='128' r='88' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='40' fill='%23000'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0b0b0c;--card:#111215;--muted:#9aa2ae;--line:#20242b;--fg:#f5f7fb;--accent:#e60000;--accent-2:#fff;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.45)}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+.container{max-width:1200px;margin:0 auto;padding:20px}
 
-    .hero{padding:34px 20px 10px}
-    .hero h1{
-      font-size: clamp(26px, 4.2vw, 44px);
-      line-height:1.15;margin:0 0 14px;
-      text-wrap:balance;
-    }
-    .subline{
-      display:flex;align-items:center;gap:10px;color:#cfd5db;font-size:1rem;
-      margin-top:8px;
-    }
-    .bolt{font-size:1.1rem;color:var(--accent)}
-    .spacer{height:18px}
+/* NAV */
+.nav{position:sticky;top:0;z-index:50;background:#000;border-bottom:2px solid var(--accent)}
+.nav-inner{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 20px}
+.brand{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--accent-2)}
+/* Pokébola */
+.brand-badge{position:relative;width:28px;height:28px;border-radius:999px;background:
+  linear-gradient(#e60000 0 50%, #fff 50% 100%);
+  box-shadow:0 0 0 3px #000,0 0 0 6px #fff;overflow:hidden}
+.brand-badge:before{content:"";position:absolute;left:0;right:0;top:50%;height:3px;background:#000;transform:translateY(-50%)}
+.brand-badge:after{content:"";position:absolute;inset:0;display:block;margin:auto;width:10px;height:10px;border-radius:50%;background:#000;box-shadow:0 0 0 3px #fff,0 0 0 5px #000}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat( auto-fill, minmax(220px, 1fr) );
-      gap:16px;
-    }
-    .card{
-      background:var(--card);border:1px solid #1c1e22;border-radius:var(--radius);
-      box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;min-height:340px;
-    }
-    .thumb{
-      width:100%;aspect-ratio:4/3;background:#0f0f10;display:grid;place-items:center;overflow:hidden;
-    }
-    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
-    .thumb .ph{
-      width:60%;height:60%;border-radius:12px;border:2px dashed #2b2f36;display:grid;place-items:center;
-      color:#6e7681;font-weight:700;font-size:.9rem;
-    }
-    .card-body{padding:14px 14px 0;display:flex;flex-direction:column;gap:8px;flex:1}
-    .title{font-weight:700}
-    .price{font-size:1.05rem;font-weight:800}
-    .actions{display:flex;gap:10px;padding:12px 14px 14px}
-    .btn{
-      flex:1;display:inline-flex;justify-content:center;align-items:center;gap:8px;
-      padding:10px 12px;border-radius:10px;border:1px solid #262a31;background:#17191d;color:#e9edf2;cursor:pointer;font-weight:700
-    }
-    .btn.primary{background:var(--brand);border-color:#a10000}
-    .btn.primary:hover{background:var(--brand-700)}
-    .btn:active{transform:translateY(1px)}
-    .muted{color:var(--muted);font-size:.95rem}
+/* Buttons */
+.btn{cursor:pointer;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:10px 14px;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.cart-count{display:inline-flex;min-width:22px;height:22px;border-radius:999px;align-items:center;justify-content:center;background:#fff;color:#000;font-weight:800;font-size:.85rem;padding:0 6px}
 
-    footer{
-      margin-top:40px;border-top:1px solid #1b1c20;background:#0a0b0c;
-    }
-    .footer-inner{display:flex;flex-wrap:wrap;gap:20px;justify-content:space-between;padding:24px 20px}
-    .cta{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#fff;
-         padding:14px 18px;border-radius:12px;font-weight:800}
-    .address{max-width:700px}
-    .address h3{margin:0 0 6px}
-    .small{font-size:.95rem;color:#c7cbd1}
-  </style>
+/* HERO */
+.hero{padding:36px 20px;text-align:center;background:#111}
+.hero h1{font-size:1.6rem;color:#fff;margin:0}
+
+/* TRUST */
+.trust{display:grid;grid-template-columns:1fr;gap:10px;padding:14px 20px}
+.tile{background:#0f1116;border:1px solid var(--line);border-radius:12px;padding:12px;display:flex;gap:10px;align-items:flex-start}
+.tile b{display:block}
+
+/* GRID */
+.controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:0 20px}
+.counter{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:20px}
+.product{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.product img{height:200px;object-fit:contain;background:#fff}
+.pad{padding:12px;flex:1;display:flex;flex-direction:column;gap:8px}
+.price{font-weight:800;color:var(--accent-2)}
+.badge{background:var(--accent);color:#fff;padding:4px 8px;border-radius:6px;font-size:.8rem;position:absolute;margin:6px}
+.badge.low{background:rgba(245,158,11,.15);color:#fde68a;border:1px solid rgba(245,158,11,.35)}
+.badge.oos{background:#444;color:#ddd;border:1px solid #666}
+
+/* Drawer */
+.drawer{position:fixed;right:0;top:0;height:100%;width:420px;max-width:100%;background:#111;color:#fff;border-left:2px solid var(--accent);transform:translateX(100%);transition:.3s;z-index:100;display:flex;flex-direction:column}
+.drawer.open{transform:translateX(0)}
+.row{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px}
+.row img{width:64px;height:64px;object-fit:contain;background:#fff}
+
+/* Modal */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:90}
+.modal.open{display:grid}
+.modal-card{width:min(900px,95vw);background:#111;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.modal-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
+.thumbs{display:flex;gap:8px;flex-wrap:wrap}
+.thumbs img{width:64px;height:64px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;cursor:pointer}
+@media (max-width:800px){.modal-body{grid-template-columns:1fr}}
+
+/* Footer */
+footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;gap:6px}
+.footer-title{font-weight:800;font-size:1.1rem}
+/* Desktop: dos columnas, botón a la derecha centrado verticalmente */
+@media (min-width:768px){
+  .footer-inner{grid-template-columns:1fr auto;align-items:center}
+  .footer-btn{justify-self:end}
+}
+</style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="nav container">
-      <div class="brand">
-        <div class="logo" aria-label="MasterHit Pokéball"></div>
-        <div class="brand-name">MASTERHIT</div>
-      </div>
-      <button class="cart-btn" id="openCart">
-        <span>🛒 Ver tu Carrito de Compras</span>
-        <span class="cart-count" id="cartCount">0</span>
+<!-- NAV -->
+<nav class="nav" aria-label="Barra superior">
+  <div class="nav-inner container">
+    <a href="#" class="brand" aria-label="MasterHit inicio"><span class="brand-badge" aria-hidden="true"></span> MASTERHIT</a>
+    <div class="toolbar">
+      <button id="btnCart" class="btn primary" aria-haspopup="dialog" aria-controls="drawer">
+        🛒 Ver tu Carrito de Compras <span class="cart-count" id="cCount">0</span>
       </button>
     </div>
+  </div>
+</nav>
+
+<!-- HERO (mensaje único) -->
+<section class="hero" aria-label="Mensaje principal">
+  <h1>Pokemon TCG al mejor precio y con entrega rápida en Huechuraba, Lampa, Colina y Quilicura.</h1>
+</section>
+
+<!-- TRUST (solo despacho) -->
+<div class="trust container" aria-label="Sellos de confianza">
+  <div class="tile">⚡ <div><b>Despachos en 24 horas o menos</b><span class="muted"> en Zona Norte de Santiago</span></div></div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls container">
+  <span id="counter" class="counter">Cargando productos…</span>
+</div>
+
+<!-- GRID -->
+<section class="container">
+  <div id="grid" class="grid" aria-live="polite"></div>
+</section>
+
+<!-- DRAWER CARRITO -->
+<aside id="drawer" class="drawer" aria-hidden="true" role="dialog" aria-label="Carrito de compras">
+  <header style="padding:12px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center">
+    <strong>Tu carrito</strong>
+    <button id="btnClose" class="btn" aria-label="Cerrar carrito">✕</button>
   </header>
+  <div id="cartBody" style="flex:1;overflow:auto;padding:12px"></div>
+  <div style="padding:12px;border-top:1px solid var(--line)">
+    <div>Subtotal: <strong id="subtotal">—</strong></div>
+    <div>Total: <strong id="grand">—</strong></div>
+    <button id="btnCheckout" class="btn primary" style="margin-top:10px;width:100%">Proceder a pago (Webpay)</button>
+    <small class="muted">* Simulado; conecta tu backend Webpay en <span class="link">/api/pay/webpay/create</span>.</small>
+  </div>
+</aside>
 
-  <!-- Hero -->
-  <section class="hero container">
-    <h1>Compra sellados, sobres o singles de Pokemon TCG al mejor precio y con entrega rápida en Huechuraba, Lampa, Colina y Quilicura.</h1>
-    <div class="subline"><span class="bolt">⚡</span><span>Despachos en 24 horas o menos en Zona Norte de Santiago</span></div>
-  </section>
-
-  <div class="spacer"></div>
-
-  <!-- Products -->
-  <main class="container">
-    <div id="productGrid" class="grid" aria-live="polite"></div>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-inner container">
-      <div class="address">
-        <h3>MasterHit</h3>
-        <div class="small">
-          Los Nogales 1135, Valle Grande, Lampa<br/>
-          Lunes a Viernes 14:00 a 21:00 hrs<br/>
-          Sábados y Domingos 12:00 a 20:00 hrs
-        </div>
+<!-- MODAL DETALLE -->
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Detalle de producto">
+  <div class="modal-card">
+    <header style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)">
+      <strong id="mTitle"></strong>
+      <button id="mClose" class="btn" aria-label="Cerrar detalle">✕</button>
+    </header>
+    <div class="modal-body">
+      <div>
+        <img id="mImage" src="" alt="" style="width:100%;height:360px;object-fit:contain;background:#fff" loading="lazy" decoding="async" />
+        <div id="mThumbs" class="thumbs" aria-label="Galería miniaturas"></div>
       </div>
-      <a class="cta" href="https://wa.me/56937168521" target="_blank" rel="noopener">📲 Contacta a un ejecutivo</a>
+      <div>
+        <p id="mMeta" class="muted"></p>
+        <p><strong id="mPrice"></strong></p>
+        <div class="qty" style="margin:10px 0">
+          <button class="btn" id="mDec" aria-label="Disminuir">−</button>
+          <input class="input" id="mQty" style="width:60px;text-align:center" type="number" min="1" value="1" aria-label="Cantidad">
+          <button class="btn" id="mInc" aria-label="Aumentar">+</button>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button id="mAdd" class="btn primary">Añadir al carrito</button>
+          <button id="mView" class="btn">Ver imagen completa</button>
+        </div>
+        <p id="mDesc" class="muted" style="margin-top:12px"></p>
+      </div>
     </div>
-  </footer>
+  </div>
+</div>
 
-  <script>
-    /**********************
-     *  Data (edit here)  *
-     **********************/
-    // Si ya tienes un JSON externo, puedes reemplazar este array y hacer fetch().
-    const PRODUCTS = [
-      {
-        id:"etb-prismatic-es",
-        name:"SV Prismatic Evolutions – Elite Trainer Box (Español)",
-        price: 59990,
-        image:"https://images.unsplash.com/photo-1597362925123-77861d3fbac7?q=80&w=1200&auto=format&fit=crop"
-      },
-      {
-        id:"upc-mega-charizard-x",
-        name:"Mega Charizard X – Ultra Premium Collection (Inglés)",
-        price: 135990,
-        image:"https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=1200&auto=format&fit=crop"
-      },
-      {
-        id:"box-mewtwo-es",
-        name:"Team Rocket’s Mewtwo ex Box (Español)",
-        price: 44990,
-        image:"https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?q=80&w=1200&auto=format&fit=crop"
-      },
-      {
-        id:"booster-prismatic-en",
-        name:"Booster SV Prismatic Evolutions (Inglés)",
-        price: 3490,
-        image:"" // vacío para probar placeholder seguro
-      }
-    ];
+<!-- FOOTER (botón a la derecha y centrado verticalmente en desktop) -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-title">MasterHit</div>
+      <div>Los Nogales 1135, Valle Grande, Lampa</div>
+      <div>Lunes a Viernes 14:00 a 21:00 hrs</div>
+      <div>Sábados y Domingos 12:00 a 20:00 hrs</div>
+    </div>
+    <div class="footer-btn">
+      <a class="btn primary" href="https://wa.me/56975121963" target="_blank" rel="noopener">📲 Contacta a un ejecutivo</a>
+    </div>
+  </div>
+</footer>
 
-    /***************************
-     *  Cart (mínimo viable)   *
-     ***************************/
-    const cart = JSON.parse(localStorage.getItem("mh_cart") || "[]");
-    const cartCountEl = document.getElementById("cartCount");
-    function updateCartCount(){
-      const count = cart.reduce((a,i)=>a + (i.qty||1), 0);
-      cartCountEl.textContent = String(count);
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const $=s=>document.querySelector(s), fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0);
+  let PRODUCTS=[], CART=JSON.parse(localStorage.getItem('mh_cart')||'[]'), CURRENT=null;
+
+  const FALLBACK=[{id:'etb-151',name:'Elite Trainer Box 151',set:'SV151',price:49990,stock:12,image:'https://dummyimage.com/600x400/fff/000&text=ETB+151'},
+    {id:'upc-charizard',name:'Ultra Premium Charizard',set:'Promo',price:129990,stock:5,image:'https://dummyimage.com/600x400/fff/000&text=UPC+Charizard'},
+    {id:'booster-box',name:'Booster Box Scarlet & Violet',set:'SV Base',price:159990,stock:3,image:'https://dummyimage.com/600x400/fff/000&text=Booster+Box'}];
+
+  const grid=$('#grid'),counter=$('#counter'),btnCart=$('#btnCart'),drawer=$('#drawer'),btnClose=$('#btnClose'),
+        cartBody=$('#cartBody'),subtotalEl=$('#subtotal'),grandEl=$('#grand'),cCount=$('#cCount'),
+        btnCheckout=$('#btnCheckout'),
+        modal=$('#modal'),mClose=$('#mClose'),mTitle=$('#mTitle'),mImage=$('#mImage'),mThumbs=$('#mThumbs'),
+        mMeta=$('#mMeta'),mPrice=$('#mPrice'),mQty=$('#mQty'),mDec=$('#mDec'),mInc=$('#mInc'),mAdd=$('#mAdd'),mView=$('#mView'),mDesc=$('#mDesc');
+
+  async function loadCatalog(){
+    try{const r=await fetch('./masterhit-products.json?_='+Date.now()); if(!r.ok) throw 0; const d=await r.json(); PRODUCTS=Array.isArray(d)&&d.length?d:FALLBACK;}
+    catch{PRODUCTS=FALLBACK}
+    counter.textContent=`${PRODUCTS.length} productos cargados`;
+  }
+
+  function getList(){ // sin filtro ni ordenar: solo stock primero
+    const list=[...PRODUCTS].sort((a,b)=>(b.stock|0)-(a.stock|0));
+    counter.textContent=`${list.length} resultados`;
+    return list;
+  }
+
+  function render(){
+    grid.innerHTML=getList().map(p=>{
+      const low=(p.stock|0)>0&&(p.stock|0)<=3,oos=(p.stock|0)===0;
+      return `<article class="product">
+        ${oos?`<span class="badge oos">Sin stock</span>`:low?`<span class="badge low">¡Quedan ${p.stock}!</span>`:''}
+        <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+        <div class="pad">
+          <strong>${p.name}</strong>
+          <span class="muted">${[p.set,p.type].filter(Boolean).join(' • ')}</span>
+          <span class="price">${fmt(p.price)}</span>
+          <!-- Cantidad removida en la tarjeta. El Add añade 1 por defecto -->
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <button class="btn primary" data-add data-id="${p.id}" ${oos?'disabled':''}>Añadir</button>
+            <button class="btn" data-view data-id="${p.id}">Ver detalle</button>
+          </div>
+        </div>
+      </article>`;}).join('')||'<p class="muted">Sin resultados.</p>';
+  }
+
+  function openModal(p){
+    CURRENT=p;mTitle.textContent=p.name;mImage.src=p.image;mMeta.textContent=[p.set,p.type,p.category].filter(Boolean).join(' • ');
+    mPrice.textContent=fmt(p.price);mDesc.textContent=p.description||'';mQty.value=1;
+    const gal=Array.isArray(p.images)&&p.images.length?p.images:[p.image];
+    mThumbs.innerHTML=gal.map(s=>`<img src="${s}" data-src="${s}" alt="thumb" loading="lazy">`).join('');
+    modal.classList.add('open');
+  }
+  function closeModal(){modal.classList.remove('open');CURRENT=null;}
+
+  function saveCart(){localStorage.setItem('mh_cart',JSON.stringify(CART))}
+  function cartLines(){return CART.map(it=>{const p=PRODUCTS.find(x=>x.id===it.id)||{};return {...p,qty:it.qty,lineTotal:(p.price||0)*it.qty};})}
+  function updateBadge(){cCount.textContent=CART.reduce((s,i)=>s+i.qty,0)}
+  function drawCart(){
+    const lines=cartLines();
+    cartBody.innerHTML=lines.map(l=>`
+      <div class="row">
+        <img src="${l.image}" alt="${l.name}" loading="lazy">
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:8px"><strong>${l.name}</strong><span>${fmt(l.price)}</span></div>
+          <div class="qty" style="margin-top:6px">
+            <button class="btn" data-plus data-id="${l.id}">+</button>
+            <input class="input" style="width:60px;text-align:center" type="number" min="1" value="${l.qty}" data-q="${l.id}">
+            <button class="btn" data-minus data-id="${l.id}">−</button>
+            <button class="btn" style="margin-left:auto" data-del data-id="${l.id}">🗑️</button>
+          </div>
+        </div>
+        <div><strong>${fmt(l.lineTotal)}</strong></div>
+      </div>`).join('')||'<p class="muted">Tu carrito está vacío.</p>';
+    const subtotal=lines.reduce((s,l)=>s+l.lineTotal,0); subtotalEl.textContent=fmt(subtotal); grandEl.textContent=fmt(subtotal);
+  }
+  function addToCart(id,qty=1){const p=PRODUCTS.find(x=>x.id===id); if(!p|| (p.stock|0)<=0) return; const line=CART.find(x=>x.id===id);
+    if(line){line.qty=Math.min(line.qty+qty,p.stock|0)}else{CART.push({id,qty:Math.min(qty,p.stock|0||qty)})}
+    saveCart();updateBadge();openCart();drawCart();}
+  function setQty(id,qty){qty=Math.max(1,qty|0);const p=PRODUCTS.find(x=>x.id===id),line=CART.find(x=>x.id===id); if(!line||!p) return;
+    line.qty=Math.min(qty,p.stock|0||qty); saveCart();updateBadge();drawCart();}
+  function removeFromCart(id){CART=CART.filter(x=>x.id!==id);saveCart();updateBadge();drawCart();}
+  function openCart(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');drawCart()}
+  function closeCart(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true')}
+
+  // Eventos
+  btnCart.addEventListener('click',openCart); btnClose.addEventListener('click',closeCart);
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeModal()}});
+
+  // Clicks en el grid (sin controles de cantidad)
+  grid.addEventListener('click',e=>{
+    const add=e.target.closest('[data-add]');
+    const view=e.target.closest('[data-view]');
+    if(add){
+      const id=add.dataset.id;
+      addToCart(id,1); // siempre 1 desde la tarjeta
     }
-    function addToCart(prod){
-      const found = cart.find(x=>x.id===prod.id);
-      if(found){ found.qty = (found.qty||1)+1; }
-      else{ cart.push({id:prod.id, name:prod.name, price:prod.price, qty:1}); }
-      localStorage.setItem("mh_cart", JSON.stringify(cart));
-      updateCartCount();
+    if(view){
+      const id=view.dataset.id;
+      const p=PRODUCTS.find(x=>x.id===id);
+      if(p) openModal(p);
     }
+  });
 
-    /***************************
-     *  Render de productos    *
-     ***************************/
-    const grid = document.getElementById("productGrid");
+  // Carrito
+  cartBody.addEventListener('click',e=>{
+    const plus=e.target.closest('[data-plus]'),minus=e.target.closest('[data-minus]'),del=e.target.closest('[data-del]');
+    if(plus){const id=plus.dataset.id;const inp=cartBody.querySelector(`[data-q="${id}"]`); if(inp){inp.value=parseInt(inp.value||'1',10)+1; setQty(id,+inp.value)}}
+    if(minus){const id=minus.dataset.id;const inp=cartBody.querySelector(`[data-q="${id}"]`); if(inp){inp.value=Math.max(1,parseInt(inp.value||'1',10)-1); setQty(id,+inp.value)}}
+    if(del){removeFromCart(del.dataset.id)}
+  });
+  cartBody.addEventListener('change',e=>{const i=e.target.closest('[data-q]'); if(i){setQty(i.dataset.q,+i.value||1)}});
 
-    function pesoCL(n){ return n.toLocaleString("es-CL", {style:"currency", currency:"CLP", maximumFractionDigits:0}); }
+  // Modal
+  mClose.addEventListener('click',closeModal);
+  modal.addEventListener('click',e=>{if(e.target===modal) closeModal()});
+  mDec.addEventListener('click',()=>mQty.value=Math.max(1,(+mQty.value||1)-1));
+  mInc.addEventListener('click',()=>mQty.value=(+mQty.value||1)+1);
+  mAdd.addEventListener('click',()=>{if(CURRENT) addToCart(CURRENT.id,+mQty.value||1)});
+  mView.addEventListener('click',()=>{if(CURRENT) window.open(CURRENT.image||(CURRENT.images&&CURRENT.images[0])||'', '_blank')});
 
-    function makeCard(p){
-      const card = document.createElement("article");
-      card.className = "card";
-      // Thumb
-      const th = document.createElement("div");
-      th.className = "thumb";
-      if (p.image){
-        const img = document.createElement("img");
-        img.loading = "lazy";
-        img.alt = p.name;
-        img.src = p.image;
-        img.onerror = () => {
-          th.innerHTML = "";
-          th.appendChild(makePlaceholder());
-        };
-        th.appendChild(img);
-      }else{
-        th.appendChild(makePlaceholder());
-      }
-      // Body
-      const body = document.createElement("div"); body.className = "card-body";
-      const title = document.createElement("div"); title.className="title"; title.textContent = p.name;
-      const price = document.createElement("div"); price.className="price"; price.textContent = pesoCL(p.price);
-      body.appendChild(title); body.appendChild(price);
-
-      // Actions
-      const actions = document.createElement("div"); actions.className="actions";
-      const buy = document.createElement("button");
-      buy.className = "btn primary"; buy.textContent = "Añadir al carrito";
-      buy.onclick = ()=> addToCart(p);
-
-      const details = document.createElement("a");
-      details.className = "btn"; details.textContent = "Ver detalle";
-      details.href = "#"; // reemplaza por URL del producto si la tienes
-
-      actions.appendChild(buy); actions.appendChild(details);
-
-      card.appendChild(th); card.appendChild(body); card.appendChild(actions);
-      return card;
-    }
-
-    function makePlaceholder(){
-      const ph = document.createElement("div");
-      ph.className = "ph";
-      ph.textContent = "Sin imagen";
-      return ph;
-    }
-
-    function renderProducts(list){
-      grid.innerHTML = ""; // NO mostramos “X resultados”
-      if(!list || !list.length){
-        const empty = document.createElement("div");
-        empty.className = "muted";
-        empty.textContent = "No hay productos disponibles por ahora.";
-        grid.appendChild(empty);
-        return;
-      }
-      const frag = document.createDocumentFragment();
-      list.forEach(p => frag.appendChild( makeCard(p) ));
-      grid.appendChild(frag);
-    }
-
-    /***************************
-     *  Bootstrap              *
-     ***************************/
-    document.addEventListener("DOMContentLoaded", () => {
-      renderProducts(PRODUCTS);
-      updateCartCount();
-
-      // Checkout básico: redirige (reemplaza por tu Webpay/flow/Shopify/etc.)
-      document.getElementById("openCart").addEventListener("click", () => {
-        if(cart.length === 0){
-          alert("Tu carrito está vacío.");
-        }else{
-          // Ejemplo: enviar a una página de checkout propia
-          // Puedes leer `cart` desde localStorage en /checkout.html
-          window.location.href = "/checkout.html";
-        }
-      });
-    });
-  </script>
+  (async()=>{await loadCatalog();render();updateBadge()})();
+});
+</script>
 </body>
 </html>
+
