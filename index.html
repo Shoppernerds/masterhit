@@ -1,4 +1,4 @@
-<!doctype html>
+<!doctype html> 
 <html lang="es">
 <head>
 <meta charset="utf-8" />
@@ -47,6 +47,15 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .badge{background:var(--accent);color:#fff;padding:4px 8px;border-radius:6px;font-size:.8rem;position:absolute;margin:6px}
 .badge.low{background:rgba(245,158,11,.15);color:#fde68a;border:1px solid rgba(245,158,11,.35)}
 .badge.oos{background:#444;color:#ddd;border:1px solid #666}
+
+/* --- Precios con compareAtPrice --- */
+.price-wrap{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.price-new{font-weight:900;font-size:1.05rem;color:#fff}
+.price-old{color:var(--muted);text-decoration:line-through}
+.save-tag{background:rgba(230,0,0,.15);color:#fff;border:1px solid rgba(230,0,0,.35);padding:2px 8px;border-radius:999px;font-size:.75rem}
+
+/* Badge “oferta al costo” */
+.badge.cost{background:linear-gradient(90deg,#e60000,#b60000);border:1px solid rgba(255,255,255,.15)}
 
 /* Drawer */
 .drawer{position:fixed;right:0;top:0;height:100%;width:420px;max-width:100%;background:#111;color:#fff;border-left:2px solid var(--accent);transform:translateX(100%);transition:.3s;z-index:100;display:flex;flex-direction:column}
@@ -183,9 +192,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const $=s=>document.querySelector(s), fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0);
   let PRODUCTS=[], CART=JSON.parse(localStorage.getItem('mh_cart')||'[]'), CURRENT=null;
 
-  const FALLBACK=[{id:'etb-151',name:'Elite Trainer Box 151',set:'SV151',price:49990,stock:12,image:'https://dummyimage.com/600x400/fff/000&text=ETB+151'},
-    {id:'upc-charizard',name:'Ultra Premium Charizard',set:'Promo',price:129990,stock:5,image:'https://dummyimage.com/600x400/fff/000&text=UPC+Charizard'},
-    {id:'booster-box',name:'Booster Box Scarlet & Violet',set:'SV Base',price:159990,stock:3,image:'https://dummyimage.com/600x400/fff/000&text=Booster+Box'}];
+  const FALLBACK=[{id:'etb-151',name:'Elite Trainer Box 151',set:'SV151',price:49990,stock:12,image:'https://dummyimage.com/600x400/fff/000&text=ETB+151',compareAtPrice:59990},
+    {id:'upc-charizard',name:'Ultra Premium Charizard',set:'Promo',price:129990,stock:5,image:'https://dummyimage.com/600x400/fff/000&text=UPC+Charizard',compareAtPrice:149990},
+    {id:'booster-box',name:'Booster Box Scarlet & Violet',set:'SV Base',price:159990,stock:3,image:'https://dummyimage.com/600x400/fff/000&text=Booster+Box',compareAtPrice:179990}];
 
   const grid=$('#grid'),counter=$('#counter'),btnCart=$('#btnCart'),drawer=$('#drawer'),btnClose=$('#btnClose'),
         cartBody=$('#cartBody'),subtotalEl=$('#subtotal'),grandEl=$('#grand'),cCount=$('#cCount'),
@@ -205,6 +214,12 @@ window.addEventListener('DOMContentLoaded', () => {
     counter.innerHTML='Sellados Disponibles:';
   }
 
+  /* % ahorro cuando existe compareAtPrice válido */
+  const savePct = (p) =>
+    (p && p.compareAtPrice && p.compareAtPrice > p.price)
+      ? Math.round((1 - (p.price / p.compareAtPrice)) * 100)
+      : 0;
+
   function getList(){
     const list=[...PRODUCTS].sort((a,b)=>(b.stock|0)-(a.stock|0));
     counter.innerHTML='Sellados Disponibles:';
@@ -212,26 +227,48 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function render(){
-    grid.innerHTML=getList().map(p=>{
-      const low=(p.stock|0)>0&&(p.stock|0)<=3,oos=(p.stock|0)===0;
+    const list = getList();
+    grid.innerHTML = list.map((p, i) => {
+      const low = (p.stock|0)>0 && (p.stock|0)<=3, oos = (p.stock|0)===0;
+      const hasCompare = p.compareAtPrice && p.compareAtPrice > p.price;
+      const ahorro = savePct(p);
+
       return `<article class="product">
-        ${oos?`<span class="badge oos">Sin stock</span>`:low?`<span class="badge low">¡Quedan ${p.stock}!</span>`:''}
+        ${i<4 ? `<span class="badge cost">Oferta al costo</span>` : ''}
+        ${oos ? `<span class="badge oos">Sin stock</span>` : low ? `<span class="badge low">¡Quedan ${p.stock}!</span>` : ''}
         <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <div class="pad">
           <strong>${p.name}</strong>
           <span class="muted">${[p.set,p.type].filter(Boolean).join(' • ')}</span>
-          <span class="price">${fmt(p.price)}</span>
+
+          <div class="price-wrap">
+            <span class="price-new">${fmt(p.price)}</span>
+            ${hasCompare ? `<span class="price-old">${fmt(p.compareAtPrice)}</span>
+                            ${ahorro>0 ? `<span class="save-tag">Ahorra ${ahorro}%</span>`:''}` : ''}
+          </div>
+
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <button class="btn primary" data-add data-id="${p.id}" ${oos?'disabled':''}>Añadir</button>
             <button class="btn" data-view data-id="${p.id}">Ver detalle</button>
           </div>
         </div>
-      </article>`;}).join('')||'<p class="muted">Sin resultados.</p>';
+      </article>`;
+    }).join('') || '<p class="muted">Sin resultados.</p>';
   }
 
   function openModal(p){
     CURRENT=p;mTitle.textContent=p.name;mImage.src=p.image;mMeta.textContent=[p.set,p.type,p.category].filter(Boolean).join(' • ');
-    mPrice.textContent=fmt(p.price);mDesc.textContent=p.description||'';mQty.value=1;
+    const hasCompare = p.compareAtPrice && p.compareAtPrice > p.price;
+    const ahorro = savePct(p);
+    mPrice.innerHTML = `
+      <div class="price-wrap">
+        <span class="price-new">${fmt(p.price)}</span>
+        ${hasCompare ? `<span class="price-old">${fmt(p.compareAtPrice)}</span>
+                        ${ahorro>0 ? `<span class="save-tag">Ahorra ${ahorro}%</span>`:''}` : ''}
+      </div>
+    `;
+    mDesc.textContent=p.description||'';
+    mQty.value=1;
     const gal=Array.isArray(p.images)&&p.images.length?p.images:[p.image];
     mThumbs.innerHTML=gal.map(s=>`<img src="${s}" data-src="${s}" alt="thumb" loading="lazy">`).join('');
     modal.classList.add('open');
