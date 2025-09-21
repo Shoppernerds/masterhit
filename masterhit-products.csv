@@ -1,23 +1,24 @@
 id,name,set,type,category,price,compareAtPrice,stock,image,tags,source,createdAt
-etb-prismatic-en,Prismatic Evolutions,ETB,INGLÉS,ETB,49990,69990,10,img/etb-prismatic-en.webp,['ETB,'INGLÉS'],1,1
-etb-prismatic-es,Evoluciones Prismáticas,ETB,ESPAÑOL,ETB,49990,69990,10,img/etb-prismatic-es.webp,['ETB,'ESPAÑOL'],1,1
-etb-white-flare-en,White Flare,ETB,INGLÉS,ETB,49990,67990,10,img/etb-white-flare-en.webp,['ETB,'INGLÉS'],1,1
-etb-white-flare-en,Llama Blanca,ETB,ESPAÑOL,ETB,49990,67990,10,img/etb-white-flare-en.webp,['ETB,'ESPAÑOL'],1,1
-etb-black-bolt-en,Black Bolt,ETB,INGLÉS,ETB,49990,54990,10,img/etb-black-bolt-en.webp,['ETB,'INGLÉS'],1,1
-etb-black-bolt-es,Fulgor Negro,ETB,ESPAÑOL,ETB,49990,59990,10,img/etb-black-bolt-es.webp,['ETB,'ESPAÑOL'],1,1
-etb-aventuras-es,Journey Together,ETB,INGLÉS,ETB,49990,54990,10,img/etb-aventuras-es.webp,['ETB,'INGLÉS'],1,1
-etb-aventuras-es,Aventuras Compartidas,ETB,ESPAÑOL,ETB,49990,54990,10,img/etb-aventuras-es.webp,['ETB,'ESPAÑOL'],1,1
-etb-destined-es,Rivales Predestinados,ETB,ESPAÑOL,ETB,39990,54990,10,img/etb-destined-es.webp,['ETB,'ESPAÑOL'],1,1
-bin-white-flare-es,Llama Blanca,BINDER,ESPAÑOL,BINDER,34990,34990,10,img/bin-white-flare-es.webp,['BINDER,'ESPAÑOL'],1,1
-bin-black-bolt-es,Fulgor Negro,BINDER,ESPAÑOL,BINDER,34990,34990,10,img/bin-black-bolt-es.webp,['BINDER,'ESPAÑOL'],1,1
-special-charizardex-en,Charizard EX,SPECIAL,INGLÉS,SPECIAL,29990,29990,10,img/special-charizardex-en.webp,['SPECIAL,'INGLÉS'],1,1
-special-charizardex-en,Charizard EX,SPECIAL,ESPAÑOL,SPECIAL,29990,29990,10,img/special-charizardex-en.webp,['SPECIAL,'ESPAÑOL'],1,1
-poster-prismatic-en,Prismatic Evolutions,POSTER,ESPAÑOL,POSTER,19990,19990,10,img/poster-prismatic-en.webp,['POSTER,'ESPAÑOL'],1,1
-special-garchomp-en,Garchomp EX,SPECIAL,INGLÉS,SPECIAL,29990,29990,10,img/special-garchomp-en.webp,['SPECIAL,'INGLÉS'],1,1
-special-garchomp-en,Garchomp EX,SPECIAL,ESPAÑOL,SPECIAL,29990,29990,10,img/special-garchomp-en.webp,['SPECIAL,'ESPAÑOL'],1,1
-surprisebox-en,Prismatic Evolutions,SURPRISE BOX,INGLÉS,SURPRISE BOX,34990,34990,10,img/surprisebox-en.webp,['SURPRISE BOX,'INGLÉS'],1,1
-surprisebox-en,Prismatic Evolutions,SURPRISE BOX,ESPAÑOL,SURPRISE BOX,29990,29990,10,img/surprisebox-en.webp,['SURPRISE BOX,'ESPAÑOL'],1,1
+spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,['SPC,'INGLÉS'],1,1
+special-garchomp-en,Garchomp EX,SPECIAL,ESPAÑOL,SPECIAL,25000,34990,10,img/special-garchomp-en.webp,['SPECIAL,'ESPAÑOL'],1,1
+etb-destined-es,Rivales Predestinados,ETB,ESPAÑOL,ETB,40000,54990,10,img/etb-destined-es.webp,['ETB,'ESPAÑOL'],1,1
+special-charizardex-en,Charizard EX,SPECIAL,ESPAÑOL,SPECIAL,25000,34990,10,img/special-charizardex-en.webp,['SPECIAL,'ESPAÑOL'],1,1
+etb-prismatic-es,Evoluciones Prismáticas,ETB,ESPAÑOL,ETB,55000,69990,10,img/etb-prismatic-es.webp,['ETB,'ESPAÑOL'],1,1
+special-charizardex-en,Charizard EX,SPECIAL,INGLÉS,SPECIAL,28000,34990,10,img/special-charizardex-en.webp,['SPECIAL,'INGLÉS'],1,1
+poster-prismatic-en,Prismatic Evolutions,POSTER,ESPAÑOL,POSTER,18000,19990,10,img/poster-prismatic-en.webp,['POSTER,'ESPAÑOL'],1,1
+special-garchomp-en,Garchomp EX,SPECIAL,INGLÉS,SPECIAL,28000,35990,10,img/special-garchomp-en.webp,['SPECIAL,'INGLÉS'],1,1
+spc-prismatic-en,Evoluciones Prismáticas,SPC,ESPAÑOL,SPC,120000,179990,10,img/spc-prismatic-en.webp,['SPC,'ESPAÑOL'],1,1
+surprisebox-en,Prismatic Evolutions,SURPRISE BOX,INGLÉS,SURPRISE BOX,35000,39990,10,img/surprisebox-en.webp,['SURPRISE BOX,'INGLÉS'],1,1
+surprisebox-en,Prismatic Evolutions,SURPRISE BOX,ESPAÑOL,SURPRISE BOX,30000,34990,10,img/surprisebox-en.webp,['SURPRISE BOX,'ESPAÑOL'],1,1
 etb-megalucario-en,Mega Evolutions,ETB,INGLÉS,ETB,64990,29990,10,img/etb-megalucario-en.webp,['ETB,'INGLÉS'],1,1
 etb-megalucario-en,Megaevolución,ETB,ESPAÑOL,ETB,54990,29990,10,img/etb-megalucario-en.webp,['ETB,'ESPAÑOL'],1,1
 etb-megagardevoir-en,Mega Evolutions,ETB,INGLÉS,ETB,64990,29990,10,img/etb-megagardevoir-en.webp,['ETB,'INGLÉS'],1,1
 etb-megagardevoir-en,Megaevolución,ETB,ESPAÑOL,ETB,54990,29990,10,img/etb-megagardevoir-en.webp,['ETB,'ESPAÑOL'],1,1
+etb-white-flare-en,White Flare,ETB,INGLÉS,ETB,74990,79990,10,img/etb-white-flare-en.webp,['ETB,'INGLÉS'],1,1
+etb-white-flare-en,Llama Blanca,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-white-flare-en.webp,['ETB,'ESPAÑOL'],1,1
+etb-black-bolt-en,Black Bolt,ETB,INGLÉS,ETB,74990,79990,10,img/etb-black-bolt-en.webp,['ETB,'INGLÉS'],1,1
+etb-black-bolt-es,Fulgor Negro,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-black-bolt-es.webp,['ETB,'ESPAÑOL'],1,1
+etb-aventuras-es,Journey Together,ETB,INGLÉS,ETB,74990,79990,10,img/etb-aventuras-es.webp,['ETB,'INGLÉS'],1,1
+etb-aventuras-es,Aventuras Compartidas,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-aventuras-es.webp,['ETB,'ESPAÑOL'],1,1
+bin-white-flare-es,Llama Blanca,BINDER,ESPAÑOL,BINDER,34990,34990,10,img/bin-white-flare-es.webp,['BINDER,'ESPAÑOL'],1,1
+bin-black-bolt-es,Fulgor Negro,BINDER,ESPAÑOL,BINDER,34990,34990,10,img/bin-black-bolt-es.webp,['BINDER,'ESPAÑOL'],1,1
