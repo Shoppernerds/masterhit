@@ -9,9 +9,9 @@
         "compareAtPrice":  "69990",
         "stock":  "10",
         "image":  "img/etb-prismatic-en.webp",
-        "tags":  "[\u0027ETB\u0027",
-        "source":  "\u0027ES\u0027]",
-        "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027INGLÉS\u0027]",
+        "createdAt":  "1"
     },
     {
         "id":  "etb-prismatic-es",
@@ -23,9 +23,9 @@
         "compareAtPrice":  "69990",
         "stock":  "10",
         "image":  "img/etb-prismatic-es.webp",
-        "tags":  "[\u0027ETB\u0027",
-        "source":  "\u0027ES\u0027]",
-        "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
     },
     {
         "id":  "etb-white-flare-en",
@@ -37,9 +37,9 @@
         "compareAtPrice":  "67990",
         "stock":  "10",
         "image":  "img/etb-white-flare-en.webp",
-        "tags":  "[\u0027ETB\u0027",
-        "source":  "\u0027EN\u0027]",
-        "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027INGLÉS\u0027]",
+        "createdAt":  "1"
     },
     {
         "id":  "etb-white-flare-en",
@@ -51,9 +51,9 @@
         "compareAtPrice":  "67990",
         "stock":  "10",
         "image":  "img/etb-white-flare-en.webp",
-        "tags":  "[\u0027ETB\u0027",
-        "source":  "\u0027EN\u0027]",
-        "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
     },
     {
         "id":  "etb-black-bolt-en",
@@ -65,9 +65,9 @@
         "compareAtPrice":  "54990",
         "stock":  "10",
         "image":  "img/etb-black-bolt-en.webp",
-        "tags":  "[\u0027ETB\u0027",
-        "source":  "\u0027ES\u0027]",
-        "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027INGLÉS\u0027]",
+        "createdAt":  "1"
     },
     {
         "id":  "etb-black-bolt-es",
@@ -79,9 +79,9 @@
         "compareAtPrice":  "59990",
         "stock":  "10",
         "image":  "img/etb-black-bolt-es.webp",
-        "tags":  "[\u0027ETB\u0027",
-        "source":  "\u0027ES\u0027]",
-        "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
     },
     {
         "id":  "etb-aventuras-es",
@@ -93,9 +93,9 @@
         "compareAtPrice":  "54990",
         "stock":  "10",
         "image":  "img/etb-aventuras-es.webp",
-        "tags":  "[\u0027ETB\u0027",
-        "source":  "\u0027ES\u0027]",
-        "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027INGLÉS\u0027]",
+        "createdAt":  "1"
     },
     {
         "id":  "etb-aventuras-es",
@@ -107,8 +107,204 @@
         "compareAtPrice":  "54990",
         "stock":  "10",
         "image":  "img/etb-aventuras-es.webp",
-        "tags":  "[\u0027ETB\u0027",
-        "source":  "\u0027ES\u0027]",
-        "createdAt":  "https://collectorcenter.cl/collections/ver-todo-pokemon"
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "etb-destined-es",
+        "name":  "Rivales Predestinados",
+        "set":  "ETB",
+        "type":  "ESPAÑOL",
+        "category":  "ETB",
+        "price":  "39990",
+        "compareAtPrice":  "54990",
+        "stock":  "10",
+        "image":  "img/etb-destined-es.webp",
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "bin-white-flare-es",
+        "name":  "Llama Blanca",
+        "set":  "BINDER",
+        "type":  "ESPAÑOL",
+        "category":  "BINDER",
+        "price":  "34990",
+        "compareAtPrice":  "34990",
+        "stock":  "10",
+        "image":  "img/bin-white-flare-es.webp",
+        "tags":  "[\u0027BINDER",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "bin-black-bolt-es",
+        "name":  "Fulgor Negro",
+        "set":  "BINDER",
+        "type":  "ESPAÑOL",
+        "category":  "BINDER",
+        "price":  "34990",
+        "compareAtPrice":  "34990",
+        "stock":  "10",
+        "image":  "img/bin-black-bolt-es.webp",
+        "tags":  "[\u0027BINDER",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "special-charizardex-en",
+        "name":  "Charizard EX",
+        "set":  "SPECIAL",
+        "type":  "INGLÉS",
+        "category":  "SPECIAL",
+        "price":  "29990",
+        "compareAtPrice":  "29990",
+        "stock":  "10",
+        "image":  "img/special-charizardex-en.webp",
+        "tags":  "[\u0027SPECIAL",
+        "source":  "\u0027INGLÉS\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "special-charizardex-en",
+        "name":  "Charizard EX",
+        "set":  "SPECIAL",
+        "type":  "ESPAÑOL",
+        "category":  "SPECIAL",
+        "price":  "29990",
+        "compareAtPrice":  "29990",
+        "stock":  "10",
+        "image":  "img/special-charizardex-en.webp",
+        "tags":  "[\u0027SPECIAL",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "poster-prismatic-en",
+        "name":  "Prismatic Evolutions",
+        "set":  "POSTER",
+        "type":  "ESPAÑOL",
+        "category":  "POSTER",
+        "price":  "19990",
+        "compareAtPrice":  "19990",
+        "stock":  "10",
+        "image":  "img/poster-prismatic-en.webp",
+        "tags":  "[\u0027POSTER",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "special-garchomp-en",
+        "name":  "Garchomp EX",
+        "set":  "SPECIAL",
+        "type":  "INGLÉS",
+        "category":  "SPECIAL",
+        "price":  "29990",
+        "compareAtPrice":  "29990",
+        "stock":  "10",
+        "image":  "img/special-garchomp-en.webp",
+        "tags":  "[\u0027SPECIAL",
+        "source":  "\u0027INGLÉS\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "special-garchomp-en",
+        "name":  "Garchomp EX",
+        "set":  "SPECIAL",
+        "type":  "ESPAÑOL",
+        "category":  "SPECIAL",
+        "price":  "29990",
+        "compareAtPrice":  "29990",
+        "stock":  "10",
+        "image":  "img/special-garchomp-en.webp",
+        "tags":  "[\u0027SPECIAL",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "surprisebox-en",
+        "name":  "Prismatic Evolutions",
+        "set":  "SURPRISE BOX",
+        "type":  "INGLÉS",
+        "category":  "SURPRISE BOX",
+        "price":  "34990",
+        "compareAtPrice":  "34990",
+        "stock":  "10",
+        "image":  "img/surprisebox-en.webp",
+        "tags":  "[\u0027SURPRISE BOX",
+        "source":  "\u0027INGLÉS\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "surprisebox-en",
+        "name":  "Prismatic Evolutions",
+        "set":  "SURPRISE BOX",
+        "type":  "ESPAÑOL",
+        "category":  "SURPRISE BOX",
+        "price":  "29990",
+        "compareAtPrice":  "29990",
+        "stock":  "10",
+        "image":  "img/surprisebox-en.webp",
+        "tags":  "[\u0027SURPRISE BOX",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "etb-megalucario-en",
+        "name":  "Mega Evolutions",
+        "set":  "ETB",
+        "type":  "INGLÉS",
+        "category":  "ETB",
+        "price":  "64990",
+        "compareAtPrice":  "29990",
+        "stock":  "10",
+        "image":  "img/etb-megalucario-en.webp",
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027INGLÉS\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "etb-megalucario-en",
+        "name":  "Megaevolución",
+        "set":  "ETB",
+        "type":  "ESPAÑOL",
+        "category":  "ETB",
+        "price":  "54990",
+        "compareAtPrice":  "29990",
+        "stock":  "10",
+        "image":  "img/etb-megalucario-en.webp",
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "etb-megagardevoir-en",
+        "name":  "Mega Evolutions",
+        "set":  "ETB",
+        "type":  "INGLÉS",
+        "category":  "ETB",
+        "price":  "64990",
+        "compareAtPrice":  "29990",
+        "stock":  "10",
+        "image":  "img/etb-megagardevoir-en.webp",
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027INGLÉS\u0027]",
+        "createdAt":  "1"
+    },
+    {
+        "id":  "etb-megagardevoir-en",
+        "name":  "Megaevolución",
+        "set":  "ETB",
+        "type":  "ESPAÑOL",
+        "category":  "ETB",
+        "price":  "54990",
+        "compareAtPrice":  "29990",
+        "stock":  "10",
+        "image":  "img/etb-megagardevoir-en.webp",
+        "tags":  "[\u0027ETB",
+        "source":  "\u0027ESPAÑOL\u0027]",
+        "createdAt":  "1"
     }
 ]
