@@ -38,15 +38,11 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .controls{display:flex;flex-direction:column;gap:10px;padding:0 20px}
 .counter{color:var(--fg);font-weight:800;font-size:1.1rem;padding:10px 14px;border-left:3px solid var(--accent);border-radius:8px;background:#0f1116}
 
-/* NUEVA BARRA DE FILTROS */
-.filters-bar{display:grid;gap:8px}
-.filters-row{display:flex;gap:10px;align-items:center;flex-wrap:nowrap}
-.filters-row .label{color:#cdd3dd;white-space:nowrap}
-.chips-scroll{display:flex;gap:8px;overflow:auto;padding-bottom:2px;scroll-snap-type:x proximity}
-.chip{cursor:pointer;scroll-snap-align:start;border-radius:999px;border:1px solid var(--line);background:#0f1116;color:#fff;padding:8px 12px;white-space:nowrap}
+/* FILTRO (solo idioma) */
+.filters-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.filters-row .label{color:#cdd3dd}
+.chip{cursor:pointer;border-radius:999px;border:1px solid var(--line);background:#0f1116;color:#fff;padding:8px 12px}
 .chip.active{background:var(--accent);border-color:var(--accent)}
-.tools-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.tools-row .chip{padding:6px 12px}
 .clear-btn{margin-left:auto}
 
 /* GRID */
@@ -108,8 +104,6 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
 
 /* Mobile ≤640 */
 @media (max-width:640px){
-  .controls{gap:8px}
-  .chips-scroll{gap:6px}
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .product img{height:150px}
   .pad{padding:10px}
@@ -143,23 +137,13 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
 <div class="controls container">
   <span id="counter" class="counter">Sellados Disponibles:</span>
 
-  <!-- Filtros en 2 filas -->
-  <div class="filters-bar" role="toolbar" aria-label="Filtros">
-    <!-- Fila 1: SET -->
-    <div class="filters-row">
-      <span class="label">Set:</span>
-      <div id="rowSets" class="chips-scroll" aria-label="Filtrar por set">
-        <!-- chips por JS -->
-      </div>
+  <!-- SOLO FILTRO DE IDIOMA -->
+  <div class="filters-row" role="toolbar" aria-label="Filtros">
+    <span class="label">Idioma:</span>
+    <div id="rowLang">
+      <!-- chips por JS -->
     </div>
-    <!-- Fila 2: IDIOMA -->
-    <div class="filters-row tools-row">
-      <span class="label">Idioma:</span>
-      <div id="rowLang" class="chips-scroll" style="overflow:visible">
-        <!-- chips por JS -->
-      </div>
-      <button id="btnClear" class="chip clear-btn">Limpiar filtros</button>
-    </div>
+    <button id="btnClear" class="chip clear-btn">Limpiar filtros</button>
   </div>
 </div>
 
@@ -315,24 +299,45 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
 window.addEventListener('DOMContentLoaded', () => {
   const $=s=>document.querySelector(s),
         fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0),
-        uniq=(arr)=>Array.from(new Set(arr.map(x=>(x||'').trim()).filter(Boolean)));
+        uniq=(arr)=>Array.from(new Set(arr.map(x=>(x||'').trim()).filter(Boolean))),
+        nlatin=s=>(s||'').toString().normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
 
   let PRODUCTS=[], CART=JSON.parse(localStorage.getItem('mh_cart')||'[]'), CURRENT=null;
 
-  /* ====== DATOS BANCARIOS (edita) ====== */
+  /* ====== DATOS BANCARIOS ====== */
   const BANK = { holder:'MasterHit SpA', rut:'77.777.777-7', bank:'Banco Falabella', type:'Cuenta Vista', number:'12345678', email:'pagos@masterhit.cl', whatsapp:'+56975121963' };
 
-  /* ====== RANKING de sets (modifica según lo que ves que rota) ======
-     Estos aparecerán primeros en los chips de "Set". */
-  const TRENDING_SETS = [
-    'MEGA EVOLUTIONS','PRISMATIC EVOLUTIONS','151','SHROUDED FABLE',
-    'CROWN ZENITH','PARADOX RIFT','TEMPORAL FORCES','OBSIDIAN FLAMES',
-    'PALDEA EVOLVED','PARADOX RIFT', 'ULTRA PREMIUM', 'SPECIAL'
-  ].map(s=>s.toLowerCase());
+  /* ====== OFERTAS AL COSTO (FIJAS) ======
+     Puedes marcarlas por id, por nombre, o desde el JSON usando badgeCost:true */
+  const COST_OFFER_IDS = new Set([
+    'spc-prismatic',          // Prismatic Evolutions
+    'garchomp-ex',            // Garchomp EX
+    'charizard-ex',           // Charizard EX
+    'rivales-predestinados'   // Rivales Predestinados
+  ]);
+  const COST_OFFER_NAME_MATCH = [
+    'prismatic evolutions',
+    'garchomp ex',
+    'charizard ex',
+    'rivales predestinados'
+  ];
 
-  /* Estado de filtros: por SET e IDIOMA */
-  let ACTIVE_SET = 'ALL';
-  let ACTIVE_LANG = 'ALL';
+  function isCostOffer(p){
+    if(p && p.badgeCost===true) return true;
+    const id = nlatin(p?.id);
+    if(id && COST_OFFER_IDS.has(id)) return true;
+    const nm = nlatin(p?.name);
+    return COST_OFFER_NAME_MATCH.some(x=>nm.includes(x));
+  }
+
+  /* ====== PREVENTA (Mega Evolutions) ====== */
+  function isPreorder(p){
+    const nm=nlatin(p?.name);
+    return /\bmega[\s-]*evolutions?\b|\bmega[\s-]*evolucion(?:es)?\b/.test(nm);
+  }
+
+  /* ====== Estado filtro idioma ====== */
+  let ACTIVE_LANG='ALL';
 
   /* DOM refs */
   const grid=$('#grid'),counter=$('#counter'),
@@ -347,18 +352,17 @@ window.addEventListener('DOMContentLoaded', () => {
         coStreet=$('#coStreet'),coUnit=$('#coUnit'),coComuna=$('#coComuna'),coRef=$('#coRef'),coContact=$('#coContact'),
         coSlot=$('#coSlot'),coNotes=$('#coNotes'),coTerms=$('#coTerms'),coNext=$('#coNext'),coBack=$('#coBack'),coFinish=$('#coFinish'),
         coSummary=$('#coSummary'),coBank=$('#coBank'),btnCopySummary=$('#btnCopySummary'),btnCopyBank=$('#btnCopyBank'),btnWA=$('#btnWA'),
-        rowSets=$('#rowSets'),rowLang=$('#rowLang'),btnClear=$('#btnClear');
+        rowLang=$('#rowLang'),btnClear=$('#btnClear');
 
-  /* Demo fallback */
+  /* Fallback demo */
   const FALLBACK=[
-    {id:'spc-prismatic',name:'Prismatic Evolutions',set:'PRISMATIC EVOLUTIONS',type:'INGLÉS',price:140000,stock:8,image:'https://dummyimage.com/800x500/fff/000&text=Prismatic+Evolutions',compareAtPrice:179990},
-    {id:'charizard-ex',name:'Charizard EX',set:'SPECIAL',type:'INGLÉS',price:28000,stock:10,image:'https://dummyimage.com/800x500/fff/000&text=Charizard+EX',compareAtPrice:34990},
-    {id:'garchomp-ex',name:'Garchomp EX',set:'SPECIAL',type:'INGLÉS',price:28000,stock:6,image:'https://dummyimage.com/800x500/fff/000&text=Garchomp+EX',compareAtPrice:35990},
-    {id:'surprise-box',name:'Prismatic Evolutions',set:'SURPRISE BOX',type:'INGLÉS',price:35000,stock:12,image:'https://dummyimage.com/800x500/fff/000&text=Surprise+Box',compareAtPrice:39990},
-    {id:'mega-evo-upc',name:'Mega Evolutions UPC',set:'MEGA EVOLUTIONS',type:'ESPAÑOL',price:129990,stock:7,image:'https://dummyimage.com/800x500/fff/000&text=Mega+Evolutions+UPC',compareAtPrice:149990}
+    {id:'spc-prismatic',name:'Prismatic Evolutions',set:'SPC',type:'INGLÉS',price:140000,stock:8,image:'https://dummyimage.com/800x500/fff/000&text=Prismatic+Evolutions',compareAtPrice:179990},
+    {id:'garchomp-ex',name:'Garchomp EX',set:'SPECIAL',type:'ESPAÑOL',price:25000,stock:6,image:'https://dummyimage.com/800x500/fff/000&text=Garchomp+EX',compareAtPrice:34990},
+    {id:'rivales-predestinados',name:'Rivales Predestinados',set:'ETB',type:'ESPAÑOL',price:40000,stock:5,image:'https://dummyimage.com/800x500/fff/000&text=Rivales+Predestinados',compareAtPrice:54990},
+    {id:'charizard-ex',name:'Charizard EX',set:'SPECIAL',type:'ESPAÑOL',price:25000,stock:10,image:'https://dummyimage.com/800x500/fff/000&text=Charizard+EX',compareAtPrice:34990},
+    {id:'mega-evo-upc',name:'Mega Evolutions UPC',set:'UPC',type:'INGLÉS',price:129990,stock:7,image:'https://dummyimage.com/800x500/fff/000&text=Mega+Evolutions+UPC',compareAtPrice:149990}
   ];
 
-  /* Carga catálogo */
   async function loadCatalog(){
     try{
       const r=await fetch('./masterhit-products.json?_='+Date.now());
@@ -367,75 +371,32 @@ window.addEventListener('DOMContentLoaded', () => {
       PRODUCTS = Array.isArray(d)&&d.length? d : FALLBACK;
     }catch{ PRODUCTS=FALLBACK }
     counter.textContent='Sellados Disponibles:';
-    buildSetChips(); buildLangChips(); render(); updateBadge();
+    buildLangChips(); render(); updateBadge();
   }
 
-  /* -------- Utils -------- */
+  /* Helpers */
   const savePct = (p) => (p && p.compareAtPrice && p.compareAtPrice > p.price)
-      ? Math.round((1 - (p.price / p.compareAtPrice)) * 100) : 0;
+    ? Math.round((1 - (p.price / p.compareAtPrice)) * 100) : 0;
 
-  function isPreorder(p){
-    const name=(p?.name||'').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
-    return /\bmega[\s-]*evolutions?\b|\bmega[\s-]*evolucion(?:es)?\b/.test(name);
-  }
-
-  const nlower = s => (s||'').toString().trim().normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
-
-  /* Ordena sets: trending primero, luego por frecuencia, luego A-Z */
-  function sortSets(sets){
-    const freq = {};
-    PRODUCTS.forEach(p=>{ const key=nlower(p.set); if(!key) return; freq[key]=(freq[key]||0)+1; });
-
-    return [...sets].sort((a,b)=>{
-      const A = nlower(a), B = nlower(b);
-      const aT = TRENDING_SETS.indexOf(A), bT = TRENDING_SETS.indexOf(B);
-      if(aT>-1 || bT>-1){
-        if(aT===-1) return 1;
-        if(bT===-1) return -1;
-        if(aT!==bT) return aT-bT;
-      }
-      const fA=freq[A]||0, fB=freq[B]||0;
-      if(fA!==fB) return fB-fA;
-      return a.localeCompare(b);
-    });
-  }
-
-  /* -------- Filtros UI -------- */
-  function buildSetChips(){
-    const sets = sortSets(uniq(PRODUCTS.map(p=>p.set)));
-    const chips = [`<button class="chip ${ACTIVE_SET==='ALL'?'active':''}" data-set="ALL">Todos</button>`]
-      .concat(sets.map(s=>`<button class="chip ${nlower(ACTIVE_SET)===nlower(s)?'active':''}" data-set="${s}">${s}</button>`));
-    rowSets.innerHTML = chips.join('');
-  }
-
-  function buildLangChips(){
-    const langs = uniq(PRODUCTS.map(p=>p.type)).sort((a,b)=>a.localeCompare(b));
-    const chips = [`<button class="chip ${ACTIVE_LANG==='ALL'?'active':''}" data-lang="ALL">Todos</button>`]
-      .concat(langs.map(l=>`<button class="chip ${nlower(ACTIVE_LANG)===nlower(l)?'active':''}" data-lang="${l}">${l}</button>`));
-    rowLang.innerHTML = chips.join('');
-  }
+  function metaLine(p){ return uniq([p.set,p.type]).join(' • '); }
 
   function getList(){
     let list=[...PRODUCTS];
-    if(ACTIVE_SET!=='ALL')  list=list.filter(p=>nlower(p.set)===nlower(ACTIVE_SET));
-    if(ACTIVE_LANG!=='ALL') list=list.filter(p=>nlower(p.type)===nlower(ACTIVE_LANG));
+    if(ACTIVE_LANG!=='ALL'){ list=list.filter(p=>nlatin(p.type)===nlatin(ACTIVE_LANG)); }
     return list.sort((a,b)=>(b.stock|0)-(a.stock|0));
-  }
-
-  function metaLine(p){
-    // Mostrar valores únicos y no vacíos: SET • IDIOMA
-    return uniq([p.set, p.type]).join(' • ');
   }
 
   function render(){
     const list=getList();
-    grid.innerHTML = list.map((p,i)=>{
+    grid.innerHTML = list.map((p)=>{
       const low=(p.stock|0)>0 && (p.stock|0)<=3, oos=(p.stock|0)===0;
-      const hasCompare=p.compareAtPrice && p.compareAtPrice > p.price;
-      const ahorro=savePct(p), preorder=isPreorder(p);
+      const hasCompare=p.compareAtPrice && p.compareAtPrice>p.price;
+      const ahorro=savePct(p);
+      const preorder=isPreorder(p);
+      const cost=isCostOffer(p);
 
       return `<article class="product">
-        ${i<4 ? `<span class="badge cost">Oferta al costo</span>` : ``}
+        ${cost ? `<span class="badge cost">Oferta al costo</span>` : ``}
         ${preorder ? `<span class="badge preorder" title="Entrega desde 26/09">Preventa 26/09</span>` : ``}
         ${oos?`<span class="badge oos">Sin stock</span>`:low?`<span class="badge low">¡Quedan ${p.stock}!</span>`:''}
         <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
@@ -444,7 +405,7 @@ window.addEventListener('DOMContentLoaded', () => {
           <span class="muted">${metaLine(p)}</span>
           <div class="price-wrap">
             <span class="price-new">${fmt(p.price)}</span>
-            ${hasCompare ? `<span class="price-old">${fmt(p.compareAtPrice)}</span>${ahorro>0?`<span class="save-tag">Ahorra ${ahorro}%</span>`:''}`:``}
+            ${hasCompare?`<span class="price-old">${fmt(p.compareAtPrice)}</span>${ahorro>0?`<span class="save-tag">Ahorra ${ahorro}%</span>`:''}`:''}
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <button class="btn primary" data-add data-id="${p.id}" ${oos?'disabled':''}>Añadir</button>
@@ -455,7 +416,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }).join('') || '<p class="muted">Sin resultados.</p>';
   }
 
-  /* -------- Carrito -------- */
+  /* ====== Carrito ====== */
   function saveCart(){localStorage.setItem('mh_cart',JSON.stringify(CART))}
   function cartLines(){return CART.map(it=>{const p=PRODUCTS.find(x=>x.id===it.id)||{};return {...p,qty:it.qty,lineTotal:(p.price||0)*it.qty};})}
   function cartSubtotal(){return cartLines().reduce((s,l)=>s+l.lineTotal,0)}
@@ -487,11 +448,11 @@ window.addEventListener('DOMContentLoaded', () => {
   function openCart(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');drawCart()}
   function closeCart(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true')}
 
-  /* -------- Modal producto -------- */
+  /* ====== Modal producto ====== */
   function openModal(p){
     CURRENT=p;mTitle.textContent=p.name;mImage.src=p.image;mMeta.textContent=metaLine(p);
     const hasCompare = p.compareAtPrice && p.compareAtPrice > p.price;
-    const ahorro = savePct(p);
+    const ahorro = hasCompare ? Math.round((1 - (p.price / p.compareAtPrice)) * 100) : 0;
     mPrice.innerHTML = `<div class="price-wrap"><span class="price-new">${fmt(p.price)}</span>${hasCompare?`<span class="price-old">${fmt(p.compareAtPrice)}</span>${ahorro>0?`<span class="save-tag">Ahorra ${ahorro}%</span>`:''}`:''}</div>`;
     mDesc.textContent=p.description||''; mQty.value=1;
     const gal=Array.isArray(p.images)&&p.images.length?p.images:[p.image];
@@ -500,7 +461,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
   function closeModal(){modal.classList.remove('open');CURRENT=null;}
 
-  /* -------- Checkout (transferencia) -------- */
+  /* ====== Checkout (transferencia) ====== */
   function openCheckout(){
     if(CART.length===0){alert('Tu carrito está vacío.');return;}
     drawer.classList.remove('open');
@@ -544,7 +505,7 @@ Email envío comprobante: ${BANK.email}`;
   }
   function toWA(text){ return `https://wa.me/${BANK.whatsapp.replace(/[^0-9]/g,'')}?text=${encodeURIComponent(text)}`; }
 
-  /* -------- Eventos -------- */
+  /* ====== Eventos ====== */
   btnCart.addEventListener('click',openCart);
   btnClose.addEventListener('click',closeCart);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeModal();closeCheckout()}});
@@ -570,6 +531,7 @@ Email envío comprobante: ${BANK.email}`;
   mAdd.addEventListener('click',()=>{if(CURRENT) addToCart(CURRENT.id,+mQty.value||1)});
   mView.addEventListener('click',()=>{if(CURRENT) window.open(CURRENT.image||(CURRENT.images&&CURRENT.images[0])||'', '_blank')});
 
+  // Checkout
   btnCheckout.addEventListener('click',openCheckout);
   coClose.addEventListener('click',closeCheckout);
   coModal.addEventListener('click',e=>{if(e.target===coModal) closeCheckout()});
@@ -595,14 +557,13 @@ Email envío comprobante: ${BANK.email}`;
     CART=[]; saveCart(); updateBadge(); drawCart(); closeCheckout();
   });
 
-  /* Filtros: listeners */
-  rowSets.addEventListener('click',e=>{
-    const chip=e.target.closest('.chip'); if(!chip) return;
-    const s=chip.dataset.set; if(typeof s==='undefined') return;
-    ACTIVE_SET=(s==='ALL')?'ALL':s;
-    rowSets.querySelectorAll('.chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active');
-    render();
-  });
+  // Filtro idioma
+  function buildLangChips(){
+    const langs = uniq(PRODUCTS.map(p=>p.type)).sort((a,b)=>a.localeCompare(b));
+    const chips = [`<button class="chip ${ACTIVE_LANG==='ALL'?'active':''}" data-lang="ALL">Todos</button>`]
+      .concat(langs.map(l=>`<button class="chip ${nlatin(ACTIVE_LANG)===nlatin(l)?'active':''}" data-lang="${l}">${l}</button>`));
+    rowLang.innerHTML = chips.join('');
+  }
   rowLang.addEventListener('click',e=>{
     const chip=e.target.closest('.chip'); if(!chip) return;
     const l=chip.dataset.lang; if(typeof l==='undefined') return;
@@ -610,11 +571,9 @@ Email envío comprobante: ${BANK.email}`;
     rowLang.querySelectorAll('.chip').forEach(c=>c.classList.remove('active')); chip.classList.add('active');
     render();
   });
-  btnClear.addEventListener('click',()=>{
-    ACTIVE_SET='ALL'; ACTIVE_LANG='ALL'; buildSetChips(); buildLangChips(); render();
-  });
+  btnClear.addEventListener('click',()=>{ACTIVE_LANG='ALL'; buildLangChips(); render();});
 
-  /* Init */
+  // Init
   (async()=>{await loadCatalog()})();
 });
 </script>
