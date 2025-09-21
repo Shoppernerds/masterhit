@@ -8,6 +8,7 @@
 <meta property="og:title" content="MasterHit | Cartas Pokémon en Chile">
 <meta property="og:description" content="Cajas selladas, ETB, boosters y singles. Envíos a todo Chile.">
 <meta property="og:type" content="website">
+
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='128' r='120' fill='%23e60000'/%3E%3Ccircle cx='128' cy='128' r='88' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='40' fill='%23000'/%3E%3C/svg%3E">
 <style>
 :root{--bg:#0b0b0c;--card:#111215;--muted:#9aa2ae;--line:#20242b;--fg:#f5f7fb;--accent:#e60000;--accent-2:#fff;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.45)}
@@ -39,6 +40,15 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 /* CONTROLS + GRID */
 .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:0 20px}
 .counter{color:var(--fg);font-weight:800;font-size:1.1rem;padding:10px 14px;border-left:3px solid var(--accent);border-radius:8px;background:#0f1116}
+
+/* Filtros */
+.filters-wrap{display:flex;gap:14px;align-items:center;margin-left:auto;flex-wrap:wrap}
+.filters-group{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.filter-label{font-size:.95rem;color:#cdd3dd;margin-right:6px}
+.filter-btn{cursor:pointer;border-radius:999px;border:1px solid var(--line);background:#0f1116;color:#fff;padding:8px 12px;font-size:.9rem}
+.filter-btn.active{background:var(--accent);border-color:var(--accent)}
+
+/* Grid */
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:20px}
 .product{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;position:relative}
 .product img{height:200px;object-fit:contain;background:#fff}
@@ -47,6 +57,8 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .badge{background:var(--accent);color:#fff;padding:4px 8px;border-radius:6px;font-size:.8rem;position:absolute;margin:6px}
 .badge.low{background:rgba(245,158,11,.15);color:#fde68a;border:1px solid rgba(245,158,11,.35)}
 .badge.oos{background:#444;color:#ddd;border:1px solid #666}
+/* Preventa */
+.badge.preorder{right:6px;top:6px;background:linear-gradient(90deg,#e60000,#b60000);border:1px solid rgba(255,255,255,.15)}
 
 /* --- Precios con compareAtPrice --- */
 .price-wrap{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
@@ -120,6 +132,16 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
 <!-- CONTROLS -->
 <div class="controls container">
   <span id="counter" class="counter">Sellados Disponibles:</span>
+
+  <!-- Filtros (misma altura que el counter) -->
+  <div class="filters-wrap" role="toolbar" aria-label="Filtros de catálogo">
+    <div class="filters-group" id="filtersCat" aria-label="Filtrar por categoría">
+      <!-- Botones de categoría por JS -->
+    </div>
+    <div class="filters-group" id="filtersType" aria-label="Filtrar por tipo/idioma">
+      <!-- Botones de tipo/idioma por JS -->
+    </div>
+  </div>
 </div>
 
 <!-- GRID -->
@@ -192,13 +214,18 @@ window.addEventListener('DOMContentLoaded', () => {
   const $=s=>document.querySelector(s), fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0);
   let PRODUCTS=[], CART=JSON.parse(localStorage.getItem('mh_cart')||'[]'), CURRENT=null;
 
-  const FALLBACK=[{id:'etb-151',name:'Elite Trainer Box 151',set:'SV151',price:49990,stock:12,image:'https://dummyimage.com/600x400/fff/000&text=ETB+151',compareAtPrice:59990},
-    {id:'upc-charizard',name:'Ultra Premium Charizard',set:'Promo',price:129990,stock:5,image:'https://dummyimage.com/600x400/fff/000&text=UPC+Charizard',compareAtPrice:149990},
-    {id:'booster-box',name:'Booster Box Scarlet & Violet',set:'SV Base',price:159990,stock:3,image:'https://dummyimage.com/600x400/fff/000&text=Booster+Box',compareAtPrice:179990}];
+  // Estado de filtros
+  let ACTIVE_CATEGORY = 'ALL';
+  let ACTIVE_TYPE = 'ALL';
+
+  const FALLBACK=[{id:'etb-151',name:'Elite Trainer Box 151',set:'SV151',category:'Elite Trainer Box',type:'INGLÉS',price:49990,stock:12,image:'https://dummyimage.com/600x400/fff/000&text=ETB+151',compareAtPrice:59990},
+    {id:'upc-charizard',name:'Ultra Premium Charizard',set:'Promo',category:'Ultra Premium Collection',type:'INGLÉS',price:129990,stock:5,image:'https://dummyimage.com/600x400/fff/000&text=UPC+Charizard',compareAtPrice:149990},
+    {id:'booster-box',name:'Booster Box Scarlet & Violet',set:'SV Base',category:'Booster Box',type:'ESPAÑOL',price:159990,stock:3,image:'https://dummyimage.com/600x400/fff/000&text=Booster+Box',compareAtPrice:179990}];
 
   const grid=$('#grid'),counter=$('#counter'),btnCart=$('#btnCart'),drawer=$('#drawer'),btnClose=$('#btnClose'),
         cartBody=$('#cartBody'),subtotalEl=$('#subtotal'),grandEl=$('#grand'),cCount=$('#cCount'),
         btnCheckout=$('#btnCheckout'),
+        filtersCatEl=$('#filtersCat'),filtersTypeEl=$('#filtersType'),
         modal=$('#modal'),mClose=$('#mClose'),mTitle=$('#mTitle'),mImage=$('#mImage'),mThumbs=$('#mThumbs'),
         mMeta=$('#mMeta'),mPrice=$('#mPrice'),mQty=$('#mQty'),mDec=$('#mDec'),mInc=$('#mInc'),mAdd=$('#mAdd'),mView=$('#mView'),mDesc=$('#mDesc');
 
@@ -211,18 +238,75 @@ window.addEventListener('DOMContentLoaded', () => {
     }catch{
       PRODUCTS=FALLBACK
     }
-    counter.innerHTML='Sellados Disponibles:';
+    counter.textContent='Sellados Disponibles:';
+    buildCategoryFilters();
+    buildTypeFilters(); // inicial (ALL categories)
   }
 
-  /* % ahorro cuando existe compareAtPrice válido */
+  /* util: % ahorro */
   const savePct = (p) =>
     (p && p.compareAtPrice && p.compareAtPrice > p.price)
       ? Math.round((1 - (p.price / p.compareAtPrice)) * 100)
       : 0;
 
+  /* util: detectar preventa Mega Evolutions */
+  function isPreorder(p){
+    if(!p || !p.name) return false;
+    const name = (p.name+'').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+    return /megaevolutions|megaevolucion/.test(name);
+  }
+
+  /* Normalizadores */
+  const norm = s => (s||'').toString().trim();
+  const normLower = s => norm(s).normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+
+  /* Filtros por categoría */
+  function buildCategoryFilters(){
+    const cats = Array.from(new Set(
+      PRODUCTS.map(p=> norm(p.category)).filter(Boolean)
+    )).sort((a,b)=>a.localeCompare(b));
+    const buttons = [
+      `<span class="filter-label">Categoría:</span>`,
+      `<button class="filter-btn ${ACTIVE_CATEGORY==='ALL'?'active':''}" data-cat="ALL">Todos</button>`,
+      ...cats.map(c=>`<button class="filter-btn ${normLower(ACTIVE_CATEGORY)===normLower(c)?'active':''}" data-cat="${c}">${c}</button>`)
+    ].join('');
+    filtersCatEl.innerHTML = buttons;
+  }
+
+  /* Filtros por tipo/idioma (encadenado a categoría) */
+  function buildTypeFilters(){
+    // Considerar la categoría activa para calcular tipos disponibles
+    let base = [...PRODUCTS];
+    if(ACTIVE_CATEGORY!=='ALL'){
+      base = base.filter(p => normLower(p.category)===normLower(ACTIVE_CATEGORY));
+    }
+    const types = Array.from(new Set(
+      base.map(p=> norm(p.type)).filter(Boolean)
+    )).sort((a,b)=>a.localeCompare(b));
+    // Si el tipo activo ya no existe dentro de la categoría, volver a ALL
+    if(ACTIVE_TYPE!=='ALL' && !types.some(t=>normLower(t)===normLower(ACTIVE_TYPE))){
+      ACTIVE_TYPE='ALL';
+    }
+    const buttons = [
+      `<span class="filter-label">Tipo/Idioma:</span>`,
+      `<button class="filter-btn ${ACTIVE_TYPE==='ALL'?'active':''}" data-type="ALL">Todos</button>`,
+      ...types.map(t=>`<button class="filter-btn ${normLower(ACTIVE_TYPE)===normLower(t)?'active':''}" data-type="${t}">${t}</button>`)
+    ].join('');
+    filtersTypeEl.innerHTML = buttons;
+  }
+
   function getList(){
-    const list=[...PRODUCTS].sort((a,b)=>(b.stock|0)-(a.stock|0));
-    counter.innerHTML='Sellados Disponibles:';
+    let list=[...PRODUCTS];
+
+    if(ACTIVE_CATEGORY!=='ALL'){
+      list = list.filter(p => normLower(p.category) === normLower(ACTIVE_CATEGORY));
+    }
+    if(ACTIVE_TYPE!=='ALL'){
+      list = list.filter(p => normLower(p.type) === normLower(ACTIVE_TYPE));
+    }
+
+    list.sort((a,b)=>(b.stock|0)-(a.stock|0));
+    counter.textContent='Sellados Disponibles:';
     return list;
   }
 
@@ -232,14 +316,16 @@ window.addEventListener('DOMContentLoaded', () => {
       const low = (p.stock|0)>0 && (p.stock|0)<=3, oos = (p.stock|0)===0;
       const hasCompare = p.compareAtPrice && p.compareAtPrice > p.price;
       const ahorro = savePct(p);
+      const preorder = isPreorder(p);
 
       return `<article class="product">
         ${i<4 ? `<span class="badge cost">Oferta al costo</span>` : ''}
+        ${preorder ? `<span class="badge preorder">Preventa desde 26/09</span>` : ''}
         ${oos ? `<span class="badge oos">Sin stock</span>` : low ? `<span class="badge low">¡Quedan ${p.stock}!</span>` : ''}
         <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <div class="pad">
           <strong>${p.name}</strong>
-          <span class="muted">${[p.set,p.type].filter(Boolean).join(' • ')}</span>
+          <span class="muted">${[p.set,p.type,p.category].filter(Boolean).join(' • ')}</span>
 
           <div class="price-wrap">
             <span class="price-new">${fmt(p.price)}</span>
@@ -333,6 +419,33 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   cartBody.addEventListener('change',e=>{const i=e.target.closest('[data-q]'); if(i){setQty(i.dataset.q,+i.value||1)}});
 
+  // Filtros (delegación)
+  filtersCatEl.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+    const cat = btn.dataset.cat;
+    if(typeof cat === 'undefined') return;
+    ACTIVE_CATEGORY = (cat==='ALL') ? 'ALL' : cat;
+    // activar botón
+    filtersCatEl.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    // reconstruir tipos en base a la nueva categoría
+    buildTypeFilters();
+    render();
+  });
+
+  filtersTypeEl.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.filter-btn');
+    if(!btn) return;
+    const tp = btn.dataset.type;
+    if(typeof tp === 'undefined') return;
+    ACTIVE_TYPE = (tp==='ALL') ? 'ALL' : tp;
+    // activar botón
+    filtersTypeEl.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+  });
+
   // Modal
   mClose.addEventListener('click',closeModal);
   modal.addEventListener('click',e=>{if(e.target===modal) closeModal()});
@@ -346,4 +459,3 @@ window.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-
