@@ -21,11 +21,9 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .nav-inner{display:flex;gap:12px;align-items:center;justify-content:space-between;padding:14px 20px}
 .brand{display:flex;gap:10px;align-items:center;font-weight:800;color:var(--accent-2)}
 /* Pokébola */
-.brand-badge{position:relative;width:28px;height:28px;border-radius:999px;background:
-  linear-gradient(#e60000 0 50%, #fff 50% 100%);
-  box-shadow:0 0 0 3px #000,0 0 0 6px #fff;overflow:hidden}
+.brand-badge{position:relative;width:28px;height:28px;border-radius:999px;background:linear-gradient(#e60000 0 50%, #fff 50% 100%);box-shadow:0 0 0 3px #000,0 0 0 6px #fff;overflow:hidden}
 .brand-badge:before{content:"";position:absolute;left:0;right:0;top:50%;height:3px;background:#000;transform:translateY(-50%)}
-.brand-badge:after{content:"";position:absolute;inset:0;display:block;margin:auto;width:10px;height:10px;border-radius:50%;background:#000;box-shadow:0 0 0 3px #fff,0 0 0 5px #000}
+.brand-badge:after{content:"";position:absolute;inset:0;margin:auto;width:10px;height:10px;border-radius:50%;background:#000;box-shadow:0 0 0 3px #fff,0 0 0 5px #000}
 
 /* Buttons */
 .btn{cursor:pointer;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:10px 14px;display:inline-flex;align-items:center;gap:8px}
@@ -41,7 +39,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;padding:0 20px}
 .counter{color:var(--fg);font-weight:800;font-size:1.1rem;padding:10px 14px;border-left:3px solid var(--accent);border-radius:8px;background:#0f1116}
 
-/* Filtros */
+/* Filtros (categoría + tipo/idioma) */
 .filters-wrap{display:flex;gap:14px;align-items:center;margin-left:auto;flex-wrap:wrap}
 .filters-group{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .filter-label{font-size:.95rem;color:#cdd3dd;margin-right:6px}
@@ -57,25 +55,22 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .badge{background:var(--accent);color:#fff;padding:4px 8px;border-radius:6px;font-size:.8rem;position:absolute;margin:6px}
 .badge.low{background:rgba(245,158,11,.15);color:#fde68a;border:1px solid rgba(245,158,11,.35)}
 .badge.oos{background:#444;color:#ddd;border:1px solid #666}
-/* Preventa */
-.badge.preorder{right:6px;top:6px;background:linear-gradient(90deg,#e60000,#b60000);border:1px solid rgba(255,255,255,.15)}
+/* Preventa (más pequeña + nuevo texto) */
+.badge.preorder{right:6px;top:6px;background:linear-gradient(90deg,#e60000,#b60000);border:1px solid rgba(255,255,255,.15);padding:3px 6px;font-size:.72rem}
 
-/* --- Precios con compareAtPrice --- */
+/* Precios */
 .price-wrap{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .price-new{font-weight:900;font-size:1.05rem;color:#fff}
 .price-old{color:var(--muted);text-decoration:line-through}
 .save-tag{background:rgba(230,0,0,.15);color:#fff;border:1px solid rgba(230,0,0,.35);padding:2px 8px;border-radius:999px;font-size:.75rem}
 
-/* Badge “oferta insuperable” */
-.badge.cost{background:linear-gradient(90deg,#e60000,#b60000);border:1px solid rgba(255,255,255,.15)}
-
-/* Drawer */
+/* Drawer carrito */
 .drawer{position:fixed;right:0;top:0;height:100%;width:420px;max-width:100%;background:#111;color:#fff;border-left:2px solid var(--accent);transform:translateX(100%);transition:.3s;z-index:100;display:flex;flex-direction:column}
 .drawer.open{transform:translateX(0)}
 .row{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px}
 .row img{width:64px;height:64px;object-fit:contain;background:#fff}
 
-/* Modal */
+/* Modal genérico */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:90}
 .modal.open{display:grid}
 .modal-card{width:min(900px,95vw);background:#111;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
@@ -84,25 +79,36 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .thumbs img{width:64px;height:64px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;cursor:pointer}
 @media (max-width:800px){.modal-body{grid-template-columns:1fr}}
 
+/* CHECKOUT modal */
+.checkout-card{width:min(780px,95vw);background:#111;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.checkout-body{padding:16px;display:grid;gap:16px}
+.section{border:1px solid var(--line);border-radius:12px;padding:12px}
+.section h3{margin:0 0 8px 0;font-size:1rem}
+.input, select, textarea{width:100%;border-radius:10px;border:1px solid var(--line);background:#0f1116;color:#fff;padding:10px}
+.input::placeholder, textarea::placeholder{color:#9aa2ae}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.help{font-size:.85rem;color:#9aa2ae}
+.flex{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.badge-inline{background:#0f1116;border:1px solid var(--line);border-radius:999px;padding:6px 10px}
+.code{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;background:#0f1116;border:1px dashed var(--line);padding:8px;border-radius:8px}
+
 /* Footer */
 footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;gap:6px}
 .footer-title{font-weight:800;font-size:1.1rem}
 
-/* —— Desktop intacto —— */
+/* Desktop */
 @media (min-width:768px){
   .footer-inner{grid-template-columns:1fr auto;align-items:center}
   .footer-btn{justify-self:end}
 }
 
-/* —— SOLO MOBILE ≤640px —— */
+/* Mobile ≤640 */
 @media (max-width:640px){
-  /* productos en 2 columnas */
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .product img{height:150px}
   .pad{padding:10px}
-
-  /* botón arriba, centrado; datos debajo y centrados */
   .footer-inner{grid-template-columns:1fr;gap:10px;text-align:center}
   .footer-btn{grid-row:1;justify-self:center;margin-bottom:10px}
   .footer-info{grid-row:2}
@@ -132,15 +138,10 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
 <!-- CONTROLS -->
 <div class="controls container">
   <span id="counter" class="counter">Sellados Disponibles:</span>
-
   <!-- Filtros (misma altura que el counter) -->
   <div class="filters-wrap" role="toolbar" aria-label="Filtros de catálogo">
-    <div class="filters-group" id="filtersCat" aria-label="Filtrar por categoría">
-      <!-- Botones de categoría por JS -->
-    </div>
-    <div class="filters-group" id="filtersType" aria-label="Filtrar por tipo/idioma">
-      <!-- Botones de tipo/idioma por JS -->
-    </div>
+    <div class="filters-group" id="filtersCat" aria-label="Filtrar por categoría"></div>
+    <div class="filters-group" id="filtersType" aria-label="Filtrar por tipo/idioma"></div>
   </div>
 </div>
 
@@ -159,12 +160,12 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   <div style="padding:12px;border-top:1px solid var(--line)">
     <div>Subtotal: <strong id="subtotal">—</strong></div>
     <div>Total: <strong id="grand">—</strong></div>
-    <button id="btnCheckout" class="btn primary" style="margin-top:10px;width:100%">Proceder a pago (Webpay)</button>
-    <small class="muted">* Simulado; conecta tu backend Webpay en <span class="link">/api/pay/webpay/create</span>.</small>
+    <button id="btnCheckout" class="btn primary" style="margin-top:10px;width:100%">Proceder a pago (Transferencia)</button>
+    <small class="muted">* Único medio de pago: transferencia bancaria.</small>
   </div>
 </aside>
 
-<!-- MODAL DETALLE -->
+<!-- MODAL DETALLE PRODUCTO -->
 <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Detalle de producto">
   <div class="modal-card">
     <header style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)">
@@ -194,6 +195,131 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   </div>
 </div>
 
+<!-- MODAL CHECKOUT (Datos + Confirmación) -->
+<div id="checkout" class="modal" role="dialog" aria-modal="true" aria-label="Checkout">
+  <div class="checkout-card">
+    <header style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)">
+      <strong>Finalizar compra (Transferencia)</strong>
+      <button id="coClose" class="btn" aria-label="Cerrar checkout">✕</button>
+    </header>
+    <div class="checkout-body">
+      <!-- Paso 1: Datos -->
+      <div class="section" id="coStep1">
+        <h3>1) Tus datos y entrega</h3>
+        <div class="grid-2">
+          <div>
+            <label>Nombre y Apellido</label>
+            <input id="coName" class="input" placeholder="Ej: Jorge Gálvez" autocomplete="name">
+          </div>
+          <div>
+            <label>RUT</label>
+            <input id="coRut" class="input" placeholder="11111111-1">
+          </div>
+        </div>
+        <div class="grid-2">
+          <div>
+            <label>WhatsApp</label>
+            <input id="coPhone" class="input" placeholder="+56 9 1234 5678" autocomplete="tel">
+          </div>
+          <div>
+            <label>Email</label>
+            <input id="coEmail" class="input" placeholder="tucorreo@dominio.cl" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <label>Método de entrega</label>
+            <select id="coMethod" class="input">
+              <option value="retiro">Retiro en Valle Grande (Lampa)</option>
+              <option value="despacho">Despacho Zona Norte de Santiago</option>
+            </select>
+            <p class="help">Retiro: <span class="badge-inline">Los Nogales 1135, Valle Grande, Lampa</span></p>
+          </div>
+          <div>
+            <label>Horario preferido</label>
+            <select id="coSlot" class="input">
+              <option>Mañana (10:00–13:00)</option>
+              <option>Tarde (14:00–18:00)</option>
+              <option>Noche (18:00–21:00)</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="coAddressWrap" class="section" style="display:none;margin-top:6px">
+          <h3>Dirección de entrega</h3>
+          <div class="grid-2">
+            <div>
+              <label>Calle y número</label>
+              <input id="coStreet" class="input" placeholder="Ej: Av. Principal 1234">
+            </div>
+            <div>
+              <label>Depto / Casa / Block</label>
+              <input id="coUnit" class="input" placeholder="Ej: Depto 504, Torre B">
+            </div>
+          </div>
+          <div class="grid-3">
+            <div>
+              <label>Comuna</label>
+              <input id="coComuna" class="input" placeholder="Ej: Lampa / Quilicura / Colina">
+            </div>
+            <div>
+              <label>Referencia</label>
+              <input id="coRef" class="input" placeholder="Ej: Portón negro, cerca de plaza">
+            </div>
+            <div>
+              <label>Contacto en domicilio</label>
+              <input id="coContact" class="input" placeholder="Ej: Juan Pérez">
+            </div>
+          </div>
+          <p class="help">* El costo de despacho se confirma por WhatsApp antes de transferir.</p>
+        </div>
+
+        <div>
+          <label>Notas</label>
+          <textarea id="coNotes" class="input" rows="2" placeholder="Indícanos cualquier detalle adicional"></textarea>
+        </div>
+
+        <label style="display:flex;gap:8px;align-items:center">
+          <input type="checkbox" id="coTerms"> Acepto términos de compra y política de cambios.
+        </label>
+
+        <div class="flex" style="justify-content:flex-end">
+          <button id="coNext" class="btn primary">Continuar</button>
+        </div>
+      </div>
+
+      <!-- Paso 2: Confirmación + Transferencia -->
+      <div class="section" id="coStep2" style="display:none">
+        <h3>2) Confirma y transfiere</h3>
+        <div class="grid-2">
+          <div>
+            <strong>Resumen del pedido</strong>
+            <div id="coSummary" class="code" style="margin-top:8px;white-space:pre-wrap"></div>
+            <div class="flex" style="margin-top:8px">
+              <button id="btnCopySummary" class="btn">Copiar resumen</button>
+            </div>
+          </div>
+          <div>
+            <strong>Datos para Transferencia</strong>
+            <div id="coBank" class="code" style="margin-top:8px"></div>
+            <div class="flex" style="margin-top:8px">
+              <button id="btnCopyBank" class="btn">Copiar datos</button>
+              <a id="btnWA" class="btn primary" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+            </div>
+            <p class="help" style="margin-top:8px">Adjunta el comprobante. Validamos y coordinamos entrega/Despacho 24h Zona Norte.</p>
+          </div>
+        </div>
+
+        <div class="flex" style="justify-content:space-between">
+          <button id="coBack" class="btn">Volver</button>
+          <button id="coFinish" class="btn primary">He transferido / Finalizar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -214,20 +340,45 @@ window.addEventListener('DOMContentLoaded', () => {
   const $=s=>document.querySelector(s), fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0);
   let PRODUCTS=[], CART=JSON.parse(localStorage.getItem('mh_cart')||'[]'), CURRENT=null;
 
-  // Estado de filtros
-  let ACTIVE_CATEGORY = 'ALL';
-  let ACTIVE_TYPE = 'ALL';
+  /* ====== EDITA TUS DATOS BANCARIOS AQUÍ ====== */
+  const BANK = {
+    holder: 'MasterHit SpA',
+    rut: '77.777.777-7',
+    bank: 'Banco Falabella',
+    type: 'Cuenta Vista',
+    number: '12345678',
+    email: 'pagos@masterhit.cl',
+    whatsapp: '+56975121963'
+  };
+  /* ============================================ */
 
-  const FALLBACK=[{id:'etb-151',name:'Elite Trainer Box 151',set:'SV151',category:'Elite Trainer Box',type:'INGLÉS',price:49990,stock:12,image:'https://dummyimage.com/600x400/fff/000&text=ETB+151',compareAtPrice:59990},
+  // Filtros
+  let ACTIVE_CATEGORY='ALL', ACTIVE_TYPE='ALL';
+
+  const FALLBACK=[
+    {id:'etb-151',name:'Elite Trainer Box 151',set:'SV151',category:'Elite Trainer Box',type:'INGLÉS',price:49990,stock:12,image:'https://dummyimage.com/600x400/fff/000&text=ETB+151',compareAtPrice:59990},
     {id:'upc-charizard',name:'Ultra Premium Charizard',set:'Promo',category:'Ultra Premium Collection',type:'INGLÉS',price:129990,stock:5,image:'https://dummyimage.com/600x400/fff/000&text=UPC+Charizard',compareAtPrice:149990},
-    {id:'booster-box',name:'Booster Box Scarlet & Violet',set:'SV Base',category:'Booster Box',type:'ESPAÑOL',price:159990,stock:3,image:'https://dummyimage.com/600x400/fff/000&text=Booster+Box',compareAtPrice:179990}];
+    {id:'booster-box',name:'Booster Box Scarlet & Violet',set:'SV Base',category:'Booster Box',type:'ESPAÑOL',price:159990,stock:3,image:'https://dummyimage.com/600x400/fff/000&text=Booster+Box',compareAtPrice:179990}
+  ];
 
   const grid=$('#grid'),counter=$('#counter'),btnCart=$('#btnCart'),drawer=$('#drawer'),btnClose=$('#btnClose'),
         cartBody=$('#cartBody'),subtotalEl=$('#subtotal'),grandEl=$('#grand'),cCount=$('#cCount'),
         btnCheckout=$('#btnCheckout'),
-        filtersCatEl=$('#filtersCat'),filtersTypeEl=$('#filtersType'),
         modal=$('#modal'),mClose=$('#mClose'),mTitle=$('#mTitle'),mImage=$('#mImage'),mThumbs=$('#mThumbs'),
         mMeta=$('#mMeta'),mPrice=$('#mPrice'),mQty=$('#mQty'),mDec=$('#mDec'),mInc=$('#mInc'),mAdd=$('#mAdd'),mView=$('#mView'),mDesc=$('#mDesc');
+
+  // Checkout elements
+  const coModal=$('#checkout'),coClose=$('#coClose'),
+        coStep1=$('#coStep1'),coStep2=$('#coStep2'),
+        coName=$('#coName'),coRut=$('#coRut'),coPhone=$('#coPhone'),coEmail=$('#coEmail'),
+        coMethod=$('#coMethod'),coAddressWrap=$('#coAddressWrap'),
+        coStreet=$('#coStreet'),coUnit=$('#coUnit'),coComuna=$('#coComuna'),coRef=$('#coRef'),coContact=$('#coContact'),
+        coSlot=$('#coSlot'),coNotes=$('#coNotes'),coTerms=$('#coTerms'),
+        coNext=$('#coNext'),coBack=$('#coBack'),coFinish=$('#coFinish'),
+        coSummary=$('#coSummary'),coBank=$('#coBank'),btnCopySummary=$('#btnCopySummary'),btnCopyBank=$('#btnCopyBank'),btnWA=$('#btnWA');
+
+  // Filtros (DOM)
+  const filtersCatEl=$('#filtersCat'),filtersTypeEl=$('#filtersType');
 
   async function loadCatalog(){
     try{
@@ -240,20 +391,24 @@ window.addEventListener('DOMContentLoaded', () => {
     }
     counter.textContent='Sellados Disponibles:';
     buildCategoryFilters();
-    buildTypeFilters(); // inicial (ALL categories)
+    buildTypeFilters();
+    render();
+    updateBadge();
   }
 
-  /* util: % ahorro */
+  /* ahorro % */
   const savePct = (p) =>
     (p && p.compareAtPrice && p.compareAtPrice > p.price)
       ? Math.round((1 - (p.price / p.compareAtPrice)) * 100)
       : 0;
 
-  /* util: detectar preventa Mega Evolutions */
+  /* Detectar PREVENTA (Mega Evolutions / Mega Evolución, con o sin espacio/guion, singular/plural) */
   function isPreorder(p){
     if(!p || !p.name) return false;
-    const name = (p.name+'').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
-    return /megaevolutions|megaevolucion/.test(name);
+    const name=(p.name+'').normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase();
+    // cubre: "mega evolutions", "mega-evolutions", "mega evolution"
+    // y español: "mega evolucion", "mega evoluciones", "mega-evolucion(es)"
+    return /\bmega[\s-]*evolutions?\b|\bmega[\s-]*evolucion(?:es)?\b/.test(name);
   }
 
   /* Normalizadores */
@@ -262,9 +417,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   /* Filtros por categoría */
   function buildCategoryFilters(){
-    const cats = Array.from(new Set(
-      PRODUCTS.map(p=> norm(p.category)).filter(Boolean)
-    )).sort((a,b)=>a.localeCompare(b));
+    const cats = Array.from(new Set(PRODUCTS.map(p=>norm(p.category)).filter(Boolean))).sort((a,b)=>a.localeCompare(b));
     const buttons = [
       `<span class="filter-label">Categoría:</span>`,
       `<button class="filter-btn ${ACTIVE_CATEGORY==='ALL'?'active':''}" data-cat="ALL">Todos</button>`,
@@ -275,18 +428,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
   /* Filtros por tipo/idioma (encadenado a categoría) */
   function buildTypeFilters(){
-    // Considerar la categoría activa para calcular tipos disponibles
-    let base = [...PRODUCTS];
-    if(ACTIVE_CATEGORY!=='ALL'){
-      base = base.filter(p => normLower(p.category)===normLower(ACTIVE_CATEGORY));
-    }
-    const types = Array.from(new Set(
-      base.map(p=> norm(p.type)).filter(Boolean)
-    )).sort((a,b)=>a.localeCompare(b));
-    // Si el tipo activo ya no existe dentro de la categoría, volver a ALL
-    if(ACTIVE_TYPE!=='ALL' && !types.some(t=>normLower(t)===normLower(ACTIVE_TYPE))){
-      ACTIVE_TYPE='ALL';
-    }
+    let base=[...PRODUCTS];
+    if(ACTIVE_CATEGORY!=='ALL'){ base=base.filter(p=>normLower(p.category)===normLower(ACTIVE_CATEGORY)); }
+    const types = Array.from(new Set(base.map(p=>norm(p.type)).filter(Boolean))).sort((a,b)=>a.localeCompare(b));
+    if(ACTIVE_TYPE!=='ALL' && !types.some(t=>normLower(t)===normLower(ACTIVE_TYPE))){ ACTIVE_TYPE='ALL'; }
     const buttons = [
       `<span class="filter-label">Tipo/Idioma:</span>`,
       `<button class="filter-btn ${ACTIVE_TYPE==='ALL'?'active':''}" data-type="ALL">Todos</button>`,
@@ -297,72 +442,45 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function getList(){
     let list=[...PRODUCTS];
-
-    if(ACTIVE_CATEGORY!=='ALL'){
-      list = list.filter(p => normLower(p.category) === normLower(ACTIVE_CATEGORY));
-    }
-    if(ACTIVE_TYPE!=='ALL'){
-      list = list.filter(p => normLower(p.type) === normLower(ACTIVE_TYPE));
-    }
-
+    if(ACTIVE_CATEGORY!=='ALL'){ list=list.filter(p=>normLower(p.category)===normLower(ACTIVE_CATEGORY)); }
+    if(ACTIVE_TYPE!=='ALL'){ list=list.filter(p=>normLower(p.type)===normLower(ACTIVE_TYPE)); }
     list.sort((a,b)=>(b.stock|0)-(a.stock|0));
-    counter.textContent='Sellados Disponibles:';
     return list;
   }
 
   function render(){
-    const list = getList();
-    grid.innerHTML = list.map((p, i) => {
-      const low = (p.stock|0)>0 && (p.stock|0)<=3, oos = (p.stock|0)===0;
-      const hasCompare = p.compareAtPrice && p.compareAtPrice > p.price;
-      const ahorro = savePct(p);
-      const preorder = isPreorder(p);
+    const list=getList();
+    grid.innerHTML=list.map((p,i)=>{
+      const low=(p.stock|0)>0 && (p.stock|0)<=3, oos=(p.stock|0)===0;
+      const hasCompare=p.compareAtPrice && p.compareAtPrice>p.price;
+      const ahorro=savePct(p);
+      const preorder=isPreorder(p);
 
       return `<article class="product">
-        ${i<4 ? `<span class="badge cost">Oferta al costo</span>` : ''}
-        ${preorder ? `<span class="badge preorder">Preventa desde 26/09</span>` : ''}
-        ${oos ? `<span class="badge oos">Sin stock</span>` : low ? `<span class="badge low">¡Quedan ${p.stock}!</span>` : ''}
+        ${i<4?`<span class="badge">Oferta al costo</span>`:''}
+        ${preorder?`<span class="badge preorder">Preventa 26/09</span>`:''}
+        ${oos?`<span class="badge oos">Sin stock</span>`:low?`<span class="badge low">¡Quedan ${p.stock}!</span>`:''}
         <img src="${p.image}" alt="${p.name}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
         <div class="pad">
           <strong>${p.name}</strong>
           <span class="muted">${[p.set,p.type,p.category].filter(Boolean).join(' • ')}</span>
-
           <div class="price-wrap">
             <span class="price-new">${fmt(p.price)}</span>
-            ${hasCompare ? `<span class="price-old">${fmt(p.compareAtPrice)}</span>
-                            ${ahorro>0 ? `<span class="save-tag">Ahorra ${ahorro}%</span>`:''}` : ''}
+            ${hasCompare?`<span class="price-old">${fmt(p.compareAtPrice)}</span>${ahorro>0?`<span class="save-tag">Ahorra ${ahorro}%</span>`:''}`:''}
           </div>
-
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <button class="btn primary" data-add data-id="${p.id}" ${oos?'disabled':''}>Añadir</button>
             <button class="btn" data-view data-id="${p.id}">Ver detalle</button>
           </div>
         </div>
       </article>`;
-    }).join('') || '<p class="muted">Sin resultados.</p>';
+    }).join('')||'<p class="muted">Sin resultados.</p>';
   }
 
-  function openModal(p){
-    CURRENT=p;mTitle.textContent=p.name;mImage.src=p.image;mMeta.textContent=[p.set,p.type,p.category].filter(Boolean).join(' • ');
-    const hasCompare = p.compareAtPrice && p.compareAtPrice > p.price;
-    const ahorro = savePct(p);
-    mPrice.innerHTML = `
-      <div class="price-wrap">
-        <span class="price-new">${fmt(p.price)}</span>
-        ${hasCompare ? `<span class="price-old">${fmt(p.compareAtPrice)}</span>
-                        ${ahorro>0 ? `<span class="save-tag">Ahorra ${ahorro}%</span>`:''}` : ''}
-      </div>
-    `;
-    mDesc.textContent=p.description||'';
-    mQty.value=1;
-    const gal=Array.isArray(p.images)&&p.images.length?p.images:[p.image];
-    mThumbs.innerHTML=gal.map(s=>`<img src="${s}" data-src="${s}" alt="thumb" loading="lazy">`).join('');
-    modal.classList.add('open');
-  }
-  function closeModal(){modal.classList.remove('open');CURRENT=null;}
-
+  // ====== Carrito
   function saveCart(){localStorage.setItem('mh_cart',JSON.stringify(CART))}
   function cartLines(){return CART.map(it=>{const p=PRODUCTS.find(x=>x.id===it.id)||{};return {...p,qty:it.qty,lineTotal:(p.price||0)*it.qty};})}
+  function cartSubtotal(){return cartLines().reduce((s,l)=>s+l.lineTotal,0)}
   function updateBadge(){cCount.textContent=CART.reduce((s,i)=>s+i.qty,0)}
   function drawCart(){
     const lines=cartLines();
@@ -380,7 +498,7 @@ window.addEventListener('DOMContentLoaded', () => {
         </div>
         <div><strong>${fmt(l.lineTotal)}</strong></div>
       </div>`).join('')||'<p class="muted">Tu carrito está vacío.</p>';
-    const subtotal=lines.reduce((s,l)=>s+l.lineTotal,0); subtotalEl.textContent=fmt(subtotal); grandEl.textContent=fmt(subtotal);
+    const subtotal=cartSubtotal(); subtotalEl.textContent=fmt(subtotal); grandEl.textContent=fmt(subtotal);
   }
   function addToCart(id,qty=1){const p=PRODUCTS.find(x=>x.id===id); if(!p|| (p.stock|0)<=0) return; const line=CART.find(x=>x.id===id);
     if(line){line.qty=Math.min(line.qty+qty,p.stock|0)}else{CART.push({id,qty:Math.min(qty,p.stock|0||qty)})}
@@ -391,26 +509,16 @@ window.addEventListener('DOMContentLoaded', () => {
   function openCart(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');drawCart()}
   function closeCart(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true')}
 
-  // Eventos
+  // ====== Eventos carrito
   btnCart.addEventListener('click',openCart); btnClose.addEventListener('click',closeCart);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeModal()}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeModal();closeCheckout()}});
 
-  // Clicks en el grid
   grid.addEventListener('click',e=>{
-    const add=e.target.closest('[data-add]');
-    const view=e.target.closest('[data-view]');
-    if(add){
-      const id=add.dataset.id;
-      addToCart(id,1);
-    }
-    if(view){
-      const id=view.dataset.id;
-      const p=PRODUCTS.find(x=>x.id===id);
-      if(p) openModal(p);
-    }
+    const add=e.target.closest('[data-add]'); const view=e.target.closest('[data-view]');
+    if(add){ addToCart(add.dataset.id,1); }
+    if(view){ const p=PRODUCTS.find(x=>x.id===view.dataset.id); if(p) openModal(p); }
   });
 
-  // Carrito
   cartBody.addEventListener('click',e=>{
     const plus=e.target.closest('[data-plus]'),minus=e.target.closest('[data-minus]'),del=e.target.closest('[data-del]');
     if(plus){const id=plus.dataset.id;const inp=cartBody.querySelector(`[data-q="${id}"]`); if(inp){inp.value=parseInt(inp.value||'1',10)+1; setQty(id,+inp.value)}}
@@ -419,42 +527,142 @@ window.addEventListener('DOMContentLoaded', () => {
   });
   cartBody.addEventListener('change',e=>{const i=e.target.closest('[data-q]'); if(i){setQty(i.dataset.q,+i.value||1)}});
 
-  // Filtros (delegación)
-  filtersCatEl.addEventListener('click', (e)=>{
-    const btn = e.target.closest('.filter-btn');
-    if(!btn) return;
-    const cat = btn.dataset.cat;
-    if(typeof cat === 'undefined') return;
-    ACTIVE_CATEGORY = (cat==='ALL') ? 'ALL' : cat;
-    // activar botón
-    filtersCatEl.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    // reconstruir tipos en base a la nueva categoría
-    buildTypeFilters();
-    render();
-  });
-
-  filtersTypeEl.addEventListener('click', (e)=>{
-    const btn = e.target.closest('.filter-btn');
-    if(!btn) return;
-    const tp = btn.dataset.type;
-    if(typeof tp === 'undefined') return;
-    ACTIVE_TYPE = (tp==='ALL') ? 'ALL' : tp;
-    // activar botón
-    filtersTypeEl.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    render();
-  });
-
-  // Modal
+  // ====== Modal producto
+  function openModal(p){
+    CURRENT=p;mTitle.textContent=p.name;mImage.src=p.image;mMeta.textContent=[p.set,p.type,p.category].filter(Boolean).join(' • ');
+    const hasCompare = p.compareAtPrice && p.compareAtPrice > p.price;
+    const ahorro = savePct(p);
+    mPrice.innerHTML = `<div class="price-wrap"><span class="price-new">${fmt(p.price)}</span>${hasCompare?`<span class="price-old">${fmt(p.compareAtPrice)}</span>${ahorro>0?`<span class="save-tag">Ahorra ${ahorro}%</span>`:''}`:''}</div>`;
+    mDesc.textContent=p.description||''; mQty.value=1;
+    const gal=Array.isArray(p.images)&&p.images.length?p.images:[p.image];
+    mThumbs.innerHTML=gal.map(s=>`<img src="${s}" data-src="${s}" alt="thumb" loading="lazy">`).join('');
+    modal.classList.add('open');
+  }
+  function closeModal(){modal.classList.remove('open');CURRENT=null;}
   mClose.addEventListener('click',closeModal);
   modal.addEventListener('click',e=>{if(e.target===modal) closeModal()});
-  mDec.addEventListener('click',()=>mQty.value=Math.max(1,(+mQty.value||1)-1));
-  mInc.addEventListener('click',()=>mQty.value=(+mQty.value||1)+1);
-  mAdd.addEventListener('click',()=>{if(CURRENT) addToCart(CURRENT.id,+mQty.value||1)});
-  mView.addEventListener('click',()=>{if(CURRENT) window.open(CURRENT.image||(CURRENT.images&&CURRENT.images[0])||'', '_blank')});
+  $('#mDec').addEventListener('click',()=>mQty.value=Math.max(1,(+mQty.value||1)-1));
+  $('#mInc').addEventListener('click',()=>mQty.value=(+mQty.value||1)+1);
+  $('#mAdd').addEventListener('click',()=>{if(CURRENT) addToCart(CURRENT.id,+mQty.value||1)});
+  $('#mView').addEventListener('click',()=>{if(CURRENT) window.open(CURRENT.image||(CURRENT.images&&CURRENT.images[0])||'', '_blank')});
 
-  (async()=>{await loadCatalog();render();updateBadge()})();
+  // ====== Checkout (Transferencia)
+  function openCheckout(){
+    if(CART.length===0){alert('Tu carrito está vacío.');return;}
+    drawer.classList.remove('open');
+    coStep1.style.display='block';
+    coStep2.style.display='none';
+    coModal.classList.add('open');
+    const last=JSON.parse(localStorage.getItem('mh_buyer')||'{}');
+    coName.value=last.name||''; coRut.value=last.rut||''; coPhone.value=last.phone||''; coEmail.value=last.email||'';
+    coMethod.value=last.method||'retiro'; coSlot.value=last.slot||'Tarde (14:00–18:00)';
+    coStreet.value=last.street||''; coUnit.value=last.unit||''; coComuna.value=last.comuna||''; coRef.value=last.ref||''; coContact.value=last.contact||'';
+    coNotes.value='';
+    toggleAddress();
+    buildBankBlock();
+  }
+  function closeCheckout(){coModal.classList.remove('open')}
+  $('#coClose').addEventListener('click',closeCheckout);
+  coModal.addEventListener('click',e=>{if(e.target===coModal) closeCheckout()});
+  $('#coMethod').addEventListener('change',toggleAddress);
+  function toggleAddress(){ coAddressWrap.style.display = (coMethod.value==='despacho') ? 'block' : 'none'; }
+
+  function validateStep1(){
+    const rutOk=/^\d{7,8}-[\dkK]$/.test(coRut.value.trim());
+    const phoneOk=/^\+?56\s?9\s?\d{4}\s?\d{4}$/.test(coPhone.value.trim()) || /^\+?569\d{8}$/.test(coPhone.value.trim());
+    const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(coEmail.value.trim());
+    if(!coName.value.trim()) return [false,'Ingresa tu nombre.'];
+    if(!rutOk) return [false,'RUT inválido. Formato: 11111111-1'];
+    if(!phoneOk) return [false,'WhatsApp inválido. Formato: +56 9 1234 5678'];
+    if(!emailOk) return [false,'Email inválido.'];
+    if(!coTerms.checked) return [false,'Debes aceptar los términos.'];
+    if(coMethod.value==='despacho'){
+      if(!coStreet.value.trim() || !coComuna.value.trim()) return [false,'Para despacho, completa calle y comuna.'];
+    }
+    return [true,''];
+  }
+
+  function orderId(){ const n=Date.now().toString(36).toUpperCase(); return `MH-${n.slice(-6)}`; }
+
+  function buildSummary(id){
+    const lines=cartLines();
+    const itemsTxt = lines.map(l=>`• ${l.name} x${l.qty} — ${fmt(l.price)} c/u = ${fmt(l.lineTotal)}`).join('\n');
+    const total=fmt(cartSubtotal());
+    const customer = [
+      `Cliente: ${coName.value}`,
+      `RUT: ${coRut.value}`,
+      `WhatsApp: ${coPhone.value}`,
+      `Email: ${coEmail.value}`,
+      `Entrega: ${coMethod.value==='retiro'?'Retiro en Valle Grande':'Despacho Zona Norte'}`,
+      (coMethod.value==='despacho' ? `Dirección: ${coStreet.value}, ${coUnit.value||''}, ${coComuna.value}` : `Retiro: Los Nogales 1135, Valle Grande, Lampa`),
+      `Horario: ${coSlot.value}`,
+      (coNotes.value.trim()?`Notas: ${coNotes.value.trim()}`:'')
+    ].filter(Boolean).join('\n');
+    return `Pedido ${id}\n${'-'.repeat(18)}\n${itemsTxt}\nTotal: ${total}\n\n${customer}`;
+  }
+
+  function buildBankBlock(){
+    coBank.textContent =
+`Titular: ${BANK.holder}
+RUT: ${BANK.rut}
+Banco: ${BANK.bank}
+Tipo: ${BANK.type}
+N° Cuenta: ${BANK.number}
+Email envío comprobante: ${BANK.email}`;
+  }
+
+  function toWA(text){ return `https://wa.me/${BANK.whatsapp.replace(/[^0-9]/g,'')}?text=${encodeURIComponent(text)}`; }
+
+  // Paso 1 → Paso 2
+  $('#coNext').addEventListener('click',()=>{
+    const [ok,msg]=validateStep1();
+    if(!ok){ alert(msg); return; }
+    localStorage.setItem('mh_buyer', JSON.stringify({
+      name:coName.value.trim(), rut:coRut.value.trim(), phone:coPhone.value.trim(), email:coEmail.value.trim(),
+      method:coMethod.value, slot:coSlot.value, street:coStreet.value.trim(), unit:coUnit.value.trim(),
+      comuna:coComuna.value.trim(), ref:coRef.value.trim(), contact:coContact.value.trim()
+    }));
+    const oid=orderId();
+    coSummary.dataset.orderId = oid;
+    coSummary.textContent = buildSummary(oid);
+    btnWA.href = toWA(`Hola, acabo de realizar un pedido y pagar por transferencia.\n\n${coSummary.textContent}\n\nAdjunto comprobante.`);
+    coStep1.style.display='none';
+    coStep2.style.display='block';
+  });
+
+  // Paso 2 acciones
+  $('#coBack').addEventListener('click',()=>{ coStep2.style.display='none'; coStep1.style.display='block'; });
+  $('#btnCopySummary').addEventListener('click',async()=>{ await navigator.clipboard.writeText(coSummary.textContent); alert('Resumen copiado.'); });
+  $('#btnCopyBank').addEventListener('click',async()=>{ await navigator.clipboard.writeText(coBank.textContent); alert('Datos bancarios copiados.'); });
+
+  $('#coFinish').addEventListener('click',()=>{
+    const oid = coSummary.dataset.orderId || orderId();
+    alert(`¡Gracias! Pedido ${oid} registrado.\nRecibirás confirmación por WhatsApp/Email cuando validemos la transferencia.`);
+    CART=[]; saveCart(); updateBadge(); drawCart();
+    closeCheckout();
+  });
+
+  // Abrir checkout desde el carrito
+  $('#btnCheckout').addEventListener('click',openCheckout);
+
+  // ====== Filtros: listeners
+  filtersCatEl.addEventListener('click', (e)=>{
+    const btn=e.target.closest('.filter-btn'); if(!btn) return;
+    const cat=btn.dataset.cat; if(typeof cat==='undefined') return;
+    ACTIVE_CATEGORY=(cat==='ALL')?'ALL':cat;
+    filtersCatEl.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    buildTypeFilters(); render();
+  });
+  filtersTypeEl.addEventListener('click', (e)=>{
+    const btn=e.target.closest('.filter-btn'); if(!btn) return;
+    const tp=btn.dataset.type; if(typeof tp==='undefined') return;
+    ACTIVE_TYPE=(tp==='ALL')?'ALL':tp;
+    filtersTypeEl.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+    render();
+  });
+
+  // ====== Init
+  (async()=>{await loadCatalog()})();
 });
 </script>
 </body>
