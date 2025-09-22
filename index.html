@@ -68,14 +68,9 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .row{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px}
 .row img{width:64px;height:64px;object-fit:contain;background:#fff}
 
-/* Modal genérico */
+/* Modal genérico (queda para el checkout) */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:90}
 .modal.open{display:grid}
-.modal-card{width:min(900px,95vw);background:#111;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-.modal-body{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:16px}
-.thumbs{display:flex;gap:8px;flex-wrap:wrap}
-.thumbs img{width:64px;height:64px;object-fit:contain;background:#fff;border:1px solid var(--line);border-radius:8px;cursor:pointer}
-@media (max-width:800px){.modal-body{grid-template-columns:1fr}}
 
 /* CHECKOUT modal */
 .checkout-card{width:min(780px,95vw);background:#111;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
@@ -85,10 +80,8 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .input, select, textarea{width:100%;border-radius:10px;border:1px solid var(--line);background:#0f1116;color:#fff;padding:10px}
 .input::placeholder, textarea::placeholder{color:#9aa2ae}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.grid-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
 .help{font-size:.85rem;color:#9aa2ae}
 .flex{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
-.badge-inline{background:#0f1116;border:1px solid var(--line);border-radius:999px;padding:6px 10px}
 .code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#0f1116;border:1px dashed var(--line);padding:8px;border-radius:8px}
 
 /* Footer */
@@ -167,36 +160,6 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   </div>
 </aside>
 
-<!-- MODAL DETALLE PRODUCTO -->
-<div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="Detalle de producto">
-  <div class="modal-card">
-    <header style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)">
-      <strong id="mTitle"></strong>
-      <button id="mClose" class="btn" aria-label="Cerrar detalle">✕</button>
-    </header>
-    <div class="modal-body">
-      <div>
-        <img id="mImage" src="" alt="" style="width:100%;height:360px;object-fit:contain;background:#fff" loading="lazy" decoding="async" />
-        <div id="mThumbs" class="thumbs" aria-label="Galería miniaturas"></div>
-      </div>
-      <div>
-        <p id="mMeta" class="muted"></p>
-        <p><strong id="mPrice"></strong></p>
-        <div class="qty" style="margin:10px 0">
-          <button class="btn" id="mDec" aria-label="Disminuir">−</button>
-          <input class="input" id="mQty" style="width:60px;text-align:center" type="number" min="1" value="1" aria-label="Cantidad">
-          <button class="btn" id="mInc" aria-label="Aumentar">+</button>
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button id="mAdd" class="btn primary">Añadir al carrito</button>
-          <button id="mView" class="btn">Ver imagen completa</button>
-        </div>
-        <p id="mDesc" class="muted" style="margin-top:12px"></p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- MODAL CHECKOUT (Transferencia) -->
 <div id="checkout" class="modal" role="dialog" aria-modal="true" aria-label="Checkout">
   <div class="checkout-card">
@@ -205,51 +168,43 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
       <button id="coClose" class="btn" aria-label="Cerrar checkout">✕</button>
     </header>
     <div class="checkout-body">
-      <!-- Paso 1 -->
+      <!-- Paso 1 (simplificado) -->
       <div class="section" id="coStep1">
         <h3>1) Tus datos y entrega</h3>
         <div class="grid-2">
           <div><label>Nombre y Apellido</label><input id="coName" class="input" placeholder="Ej: Jorge Gálvez" autocomplete="name"></div>
-          <div><label>RUT</label><input id="coRut" class="input" placeholder="11111111-1"></div>
-        </div>
-        <div class="grid-2">
           <div><label>WhatsApp</label><input id="coPhone" class="input" placeholder="+56 9 1234 5678" autocomplete="tel"></div>
-          <div><label>Email</label><input id="coEmail" class="input" placeholder="tucorreo@dominio.cl" autocomplete="email"></div>
         </div>
-        <div class="grid-2">
-          <div>
-            <label>Método de entrega</label>
-            <select id="coMethod" class="input">
-              <option value="retiro">Retiro en Valle Grande (Lampa)</option>
-              <option value="despacho">Despacho Zona Norte de Santiago</option>
-            </select>
-            <p class="help">Retiro: <span class="badge-inline">Los Nogales 1135, Valle Grande, Lampa</span></p>
-          </div>
-          <div>
-            <label>Horario preferido</label>
-            <select id="coSlot" class="input">
-              <option>Mañana (10:00–13:00)</option>
-              <option>Tarde (14:00–18:00)</option>
-              <option>Noche (18:00–21:00)</option>
-            </select>
-          </div>
+        <div><label>Email</label><input id="coEmail" class="input" placeholder="tucorreo@dominio.cl" autocomplete="email"></div>
+
+        <div class="section" style="margin-top:10px">
+          <h3>Elige tu entrega</h3>
+          <label class="flex" style="align-items:flex-start">
+            <input type="radio" name="coOpt" value="rm" style="margin-top:4px" checked>
+            <div>
+              <strong>Despacho Región Metropolitana</strong>
+              <div class="help">Entrega garantizada entre 1 y 3 días. Horario 18:00 - 21:00 hrs.</div>
+            </div>
+          </label>
+          <label class="flex" style="align-items:flex-start;margin-top:8px">
+            <input type="radio" name="coOpt" value="vg" style="margin-top:4px">
+            <div>
+              <strong>Entrega en Valle Grande, Lampa</strong>
+              <div class="help">Disponible en 1 día. Horario: 17:00 - 21:00 hrs.</div>
+            </div>
+          </label>
+          <label class="flex" style="align-items:flex-start;margin-top:8px">
+            <input type="radio" name="coOpt" value="ce" style="margin-top:4px">
+            <div>
+              <strong>Entrega en Ciudad Empresarial, Huechuraba</strong>
+              <div class="help">Disponible en 1 día. Horario: 12:00 - 15:00 hrs.</div>
+            </div>
+          </label>
         </div>
-        <div id="coAddressWrap" class="section" style="display:none;margin-top:6px">
-          <h3>Dirección de entrega</h3>
-          <div class="grid-2">
-            <div><label>Calle y número</label><input id="coStreet" class="input" placeholder="Ej: Av. Principal 1234"></div>
-            <div><label>Depto / Casa / Block</label><input id="coUnit" class="input" placeholder="Ej: Depto 504, Torre B"></div>
-          </div>
-          <div class="grid-3">
-            <div><label>Comuna</label><input id="coComuna" class="input" placeholder="Ej: Lampa / Quilicura / Colina"></div>
-            <div><label>Referencia</label><input id="coRef" class="input" placeholder="Ej: Portón negro, cerca de plaza"></div>
-            <div><label>Contacto en domicilio</label><input id="coContact" class="input" placeholder="Ej: Juan Pérez"></div>
-          </div>
-          <p class="help">* El costo de despacho se confirma por WhatsApp antes de transferir.</p>
+
+        <div class="flex" style="justify-content:flex-end;margin-top:10px">
+          <button id="coNext" class="btn primary">Continuar</button>
         </div>
-        <div><label>Notas</label><textarea id="coNotes" class="input" rows="2" placeholder="Indícanos cualquier detalle adicional"></textarea></div>
-        <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="coTerms"> Acepto términos de compra y política de cambios.</label>
-        <div class="flex" style="justify-content:flex-end"><button id="coNext" class="btn primary">Continuar</button></div>
       </div>
 
       <!-- Paso 2 -->
@@ -268,7 +223,7 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
               <button id="btnCopyBank" class="btn">Copiar datos</button>
               <a id="btnWA" class="btn primary" target="_blank" rel="noopener">Enviar por WhatsApp</a>
             </div>
-            <p class="help" style="margin-top:8px">Adjunta el comprobante. Validamos y coordinamos entrega/Despacho 24h Zona Norte.</p>
+            <p class="help" style="margin-top:8px">Adjunta el comprobante. Validamos y coordinamos la entrega según la opción elegida.</p>
           </div>
         </div>
         <div class="flex" style="justify-content:space-between">
@@ -300,31 +255,22 @@ window.addEventListener('DOMContentLoaded', () => {
   const $=s=>document.querySelector(s),
         fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0),
         uniq=(arr)=>Array.from(new Set(arr.map(x=>(x||'').trim()).filter(Boolean))),
-        nlatin=s=>(s||'').toString().normalize('NFD').replace(/\p{Diacritic}/gu,'').toLowerCase(),
+        nlatin=s=>(s||'').toString().normalize('NFD').replace(/\\p{Diacritic}/gu,'').toLowerCase(),
         esc=s=>(s??'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 
-  let PRODUCTS=[], CART=JSON.parse(localStorage.getItem('mh_cart')||'[]'), CURRENT=null;
+  let PRODUCTS=[], CART=JSON.parse(localStorage.getItem('mh_cart')||'[]');
 
   /* ====== DATOS BANCARIOS ====== */
   const BANK = { holder:'MasterHit SpA', rut:'77.777.777-7', bank:'Banco Falabella', type:'Cuenta Vista', number:'12345678', email:'pagos@masterhit.cl', whatsapp:'+56975121963' };
 
-  /* ====== (opcional) listas de respaldo si no hay "source" ====== */
-  const COST_OFFER_IDS = new Set(['spc-prismatic-en','special-garchomp-en','special-charizardex-en','etb-destined-es']);
-  const COST_OFFER_NAME_MATCH = ['prismatic evolutions','garchomp ex','charizard ex','rivales predestinados'];
-  function isCostOffer(p){ if(p && p.badgeCost===true) return true; const id=nlatin(p?.id); if(id && COST_OFFER_IDS.has(id)) return true; const nm=nlatin(p?.name); return COST_OFFER_NAME_MATCH.some(x=>nm.includes(x)); }
-  function isPreorder(p){ const nm=nlatin(p?.name); return /\bmega[\s-]*evolutions?\b|\bmega[\s-]*evolucion(?:es)?\b/.test(nm); }
-
-  /* ====== Etiquetas desde "source" ====== */
+  /* ====== Etiquetas desde "source" (preventa/oferta) ====== */
   function getBadgesFromSource(p){
     const out=[]; const src=(p?.source||'').toString().trim();
     if(src){
-      const mPre=src.match(/preventa\s*(\d{1,2}\/\d{1,2})?/i);
+      const mPre=src.match(/preventa\\s*(\\d{1,2}\\/\\d{1,2})?/i);
       if(mPre){ const label=mPre[1]?`Preventa ${mPre[1]}`:'Preventa'; out.push({type:'preorder',text:label,title:label}); }
       if(/oferta/i.test(src)){ out.push({type:'cost',text:src}); }
-      if(out.length) return out;
     }
-    if(isPreorder(p)) out.push({type:'preorder',text:'Preventa 26/09'});
-    if(isCostOffer(p)) out.push({type:'cost',text:'Oferta al costo'});
     return out;
   }
 
@@ -336,15 +282,13 @@ window.addEventListener('DOMContentLoaded', () => {
         btnCart=$('#btnCart'),drawer=$('#drawer'),btnClose=$('#btnClose'),
         cartBody=$('#cartBody'),subtotalEl=$('#subtotal'),grandEl=$('#grand'),cCount=$('#cCount'),
         btnCheckout=$('#btnCheckout'),
-        modal=$('#modal'),mClose=$('#mClose'),mTitle=$('#mTitle'),mImage=$('#mImage'),mThumbs=$('#mThumbs'),
-        mMeta=$('#mMeta'),mPrice=$('#mPrice'),mQty=$('#mQty'),mDec=$('#mDec'),mInc=$('#mInc'),mAdd=$('#mAdd'),mView=$('#mView'),mDesc=$('#mDesc'),
-        coModal=$('#checkout'),coClose=$('#coClose'),coStep1=$('#coStep1'),coStep2=$('#coStep2'),
-        coName=$('#coName'),coRut=$('#coRut'),coPhone=$('#coPhone'),coEmail=$('#coEmail'),
-        coMethod=$('#coMethod'),coAddressWrap=$('#coAddressWrap'),
-        coStreet=$('#coStreet'),coUnit=$('#coUnit'),coComuna=$('#coComuna'),coRef=$('#coRef'),coContact=$('#coContact'),
-        coSlot=$('#coSlot'),coNotes=$('#coNotes'),coTerms=$('#coTerms'),coNext=$('#coNext'),coBack=$('#coBack'),coFinish=$('#coFinish'),
-        coSummary=$('#coSummary'),coBank=$('#coBank'),btnCopySummary=$('#btnCopySummary'),btnCopyBank=$('#btnCopyBank'),btnWA=$('#btnWA'),
-        rowLang=$('#rowLang'),btnClear=$('#btnClear');
+        coModal=$('#checkout'),coClose=$('#coClose'),
+        coStep1=$('#coStep1'),coStep2=$('#coStep2'),
+        coName=$('#coName'),coPhone=$('#coPhone'),coEmail=$('#coEmail'),
+        rowLang=$('#rowLang'),btnClear=$('#btnClear'),
+        coSummary=$('#coSummary'),coBank=$('#coBank'),
+        btnCopySummary=$('#btnCopySummary'),btnCopyBank=$('#btnCopyBank'),btnWA=$('#btnWA'),
+        coBack=$('#coBack'),coNext=$('#coNext'),coFinish=$('#coFinish');
 
   /* Fallback demo */
   const FALLBACK=[
@@ -406,7 +350,6 @@ window.addEventListener('DOMContentLoaded', () => {
           </div>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
             <button class="btn primary" data-add data-id="${esc(p.id)}" ${oos?'disabled':''}>Añadir</button>
-            <button class="btn" data-view data-id="${esc(p.id)}">Ver detalle</button>
           </div>
         </div>
       </article>`;
@@ -445,53 +388,55 @@ window.addEventListener('DOMContentLoaded', () => {
   function openCart(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');drawCart()}
   function closeCart(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true')}
 
-  /* ====== Modal producto ====== */
-  function openModal(p){
-    CURRENT=p;mTitle.textContent=p.name;mImage.src=p.image;mMeta.textContent=metaLine(p);
-    const hasCompare = p.compareAtPrice && p.compareAtPrice > p.price;
-    const ahorro = hasCompare ? Math.round((1 - (p.price / p.compareAtPrice)) * 100) : 0;
-    mPrice.innerHTML = `<div class="price-wrap"><span class="price-new">${fmt(p.price)}</span>${hasCompare?`<span class="price-old">${fmt(p.compareAtPrice)}</span>${ahorro>0?`<span class="save-tag">Ahorra ${ahorro}%</span>`:''}`:''}</div>`;
-    mDesc.textContent=p.description||''; mQty.value=1;
-    const gal=Array.isArray(p.images)&&p.images.length?p.images:[p.image];
-    mThumbs.innerHTML=gal.map(s=>`<img src="${s}" data-src="${s}" alt="thumb" loading="lazy">`).join('');
-    modal.classList.add('open');
-  }
-  function closeModal(){modal.classList.remove('open');CURRENT=null;}
-
   /* ====== Checkout (transferencia) ====== */
   function openCheckout(){
     if(CART.length===0){alert('Tu carrito está vacío.');return;}
     drawer.classList.remove('open');
     coStep1.style.display='block'; coStep2.style.display='none'; coModal.classList.add('open');
-    const last=JSON.parse(localStorage.getItem('mh_buyer')||'{}');
-    coName.value=last.name||''; coRut.value=last.rut||''; coPhone.value=last.phone||''; coEmail.value=last.email||'';
-    coMethod.value=last.method||'retiro'; coSlot.value=last.slot||'Tarde (14:00–18:00)';
-    coStreet.value=last.street||''; coUnit.value=last.unit||''; coComuna.value=last.comuna||''; coRef.value=last.ref||''; coContact.value=last.contact||'';
-    coNotes.value=''; toggleAddress(); buildBankBlock();
+    const last=JSON.parse(localStorage.getItem('mh_buyer_simple')||'{}');
+    coName.value=last.name||''; coPhone.value=last.phone||''; coEmail.value=last.email||'';
+    // opción previa
+    const prev = last.opt || 'rm';
+    const radios = document.querySelectorAll('input[name="coOpt"]');
+    radios.forEach(r=>{ r.checked = (r.value===prev); });
+    buildBankBlock();
   }
   function closeCheckout(){coModal.classList.remove('open')}
-  function toggleAddress(){ coAddressWrap.style.display = (coMethod.value==='despacho') ? 'block' : 'none'; }
+
   function validateStep1(){
-    const rutOk=/^\d{7,8}-[\dkK]$/.test(coRut.value.trim());
-    const phoneOk=/^\+?56\s?9\s?\d{4}\s?\d{4}$/.test(coPhone.value.trim()) || /^\+?569\d{8}$/.test(coPhone.value.trim());
-    const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(coEmail.value.trim());
+    const phoneOk=/^\\+?56\\s?9\\s?\\d{4}\\s?\\d{4}$/.test(coPhone.value.trim()) || /^\\+?569\\d{8}$/.test(coPhone.value.trim());
+    const emailOk=/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(coEmail.value.trim());
     if(!coName.value.trim()) return [false,'Ingresa tu nombre.'];
-    if(!rutOk) return [false,'RUT inválido. Formato: 11111111-1'];
     if(!phoneOk) return [false,'WhatsApp inválido.'];
     if(!emailOk) return [false,'Email inválido.'];
-    if(!coTerms.checked) return [false,'Debes aceptar los términos.'];
-    if(coMethod.value==='despacho' && (!coStreet.value.trim() || !coComuna.value.trim())) return [false,'Para despacho, completa calle y comuna.'];
+    const opt = (document.querySelector('input[name="coOpt"]:checked')||{}).value;
+    if(!opt) return [false,'Selecciona una opción de entrega.'];
     return [true,''];
   }
+
   function orderId(){ const n=Date.now().toString(36).toUpperCase(); return `MH-${n.slice(-6)}`; }
-  function buildSummary(id){
-    const items=cartLines().map(l=>`• ${l.name} x${l.qty} — ${fmt(l.price)} c/u = ${fmt(l.lineTotal)}`).join('\n');
-    const total=fmt(cartSubtotal());
-    const entrega = coMethod.value==='retiro' ? `Retiro en Valle Grande` : `Despacho Zona Norte`;
-    const dir = coMethod.value==='despacho' ? `${coStreet.value}, ${coUnit.value||''}, ${coComuna.value}` : `Los Nogales 1135, Valle Grande, Lampa`;
-    const extra = coNotes.value.trim()?`\nNotas: ${coNotes.value.trim()}`:'';
-    return `Pedido ${id}\n------------------\n${items}\nTotal: ${total}\n\nCliente: ${coName.value}\nRUT: ${coRut.value}\nWhatsApp: ${coPhone.value}\nEmail: ${coEmail.value}\nEntrega: ${entrega}\n${coMethod.value==='despacho'?'Dirección':'Retiro'}: ${dir}\nHorario: ${coSlot.value}${extra}`;
+
+  function optText(opt){
+    if(opt==='rm') return 'Despacho Región Metropolitana — 1 a 3 días (18:00–21:00)';
+    if(opt==='vg') return 'Entrega en Valle Grande, Lampa — 1 día (17:00–21:00)';
+    if(opt==='ce') return 'Entrega en Ciudad Empresarial, Huechuraba — 1 día (12:00–15:00)';
+    return '';
   }
+
+  function buildSummary(id,opt){
+    const items=cartLines().map(l=>`• ${l.name} x${l.qty} — ${fmt(l.price)} c/u = ${fmt(l.lineTotal)}`).join('\\n');
+    const total=fmt(cartSubtotal());
+    return `Pedido ${id}
+------------------
+${items}
+Total: ${total}
+
+Cliente: ${coName.value}
+WhatsApp: ${coPhone.value}
+Email: ${coEmail.value}
+Entrega: ${optText(opt)}`;
+  }
+
   function buildBankBlock(){
     coBank.textContent = `Titular: ${BANK.holder}
 RUT: ${BANK.rut}
@@ -505,60 +450,54 @@ Email envío comprobante: ${BANK.email}`;
   /* ====== Eventos ====== */
   btnCart.addEventListener('click',openCart);
   btnClose.addEventListener('click',closeCart);
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeModal();closeCheckout()}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeCheckout()}});
 
   grid.addEventListener('click',e=>{
-    const add=e.target.closest('[data-add]'), view=e.target.closest('[data-view]');
+    const add=e.target.closest('[data-add]');
     if(add){ addToCart(add.dataset.id,1); }
-    if(view){ const p=PRODUCTS.find(x=>x.id===view.dataset.id); if(p) openModal(p); }
   });
 
   cartBody.addEventListener('click',e=>{
     const plus=e.target.closest('[data-plus]'),minus=e.target.closest('[data-minus]'),del=e.target.closest('[data-del]');
-    if(plus){const id=plus.dataset.id;const inp=cartBody.querySelector(`[data-q="${id}"]`); if(inp){inp.value=parseInt(inp.value||'1',10)+1; setQty(id,+inp.value)}}
-    if(minus){const id=minus.dataset.id;const inp=cartBody.querySelector(`[data-q="${id}"]`); if(inp){inp.value=Math.max(1,parseInt(inp.value||'1',10)-1); setQty(id,+inp.value)}}
+    if(plus){const id=plus.dataset.id;const inp=cartBody.querySelector(\`[data-q="\${id}"]\`); if(inp){inp.value=parseInt(inp.value||'1',10)+1; setQty(id,+inp.value)}}
+    if(minus){const id=minus.dataset.id;const inp=cartBody.querySelector(\`[data-q="\${id}"]\`); if(inp){inp.value=Math.max(1,parseInt(inp.value||'1',10)-1); setQty(id,+inp.value)}}
     if(del){removeFromCart(del.dataset.id)}
   });
   cartBody.addEventListener('change',e=>{const i=e.target.closest('[data-q]'); if(i){setQty(i.dataset.q,+i.value||1)}});
-
-  mClose.addEventListener('click',()=>modal.classList.remove('open'));
-  modal.addEventListener('click',e=>{if(e.target===modal) modal.classList.remove('open')});
-  mDec.addEventListener('click',()=>mQty.value=Math.max(1,(+mQty.value||1)-1));
-  mInc.addEventListener('click',()=>mQty.value=(+mQty.value||1)+1);
-  mAdd.addEventListener('click',()=>{if(CURRENT) addToCart(CURRENT.id,+mQty.value||1)});
-  mView.addEventListener('click',()=>{if(CURRENT) window.open(CURRENT.image||(CURRENT.images&&CURRENT.images[0])||'', '_blank')});
 
   // Checkout
   btnCheckout.addEventListener('click',openCheckout);
   coClose.addEventListener('click',closeCheckout);
   coModal.addEventListener('click',e=>{if(e.target===coModal) closeCheckout()});
-  coMethod.addEventListener('change',toggleAddress);
 
   coNext.addEventListener('click',()=>{
     const [ok,msg]=validateStep1(); if(!ok){alert(msg);return;}
-    localStorage.setItem('mh_buyer', JSON.stringify({
-      name:coName.value.trim(), rut:coRut.value.trim(), phone:coPhone.value.trim(), email:coEmail.value.trim(),
-      method:coMethod.value, slot:coSlot.value, street:coStreet.value.trim(), unit:coUnit.value.trim(),
-      comuna:coComuna.value.trim(), ref:coRef.value.trim(), contact:coContact.value.trim()
+    const opt=(document.querySelector('input[name="coOpt"]:checked')||{}).value;
+    localStorage.setItem('mh_buyer_simple', JSON.stringify({
+      name:coName.value.trim(), phone:coPhone.value.trim(), email:coEmail.value.trim(), opt
     }));
-    const oid=orderId(); coSummary.dataset.orderId=oid; coSummary.textContent=buildSummary(oid);
-    btnWA.href = toWA(`Hola, acabo de realizar un pedido y pagar por transferencia.\n\n${coSummary.textContent}\n\nAdjunto comprobante.`);
+    const oid=orderId(); coSummary.dataset.orderId=oid; coSummary.dataset.opt=opt;
+    coSummary.textContent=buildSummary(oid,opt);
+    btnWA.href = toWA(\`Hola, acabo de realizar un pedido y pagar por transferencia.\\n\\n\${coSummary.textContent}\\n\\nAdjunto comprobante.\`);
     coStep1.style.display='none'; coStep2.style.display='block';
   });
+
   coBack.addEventListener('click',()=>{coStep2.style.display='none';coStep1.style.display='block'});
+
   btnCopySummary.addEventListener('click',async()=>{await navigator.clipboard.writeText(coSummary.textContent);alert('Resumen copiado.')});
   btnCopyBank.addEventListener('click',async()=>{await navigator.clipboard.writeText(coBank.textContent);alert('Datos bancarios copiados.')});
+
   coFinish.addEventListener('click',()=>{
     const oid=coSummary.dataset.orderId||orderId();
-    alert(`¡Gracias! Pedido ${oid} registrado.\nTe contactaremos por WhatsApp/Email al validar la transferencia.`);
+    alert(\`¡Gracias! Pedido \${oid} registrado. Te contactaremos por WhatsApp/Email.\`);
     CART=[]; saveCart(); updateBadge(); drawCart(); closeCheckout();
   });
 
   // Filtro idioma
   function buildLangChips(){
     const langs = uniq(PRODUCTS.map(p=>p.type)).sort((a,b)=>a.localeCompare(b));
-    const chips = [`<button class="chip ${ACTIVE_LANG==='ALL'?'active':''}" data-lang="ALL">Todos</button>`]
-      .concat(langs.map(l=>`<button class="chip ${nlatin(ACTIVE_LANG)===nlatin(l)?'active':''}" data-lang="${l}">${l}</button>`));
+    const chips = [\`<button class="chip \${ACTIVE_LANG==='ALL'?'active':''}" data-lang="ALL">Todos</button>\`]
+      .concat(langs.map(l=>\`<button class="chip \${nlatin(ACTIVE_LANG)===nlatin(l)?'active':''}" data-lang="\${l}">\${l}</button>\`));
     rowLang.innerHTML = chips.join('');
   }
   rowLang.addEventListener('click',e=>{
@@ -576,3 +515,4 @@ Email envío comprobante: ${BANK.email}`;
 </script>
 </body>
 </html>
+
