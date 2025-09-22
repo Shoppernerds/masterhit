@@ -1,24 +1,212 @@
-id,name,set,type,category,price,compareAtPrice,stock,image,tags,source,createdAt
-spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,['SPC,'INGLÉS'],1,1
-special-garchomp-en,Garchomp EX,SPECIAL,ESPAÑOL,SPECIAL,25000,34990,10,img/special-garchomp-en.webp,['SPECIAL,'ESPAÑOL'],1,1
-etb-destined-es,Rivales Predestinados,ETB,ESPAÑOL,ETB,40000,54990,10,img/etb-destined-es.webp,['ETB,'ESPAÑOL'],1,1
-special-charizardex-en,Charizard EX,SPECIAL,ESPAÑOL,SPECIAL,25000,34990,10,img/special-charizardex-en.webp,['SPECIAL,'ESPAÑOL'],1,1
-etb-prismatic-es,Evoluciones Prismáticas,ETB,ESPAÑOL,ETB,55000,69990,10,img/etb-prismatic-es.webp,['ETB,'ESPAÑOL'],1,1
-special-charizardex-en,Charizard EX,SPECIAL,INGLÉS,SPECIAL,28000,34990,10,img/special-charizardex-en.webp,['SPECIAL,'INGLÉS'],1,1
-poster-prismatic-en,Prismatic Evolutions,POSTER,ESPAÑOL,POSTER,18000,19990,10,img/poster-prismatic-en.webp,['POSTER,'ESPAÑOL'],1,1
-special-garchomp-en,Garchomp EX,SPECIAL,INGLÉS,SPECIAL,28000,35990,10,img/special-garchomp-en.webp,['SPECIAL,'INGLÉS'],1,1
-spc-prismatic-en,Evoluciones Prismáticas,SPC,ESPAÑOL,SPC,120000,179990,10,img/spc-prismatic-en.webp,['SPC,'ESPAÑOL'],1,1
-surprisebox-en,Prismatic Evolutions,SURPRISE BOX,INGLÉS,SURPRISE BOX,35000,39990,10,img/surprisebox-en.webp,['SURPRISE BOX,'INGLÉS'],1,1
-surprisebox-en,Prismatic Evolutions,SURPRISE BOX,ESPAÑOL,SURPRISE BOX,30000,34990,10,img/surprisebox-en.webp,['SURPRISE BOX,'ESPAÑOL'],1,1
-etb-megalucario-en,Mega Evolutions,ETB,INGLÉS,ETB,64990,29990,10,img/etb-megalucario-en.webp,['ETB,'INGLÉS'],1,1
-etb-megalucario-en,Megaevolución,ETB,ESPAÑOL,ETB,54990,29990,10,img/etb-megalucario-en.webp,['ETB,'ESPAÑOL'],1,1
-etb-megagardevoir-en,Mega Evolutions,ETB,INGLÉS,ETB,64990,29990,10,img/etb-megagardevoir-en.webp,['ETB,'INGLÉS'],1,1
-etb-megagardevoir-en,Megaevolución,ETB,ESPAÑOL,ETB,54990,29990,10,img/etb-megagardevoir-en.webp,['ETB,'ESPAÑOL'],1,1
-etb-white-flare-en,White Flare,ETB,INGLÉS,ETB,74990,79990,10,img/etb-white-flare-en.webp,['ETB,'INGLÉS'],1,1
-etb-white-flare-en,Llama Blanca,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-white-flare-en.webp,['ETB,'ESPAÑOL'],1,1
-etb-black-bolt-en,Black Bolt,ETB,INGLÉS,ETB,74990,79990,10,img/etb-black-bolt-en.webp,['ETB,'INGLÉS'],1,1
-etb-black-bolt-es,Fulgor Negro,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-black-bolt-es.webp,['ETB,'ESPAÑOL'],1,1
-etb-aventuras-es,Journey Together,ETB,INGLÉS,ETB,74990,79990,10,img/etb-aventuras-es.webp,['ETB,'INGLÉS'],1,1
-etb-aventuras-es,Aventuras Compartidas,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-aventuras-es.webp,['ETB,'ESPAÑOL'],1,1
-bin-white-flare-es,Llama Blanca,BINDER,ESPAÑOL,BINDER,34990,34990,10,img/bin-white-flare-es.webp,['BINDER,'ESPAÑOL'],1,1
-bin-black-bolt-es,Fulgor Negro,BINDER,ESPAÑOL,BINDER,34990,34990,10,img/bin-black-bolt-es.webp,['BINDER,'ESPAÑOL'],1,1
+"spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet & Violet de Pokémon TCG incluye:
+
+• 9 paquetes de mejora de Evoluciones Prismáticas de Scarlet & Violet de Pokémon TCG
+• 1 carta promocional con arte completo de Eevee
+• 65 fundas para cartas con Eevee como un Pokémon Tera Estelar
+• 45 cartas de Energía de Pokémon TCG
+• Una guía del jugador para la expansión Scarlet & Violet de Pokémon TCG
+• 6 dados contadores de daño
+• 1 dado de lanzamiento de moneda legal para competencias
+• 2 marcadores de condición de plástico
+• Una caja de coleccionista para guardar todo, con 4 divisores para mantenerlo organizado
+• Una tarjeta de código para Pokémon Trading Card Game Live,Oferta al costo"
+"special-garchomp-es,Garchomp EX,SPECIAL,ESPAÑOL,SPECIAL,25000,34990,10,img/special-garchomp-en.webp,special-garchomp-en,Charizard ex Special Collection Pokémon TCG contiene:
+
+-1 carta promo holográfica grabada en relieve de Charizard ex
+-2 cartas holográficas: Charmander y Charmeleon
+-5 sobres de refuerzo de JCC Pokémon
+-1 carta lenticular jumbo con efecto 3D
+-1 carta con código para JCC Pokémon Live,Oferta al costo"
+"etb-destined-es,Rivales Predestinados,ETB,ESPAÑOL,ETB,40000,54990,10,img/etb-destined-es.webp,etb-destined-es,Contenido de la colección
+1 carta promocional foil de arte completo con Cynthia’s Garchomp ex
+
+2 cartas foil con Cynthia’s Gible y Cynthia’s Gabite
+
+1 hoja de figuras acrílicas con Cynthia, Garchomp y más
+
+1 fondo de exhibición a doble cara
+
+1 adhesivo con Cynthia y Garchomp
+
+6 sobres de Pokémon TCG
+
+1 carta con código para Pokémon TCG Live,Oferta al costo"
+"special-charizardex-es,Charizard EX,SPECIAL,ESPAÑOL,SPECIAL,25000,34990,10,img/special-charizardex-en.webp,special-charizardex-en,La colección Super Premium del JCC Pokémon: Escarlata y Púrpura – Evoluciones Prismáticas incluye:
+
+1 carta promocional holográfica con arte completo de Eevee ex
+
+1 caja para mazos suave de Eevee
+
+1 tapete de juego con Eevee y sus Evoluciones
+
+65 fundas para cartas con Eevee y sus Evoluciones
+
+15 sobres de mejora del JCC Pokémon: Escarlata y Púrpura – Evoluciones Prismáticas
+
+1 carta con código para JCC Pokémon Live,Oferta al costo"
+"etb-prismatic-es,Evoluciones Prismáticas,ETB,ESPAÑOL,ETB,55000,69990,10,img/etb-prismatic-es.webp,etb-prismatic-es,Contenido de la caja sorpresa:
+
+4 sobres de Evoluciones Prismáticas .
+1 caja de almacenamiento elegante con 4 separadores.
+1 carta promocional grabada al azar con Eevee o una de sus Evoluciones como ex Pokémon Tera Estelar .,"
+"special-charizardex-en,Charizard EX,SPECIAL,INGLÉS,SPECIAL,28000,34990,10,img/special-charizardex-en.webp,special-charizardex-en,Contenido de la caja sorpresa:
+
+4 sobres de Evoluciones Prismáticas .
+1 caja de almacenamiento elegante con 4 separadores.
+1 carta promocional grabada al azar con Eevee o una de sus Evoluciones como ex Pokémon Tera Estelar .,"
+"special-garchomp-en,Garchomp EX,SPECIAL,INGLÉS,SPECIAL,28000,35990,10,img/special-garchomp-en.webp,special-garchomp-en,La Elite Trainer Box de Mega Evolution incluye:
+9 sobres de mejora del JCC Pokémon: Mega Evolución
+
+1 carta holográfica promocional de arte completo con Riolu 
+
+65 fundas para cartas
+
+40 cartas de Energía del JCC Pokémon
+
+Una guía para jugadores de la expansión Mega Evolución
+
+6 dados de contador de daño
+
+1 dado para lanzamiento de moneda válido para torneos
+
+1 moneda de plástico
+
+Una caja de coleccionista para guardar todo, con 6 divisores para mantener el orden
+
+Una carta con código para Pokémon Trading Card Game Live
+
+*Cada sobre contiene 10 cartas al azar (3 cartas holográficas),"
+"spc-prismatic-es,Evoluciones Prismáticas,SPC,ESPAÑOL,SPC,120000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La Elite Trainer Box de Mega Evolution incluye:
+9 sobres de mejora del JCC Pokémon: Mega Evolución
+
+1 carta holográfica promocional de arte completo con Riolu 
+
+65 fundas para cartas
+
+40 cartas de Energía del JCC Pokémon
+
+Una guía para jugadores de la expansión Mega Evolución
+
+6 dados de contador de daño
+
+1 dado para lanzamiento de moneda válido para torneos
+
+1 moneda de plástico
+
+Una caja de coleccionista para guardar todo, con 6 divisores para mantener el orden
+
+Una carta con código para Pokémon Trading Card Game Live
+
+*Cada sobre contiene 10 cartas al azar (3 cartas holográficas),"
+"surprisebox-en,Prismatic Evolutions,SURPRISE BOX,INGLÉS,SURPRISE BOX,35000,39990,10,img/surprisebox-en.webp,surprisebox-en,La Elite Trainer Box de Mega Evolution incluye:
+9 sobres de mejora del JCC Pokémon: Mega Evolución
+
+1 carta holográfica promocional de arte completo con Alakazam
+
+65 fundas para cartas
+
+40 cartas de Energía del JCC Pokémon
+
+Una guía para jugadores de la expansión Mega Evolución
+
+6 dados de contador de daño
+
+1 dado para lanzamiento de moneda válido para torneos
+
+1 moneda de plástico
+
+Una caja de coleccionista para guardar todo, con 6 divisores para mantener el orden
+
+Una carta con código para Pokémon Trading Card Game Live,"
+"surprisebox-es,Prismatic Evolutions,SURPRISE BOX,ESPAÑOL,SURPRISE BOX,30000,34990,10,img/surprisebox-en.webp,surprisebox-en,La Elite Trainer Box de Mega Evolution incluye:
+9 sobres de mejora del JCC Pokémon: Mega Evolución
+
+1 carta holográfica promocional de arte completo con Alakazam
+
+65 fundas para cartas
+
+40 cartas de Energía del JCC Pokémon
+
+Una guía para jugadores de la expansión Mega Evolución
+
+6 dados de contador de daño
+
+1 dado para lanzamiento de moneda válido para torneos
+
+1 moneda de plástico
+
+Una caja de coleccionista para guardar todo, con 6 divisores para mantener el orden
+
+Una carta con código para Pokémon Trading Card Game Live,"
+etb-megalucario-en,Mega Evolutions,ETB,INGLÉS,ETB,64990,79990,10,img/etb-megalucario-en.webp,etb-megalucario-en,,Preventa 26/09
+etb-megalucario-es,Megaevolución,ETB,ESPAÑOL,ETB,54990,79990,10,img/etb-megalucario-en.webp,etb-megalucario-en,,Preventa 26/09
+etb-megagardevoir-en,Mega Evolutions,ETB,INGLÉS,ETB,64990,79990,10,img/etb-megagardevoir-en.webp,etb-megagardevoir-en,,Preventa 26/09
+etb-megagardevoir-es,Megaevolución,ETB,ESPAÑOL,ETB,54990,79990,10,img/etb-megagardevoir-en.webp,etb-megagardevoir-en,,Preventa 26/09
+"etb-white-flare-en,White Flare,ETB,INGLÉS,ETB,74990,79990,10,img/etb-white-flare-en.webp,etb-white-flare-en,Comienza tu camino con esta Caja de Entrenador Élite, que contiene 9 sobres de refuerzo de Escarlata y Púrpura-Aventuras Compartidas, así como una carta promo holográfica con arte completo de Zorua de N. Además, encontrarás muchos útiles accesorios de JCC Pokémon, como fundas para cartas, cartas de Energía, dados, marcadores de condición y mucho más. Todo esto viene en una resistente caja de coleccionista con divisores para mantener tus cartas protegidas y organizadas.
+
+La Caja de Entrenador Élite de Escarlata y Púrpura-Aventuras Compartidas de JCC Pokémon contiene:
+
+9 sobres de refuerzo de Escarlata y Púrpura-Aventuras Compartidas de JCC Pokémon
+
+1 carta promo holográfica con arte completo de Zorua de N
+
+65 fundas para cartas
+
+45 cartas de Energía de JCC Pokémon
+
+1 guía para jugadores de la expansión Escarlata y Púrpura-Aventuras Compartidas
+
+6 contadores de daño en forma de dado
+
+1 dado para lanzamiento de moneda válido en competencias
+
+2 marcadores de condición de plástico
+
+1 caja de coleccionista con 4 divisores para guardar todo de forma organizada
+
+1 carta con código para el Juego de Cartas Coleccionables Pokémon Live,"
+"etb-white-flare-es,Llama Blanca,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-white-flare-en.webp,etb-white-flare-en,Comienza tu camino con esta Caja de Entrenador Élite, que contiene 9 sobres de refuerzo de Escarlata y Púrpura-Aventuras Compartidas, así como una carta promo holográfica con arte completo de Zorua de N. Además, encontrarás muchos útiles accesorios de JCC Pokémon, como fundas para cartas, cartas de Energía, dados, marcadores de condición y mucho más. Todo esto viene en una resistente caja de coleccionista con divisores para mantener tus cartas protegidas y organizadas.
+
+La Caja de Entrenador Élite de Escarlata y Púrpura-Aventuras Compartidas de JCC Pokémon contiene:
+
+9 sobres de refuerzo de Escarlata y Púrpura-Aventuras Compartidas de JCC Pokémon
+
+1 carta promo holográfica con arte completo de Zorua de N
+
+65 fundas para cartas
+
+45 cartas de Energía de JCC Pokémon
+
+1 guía para jugadores de la expansión Escarlata y Púrpura-Aventuras Compartidas
+
+6 contadores de daño en forma de dado
+
+1 dado para lanzamiento de moneda válido en competencias
+
+2 marcadores de condición de plástico
+
+1 caja de coleccionista con 4 divisores para guardar todo de forma organizada
+
+1 carta con código para el Juego de Cartas Coleccionables Pokémon Live,"
+"etb-black-bolt-en,Black Bolt,ETB,INGLÉS,ETB,74990,79990,10,img/etb-black-bolt-en.webp,etb-black-bolt-en,Contenido de la colección
+1 portafolio temático de 9 bolsillos
+
+5 sobres de Pokémon TCG: Scarlet & Violet — White Flare
+
+Cada sobre contiene 10 cartas y 1 Energía Básica (las cartas varían en cada sobre)
+
+1 lista de cartas de colección,"
+"etb-black-bolt-es,Fulgor Negro,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-black-bolt-es.webp,etb-black-bolt-es,Contenido de la colección
+1 portafolio temático de 9 bolsillos
+
+5 sobres de Pokémon TCG: Scarlet & Violet — Black Bolt
+
+Cada sobre contiene 10 cartas y 1 Energía Básica (las cartas varían en cada sobre)
+
+1 lista de cartas de colección,"
+etb-aventuras-en,Journey Together,ETB,INGLÉS,ETB,74990,79990,10,img/etb-aventuras-es.webp,etb-aventuras-es,,
+etb-aventuras-es,Aventuras Compartidas,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-aventuras-es.webp,etb-aventuras-es,,
+bin-white-flare-es,Llama Blanca,BINDER,ESPAÑOL,BINDER,34990,44990,10,img/bin-white-flare-es.webp,bin-white-flare-es,,
+bin-black-bolt-es,Fulgor Negro,BINDER,ESPAÑOL,BINDER,34990,44990,10,img/bin-black-bolt-es.webp,bin-black-bolt-es,,
+poster-prismatic-es,Evoluciones Prismáticas,POSTER,ESPAÑOL,POSTER,18000,19990,10,img/poster-prismatic-en.webp,poster-prismatic-en,,
+poster-prismatic-en,Prismatic Evolutions,POSTER,INGLÉS,POSTER,29990,29990,10,img/poster-prismatic-en.webp,poster-prismatic-en,,

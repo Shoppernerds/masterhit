@@ -1,324 +1,389 @@
 ﻿[
     {
-        "id":  "spc-prismatic-en",
-        "name":  "Prismatic Evolutions",
-        "set":  "SPC",
-        "type":  "INGLÉS",
-        "category":  "SPC",
-        "price":  "140000",
-        "compareAtPrice":  "179990",
-        "stock":  "10",
-        "image":  "img/spc-prismatic-en.webp",
-        "tags":  "[\u0027SPC",
-        "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "• 9 paquetes de mejora de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG"
     },
     {
-        "id":  "special-garchomp-en",
-        "name":  "Garchomp EX",
-        "set":  "SPECIAL",
-        "type":  "ESPAÑOL",
-        "category":  "SPECIAL",
-        "price":  "25000",
-        "compareAtPrice":  "34990",
-        "stock":  "10",
-        "image":  "img/special-garchomp-en.webp",
-        "tags":  "[\u0027SPECIAL",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "• 1 carta promocional con arte completo de Eevee"
     },
     {
-        "id":  "etb-destined-es",
-        "name":  "Rivales Predestinados",
-        "set":  "ETB",
-        "type":  "ESPAÑOL",
-        "category":  "ETB",
-        "price":  "40000",
-        "compareAtPrice":  "54990",
-        "stock":  "10",
-        "image":  "img/etb-destined-es.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "• 65 fundas para cartas con Eevee como un Pokémon Tera Estelar"
     },
     {
-        "id":  "special-charizardex-en",
-        "name":  "Charizard EX",
-        "set":  "SPECIAL",
-        "type":  "ESPAÑOL",
-        "category":  "SPECIAL",
-        "price":  "25000",
-        "compareAtPrice":  "34990",
-        "stock":  "10",
-        "image":  "img/special-charizardex-en.webp",
-        "tags":  "[\u0027SPECIAL",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "• 45 cartas de Energía de Pokémon TCG"
     },
     {
-        "id":  "etb-prismatic-es",
-        "name":  "Evoluciones Prismáticas",
-        "set":  "ETB",
-        "type":  "ESPAÑOL",
-        "category":  "ETB",
-        "price":  "55000",
-        "compareAtPrice":  "69990",
-        "stock":  "10",
-        "image":  "img/etb-prismatic-es.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "• Una guía del jugador para la expansión Scarlet \u0026 Violet de Pokémon TCG"
     },
     {
-        "id":  "special-charizardex-en",
-        "name":  "Charizard EX",
-        "set":  "SPECIAL",
-        "type":  "INGLÉS",
-        "category":  "SPECIAL",
-        "price":  "28000",
-        "compareAtPrice":  "34990",
-        "stock":  "10",
-        "image":  "img/special-charizardex-en.webp",
-        "tags":  "[\u0027SPECIAL",
-        "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "• 6 dados contadores de daño"
     },
     {
-        "id":  "poster-prismatic-en",
-        "name":  "Prismatic Evolutions",
-        "set":  "POSTER",
-        "type":  "ESPAÑOL",
-        "category":  "POSTER",
-        "price":  "18000",
-        "compareAtPrice":  "19990",
-        "stock":  "10",
-        "image":  "img/poster-prismatic-en.webp",
-        "tags":  "[\u0027POSTER",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "• 1 dado de lanzamiento de moneda legal para competencias"
     },
     {
-        "id":  "special-garchomp-en",
-        "name":  "Garchomp EX",
-        "set":  "SPECIAL",
-        "type":  "INGLÉS",
-        "category":  "SPECIAL",
-        "price":  "28000",
-        "compareAtPrice":  "35990",
-        "stock":  "10",
-        "image":  "img/special-garchomp-en.webp",
-        "tags":  "[\u0027SPECIAL",
-        "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "• 2 marcadores de condición de plástico"
     },
     {
-        "id":  "spc-prismatic-en",
-        "name":  "Evoluciones Prismáticas",
-        "set":  "SPC",
-        "type":  "ESPAÑOL",
-        "category":  "SPC",
-        "price":  "120000",
-        "compareAtPrice":  "179990",
-        "stock":  "10",
-        "image":  "img/spc-prismatic-en.webp",
-        "tags":  "[\u0027SPC",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "• Una caja de coleccionista para guardar todo"
     },
     {
-        "id":  "surprisebox-en",
-        "name":  "Prismatic Evolutions",
-        "set":  "SURPRISE BOX",
-        "type":  "INGLÉS",
-        "category":  "SURPRISE BOX",
-        "price":  "35000",
-        "compareAtPrice":  "39990",
-        "stock":  "10",
-        "image":  "img/surprisebox-en.webp",
-        "tags":  "[\u0027SURPRISE BOX",
-        "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "• Una tarjeta de código para Pokémon Trading Card Game Live"
     },
     {
-        "id":  "surprisebox-en",
-        "name":  "Prismatic Evolutions",
-        "set":  "SURPRISE BOX",
-        "type":  "ESPAÑOL",
-        "category":  "SURPRISE BOX",
-        "price":  "30000",
-        "compareAtPrice":  "34990",
-        "stock":  "10",
-        "image":  "img/surprisebox-en.webp",
-        "tags":  "[\u0027SURPRISE BOX",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "special-garchomp-es,Garchomp EX,SPECIAL,ESPAÑOL,SPECIAL,25000,34990,10,img/special-garchomp-en.webp,special-garchomp-en,Charizard ex Special Collection Pokémon TCG contiene:"
     },
     {
-        "id":  "etb-megalucario-en",
-        "name":  "Mega Evolutions",
-        "set":  "ETB",
-        "type":  "INGLÉS",
-        "category":  "ETB",
-        "price":  "64990",
-        "compareAtPrice":  "29990",
-        "stock":  "10",
-        "image":  "img/etb-megalucario-en.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "-1 carta promo holográfica grabada en relieve de Charizard ex"
     },
     {
-        "id":  "etb-megalucario-en",
-        "name":  "Megaevolución",
-        "set":  "ETB",
-        "type":  "ESPAÑOL",
-        "category":  "ETB",
-        "price":  "54990",
-        "compareAtPrice":  "29990",
-        "stock":  "10",
-        "image":  "img/etb-megalucario-en.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "-2 cartas holográficas: Charmander y Charmeleon"
     },
     {
-        "id":  "etb-megagardevoir-en",
-        "name":  "Mega Evolutions",
-        "set":  "ETB",
-        "type":  "INGLÉS",
-        "category":  "ETB",
-        "price":  "64990",
-        "compareAtPrice":  "29990",
-        "stock":  "10",
-        "image":  "img/etb-megagardevoir-en.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "-5 sobres de refuerzo de JCC Pokémon"
     },
     {
-        "id":  "etb-megagardevoir-en",
-        "name":  "Megaevolución",
-        "set":  "ETB",
-        "type":  "ESPAÑOL",
-        "category":  "ETB",
-        "price":  "54990",
-        "compareAtPrice":  "29990",
-        "stock":  "10",
-        "image":  "img/etb-megagardevoir-en.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "-1 carta lenticular jumbo con efecto 3D"
     },
     {
-        "id":  "etb-white-flare-en",
-        "name":  "White Flare",
-        "set":  "ETB",
-        "type":  "INGLÉS",
-        "category":  "ETB",
-        "price":  "74990",
-        "compareAtPrice":  "79990",
-        "stock":  "10",
-        "image":  "img/etb-white-flare-en.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "-1 carta con código para JCC Pokémon Live"
     },
     {
-        "id":  "etb-white-flare-en",
-        "name":  "Llama Blanca",
-        "set":  "ETB",
-        "type":  "ESPAÑOL",
-        "category":  "ETB",
-        "price":  "69990",
-        "compareAtPrice":  "79990",
-        "stock":  "10",
-        "image":  "img/etb-white-flare-en.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-destined-es,Rivales Predestinados,ETB,ESPAÑOL,ETB,40000,54990,10,img/etb-destined-es.webp,etb-destined-es,Contenido de la colección"
     },
     {
-        "id":  "etb-black-bolt-en",
-        "name":  "Black Bolt",
-        "set":  "ETB",
-        "type":  "INGLÉS",
-        "category":  "ETB",
-        "price":  "74990",
-        "compareAtPrice":  "79990",
-        "stock":  "10",
-        "image":  "img/etb-black-bolt-en.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta promocional foil de arte completo con Cynthia’s Garchomp ex"
     },
     {
-        "id":  "etb-black-bolt-es",
-        "name":  "Fulgor Negro",
-        "set":  "ETB",
-        "type":  "ESPAÑOL",
-        "category":  "ETB",
-        "price":  "69990",
-        "compareAtPrice":  "79990",
-        "stock":  "10",
-        "image":  "img/etb-black-bolt-es.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "2 cartas foil con Cynthia’s Gible y Cynthia’s Gabite"
     },
     {
-        "id":  "etb-aventuras-es",
-        "name":  "Journey Together",
-        "set":  "ETB",
-        "type":  "INGLÉS",
-        "category":  "ETB",
-        "price":  "74990",
-        "compareAtPrice":  "79990",
-        "stock":  "10",
-        "image":  "img/etb-aventuras-es.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 hoja de figuras acrílicas con Cynthia"
     },
     {
-        "id":  "etb-aventuras-es",
-        "name":  "Aventuras Compartidas",
-        "set":  "ETB",
-        "type":  "ESPAÑOL",
-        "category":  "ETB",
-        "price":  "69990",
-        "compareAtPrice":  "79990",
-        "stock":  "10",
-        "image":  "img/etb-aventuras-es.webp",
-        "tags":  "[\u0027ETB",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 fondo de exhibición a doble cara"
     },
     {
-        "id":  "bin-white-flare-es",
-        "name":  "Llama Blanca",
-        "set":  "BINDER",
-        "type":  "ESPAÑOL",
-        "category":  "BINDER",
-        "price":  "34990",
-        "compareAtPrice":  "34990",
-        "stock":  "10",
-        "image":  "img/bin-white-flare-es.webp",
-        "tags":  "[\u0027BINDER",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 adhesivo con Cynthia y Garchomp"
     },
     {
-        "id":  "bin-black-bolt-es",
-        "name":  "Fulgor Negro",
-        "set":  "BINDER",
-        "type":  "ESPAÑOL",
-        "category":  "BINDER",
-        "price":  "34990",
-        "compareAtPrice":  "34990",
-        "stock":  "10",
-        "image":  "img/bin-black-bolt-es.webp",
-        "tags":  "[\u0027BINDER",
-        "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "6 sobres de Pokémon TCG"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta con código para Pokémon TCG Live"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "special-charizardex-es,Charizard EX,SPECIAL,ESPAÑOL,SPECIAL,25000,34990,10,img/special-charizardex-en.webp,special-charizardex-en,La colección Super Premium del JCC Pokémon: Escarlata y Púrpura – Evoluciones Prismáticas incluye:"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta promocional holográfica con arte completo de Eevee ex"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 caja para mazos suave de Eevee"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 tapete de juego con Eevee y sus Evoluciones"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "65 fundas para cartas con Eevee y sus Evoluciones"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "15 sobres de mejora del JCC Pokémon: Escarlata y Púrpura – Evoluciones Prismáticas"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta con código para JCC Pokémon Live"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-prismatic-es,Evoluciones Prismáticas,ETB,ESPAÑOL,ETB,55000,69990,10,img/etb-prismatic-es.webp,etb-prismatic-es,Contenido de la caja sorpresa:"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "4 sobres de Evoluciones Prismáticas ."
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 caja de almacenamiento elegante con 4 separadores."
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta promocional grabada al azar con Eevee o una de sus Evoluciones como ex Pokémon Tera Estelar ."
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "special-charizardex-en,Charizard EX,SPECIAL,INGLÉS,SPECIAL,28000,34990,10,img/special-charizardex-en.webp,special-charizardex-en,Contenido de la caja sorpresa:"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "4 sobres de Evoluciones Prismáticas ."
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 caja de almacenamiento elegante con 4 separadores."
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta promocional grabada al azar con Eevee o una de sus Evoluciones como ex Pokémon Tera Estelar ."
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "special-garchomp-en,Garchomp EX,SPECIAL,INGLÉS,SPECIAL,28000,35990,10,img/special-garchomp-en.webp,special-garchomp-en,La Elite Trainer Box de Mega Evolution incluye:"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "9 sobres de mejora del JCC Pokémon: Mega Evolución"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta holográfica promocional de arte completo con Riolu "
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "65 fundas para cartas"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "40 cartas de Energía del JCC Pokémon"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una guía para jugadores de la expansión Mega Evolución"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "6 dados de contador de daño"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 dado para lanzamiento de moneda válido para torneos"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 moneda de plástico"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una caja de coleccionista para guardar todo"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una carta con código para Pokémon Trading Card Game Live"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "*Cada sobre contiene 10 cartas al azar (3 cartas holográficas)"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "spc-prismatic-es,Evoluciones Prismáticas,SPC,ESPAÑOL,SPC,120000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La Elite Trainer Box de Mega Evolution incluye:"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "9 sobres de mejora del JCC Pokémon: Mega Evolución"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta holográfica promocional de arte completo con Riolu "
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "65 fundas para cartas"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "40 cartas de Energía del JCC Pokémon"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una guía para jugadores de la expansión Mega Evolución"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "6 dados de contador de daño"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 dado para lanzamiento de moneda válido para torneos"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 moneda de plástico"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una caja de coleccionista para guardar todo"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una carta con código para Pokémon Trading Card Game Live"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "*Cada sobre contiene 10 cartas al azar (3 cartas holográficas)"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "surprisebox-en,Prismatic Evolutions,SURPRISE BOX,INGLÉS,SURPRISE BOX,35000,39990,10,img/surprisebox-en.webp,surprisebox-en,La Elite Trainer Box de Mega Evolution incluye:"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "9 sobres de mejora del JCC Pokémon: Mega Evolución"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta holográfica promocional de arte completo con Alakazam"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "65 fundas para cartas"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "40 cartas de Energía del JCC Pokémon"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una guía para jugadores de la expansión Mega Evolución"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "6 dados de contador de daño"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 dado para lanzamiento de moneda válido para torneos"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 moneda de plástico"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una caja de coleccionista para guardar todo"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una carta con código para Pokémon Trading Card Game Live"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "surprisebox-es,Prismatic Evolutions,SURPRISE BOX,ESPAÑOL,SURPRISE BOX,30000,34990,10,img/surprisebox-en.webp,surprisebox-en,La Elite Trainer Box de Mega Evolution incluye:"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "9 sobres de mejora del JCC Pokémon: Mega Evolución"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta holográfica promocional de arte completo con Alakazam"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "65 fundas para cartas"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "40 cartas de Energía del JCC Pokémon"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una guía para jugadores de la expansión Mega Evolución"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "6 dados de contador de daño"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 dado para lanzamiento de moneda válido para torneos"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 moneda de plástico"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una caja de coleccionista para guardar todo"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Una carta con código para Pokémon Trading Card Game Live"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-megalucario-en"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-megalucario-es"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-megagardevoir-en"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-megagardevoir-es"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-white-flare-en,White Flare,ETB,INGLÉS,ETB,74990,79990,10,img/etb-white-flare-en.webp,etb-white-flare-en,Comienza tu camino con esta Caja de Entrenador Élite, que contiene 9 sobres de refuerzo de Escarlata y Púrpura-Aventuras Compartidas, así como una carta promo holográfica con arte completo de Zorua de N. Además, encontrarás muchos útiles accesorios de JCC Pokémon, como fundas para cartas, cartas de Energía, dados, marcadores de condición y mucho más. Todo esto viene en una resistente caja de coleccionista con divisores para mantener tus cartas protegidas y organizadas."
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "La Caja de Entrenador Élite de Escarlata y Púrpura-Aventuras Compartidas de JCC Pokémon contiene:"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "9 sobres de refuerzo de Escarlata y Púrpura-Aventuras Compartidas de JCC Pokémon"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta promo holográfica con arte completo de Zorua de N"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "65 fundas para cartas"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "45 cartas de Energía de JCC Pokémon"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 guía para jugadores de la expansión Escarlata y Púrpura-Aventuras Compartidas"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "6 contadores de daño en forma de dado"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 dado para lanzamiento de moneda válido en competencias"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "2 marcadores de condición de plástico"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 caja de coleccionista con 4 divisores para guardar todo de forma organizada"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta con código para el Juego de Cartas Coleccionables Pokémon Live"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-white-flare-es,Llama Blanca,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-white-flare-en.webp,etb-white-flare-en,Comienza tu camino con esta Caja de Entrenador Élite, que contiene 9 sobres de refuerzo de Escarlata y Púrpura-Aventuras Compartidas, así como una carta promo holográfica con arte completo de Zorua de N. Además, encontrarás muchos útiles accesorios de JCC Pokémon, como fundas para cartas, cartas de Energía, dados, marcadores de condición y mucho más. Todo esto viene en una resistente caja de coleccionista con divisores para mantener tus cartas protegidas y organizadas."
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "La Caja de Entrenador Élite de Escarlata y Púrpura-Aventuras Compartidas de JCC Pokémon contiene:"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "9 sobres de refuerzo de Escarlata y Púrpura-Aventuras Compartidas de JCC Pokémon"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta promo holográfica con arte completo de Zorua de N"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "65 fundas para cartas"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "45 cartas de Energía de JCC Pokémon"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 guía para jugadores de la expansión Escarlata y Púrpura-Aventuras Compartidas"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "6 contadores de daño en forma de dado"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 dado para lanzamiento de moneda válido en competencias"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "2 marcadores de condición de plástico"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 caja de coleccionista con 4 divisores para guardar todo de forma organizada"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 carta con código para el Juego de Cartas Coleccionables Pokémon Live"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-black-bolt-en,Black Bolt,ETB,INGLÉS,ETB,74990,79990,10,img/etb-black-bolt-en.webp,etb-black-bolt-en,Contenido de la colección"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 portafolio temático de 9 bolsillos"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "5 sobres de Pokémon TCG: Scarlet \u0026 Violet — White Flare"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Cada sobre contiene 10 cartas y 1 Energía Básica (las cartas varían en cada sobre)"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 lista de cartas de colección"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-black-bolt-es,Fulgor Negro,ETB,ESPAÑOL,ETB,69990,79990,10,img/etb-black-bolt-es.webp,etb-black-bolt-es,Contenido de la colección"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 portafolio temático de 9 bolsillos"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "5 sobres de Pokémon TCG: Scarlet \u0026 Violet — Black Bolt"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "Cada sobre contiene 10 cartas y 1 Energía Básica (las cartas varían en cada sobre)"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "1 lista de cartas de colección"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-aventuras-en"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "etb-aventuras-es"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "bin-white-flare-es"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "bin-black-bolt-es"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "poster-prismatic-es"
+    },
+    {
+        "spc-prismatic-en,Prismatic Evolutions,SPC,INGLÉS,SPC,140000,179990,10,img/spc-prismatic-en.webp,spc-prismatic-en,La caja de Entrenador Élite de Evoluciones Prismáticas de Scarlet \u0026 Violet de Pokémon TCG incluye:":  "poster-prismatic-en"
     }
 ]
