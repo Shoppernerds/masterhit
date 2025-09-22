@@ -8,13 +8,21 @@
 <meta property="og:title" content="MasterHit | Cartas Pokémon en Chile">
 <meta property="og:description" content="Cajas selladas, ETB, boosters y singles. Envíos a todo Chile.">
 <meta property="og:type" content="website">
-
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256'%3E%3Ccircle cx='128' cy='128' r='120' fill='%23e60000'/%3E%3Ccircle cx='128' cy='128' r='88' fill='%23fff'/%3E%3Ccircle cx='128' cy='128' r='40' fill='%23000'/%3E%3C/svg%3E">
+
 <style>
-:root{--bg:#0b0b0c;--card:#111215;--muted:#9aa2ae;--line:#20242b;--fg:#f5f7fb;--accent:#e60000;--accent-2:#fff;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.45)}
-*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
-a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
+:root{
+  --bg:#0b0b0c;--card:#111215;--muted:#9aa2ae;--line:#20242b;--fg:#f5f7fb;
+  --accent:#e60000;--accent-2:#fff;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.45)
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
 .container{max-width:1200px;margin:0 auto;padding:20px}
+
+/* Lock scroll when overlays open */
+body.is-locked{overflow:hidden;touch-action:none;-ms-touch-action:none}
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:50;background:#000;border-bottom:2px solid var(--accent)}
@@ -63,13 +71,13 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .save-tag{background:rgba(230,0,0,.15);color:#fff;border:1px solid rgba(230,0,0,.35);padding:2px 8px;border-radius:999px;font-size:.75rem}
 
 /* Drawer carrito */
-.drawer{position:fixed;right:0;top:0;height:100%;width:420px;max-width:100%;background:#111;color:#fff;border-left:2px solid var(--accent);transform:translateX(100%);transition:.3s;z-index:100;display:flex;flex-direction:column}
+.drawer{position:fixed;right:0;top:0;height:100%;width:420px;max-width:100%;background:#111;color:#fff;border-left:2px solid var(--accent);transform:translateX(100%);transition:.3s;z-index:100;display:flex;flex-direction:column;overscroll-behavior:contain}
 .drawer.open{transform:translateX(0)}
 .row{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px}
 .row img{width:64px;height:64px;object-fit:contain;background:#fff}
 
 /* Modal genérico (para checkout) */
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:90}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:90;overscroll-behavior:contain}
 .modal.open{display:grid}
 
 /* CHECKOUT modal */
@@ -77,7 +85,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .checkout-body{padding:16px;display:grid;gap:16px}
 .section{border:1px solid var(--line);border-radius:12px;padding:12px}
 .section h3{margin:0 0 8px 0;font-size:1rem}
-.input, select, textarea{width:100%;border-radius:10px;border:1px solid var(--line);background:#0f1116;color:#fff;padding:10px}
+.input, select, textarea{width:100%;max-width:100%;border-radius:10px;border:1px solid var(--line);background:#0f1116;color:#fff;padding:10px}
 .input::placeholder, textarea::placeholder{color:#9aa2ae}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .help{font-size:.85rem;color:#9aa2ae}
@@ -103,6 +111,8 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   .footer-inner{grid-template-columns:1fr;gap:10px;text-align:center}
   .footer-btn{grid-row:1;justify-self:center;margin-bottom:10px}
   .footer-info{grid-row:2}
+  .row{grid-template-columns:56px 1fr auto}
+  .row .input{width:52px;max-width:52px}
 }
 </style>
 </head>
@@ -155,7 +165,7 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   <div style="padding:12px;border-top:1px solid var(--line)">
     <div>Subtotal: <strong id="subtotal">—</strong></div>
     <div>Total: <strong id="grand">—</strong></div>
-    <button id="btnCheckout" class="btn primary" style="margin-top:10px;width:100%">Proceder a pago (Transferencia)</button>
+    <button id="btnCheckout" class="btn primary" style="margin-top:10px;width:100%">Pagar con Transferencia</button>
     <small class="muted">* Único medio de pago: transferencia bancaria.</small>
   </div>
 </aside>
@@ -164,7 +174,7 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
 <div id="checkout" class="modal" role="dialog" aria-modal="true" aria-label="Checkout">
   <div class="checkout-card">
     <header style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)">
-      <strong>Finalizar compra (Transferencia)</strong>
+      <strong>Finalizar compra</strong>
       <button id="coClose" class="btn" aria-label="Cerrar checkout">✕</button>
     </header>
     <div class="checkout-body">
@@ -203,32 +213,40 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
         </div>
 
         <div class="flex" style="justify-content:flex-end;margin-top:10px">
-          <button id="coNext" class="btn primary">Continuar</button>
+          <button id="coNext" class="btn primary">Confirmo mi pedido</button>
         </div>
       </div>
 
       <!-- Paso 2 -->
       <div class="section" id="coStep2" style="display:none">
-        <h3>2) Confirma y transfiere</h3>
-        <div class="grid-2">
+        <h3>2) Su número de pedido es <span id="coOrderHuman" class="code">#0165</span></h3>
+
+        <div class="grid-2" style="align-items:start">
           <div>
             <strong>Resumen del pedido</strong>
             <div id="coSummary" class="code" style="margin-top:8px;white-space:pre-wrap"></div>
             <div class="flex" style="margin-top:8px"><button id="btnCopySummary" class="btn">Copiar resumen</button></div>
           </div>
           <div>
-            <strong>Datos para Transferencia</strong>
+            <strong>Paga vía Transferencia</strong>
+            <div class="help" style="margin-top:4px">Total de tu compra: <strong id="coTotal"></strong></div>
             <div id="coBank" class="code" style="margin-top:8px"></div>
             <div class="flex" style="margin-top:8px">
               <button id="btnCopyBank" class="btn">Copiar datos</button>
-              <a id="btnWA" class="btn primary" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+              <a id="btnWA" class="btn primary" target="_blank" rel="noopener">Enviar WhatsApp</a>
             </div>
-            <p class="help" style="margin-top:8px">Adjunta el comprobante. Validamos y coordinamos la entrega según la opción elegida.</p>
+            <p class="help" style="margin-top:8px">
+              Agrega como mensaje el <strong>número de tu pedido</strong>. Cuando hayas transferido, presiona <em>Confirmar Compra</em>.
+            </p>
           </div>
         </div>
+
         <div class="flex" style="justify-content:space-between">
           <button id="coBack" class="btn">Volver</button>
-          <button id="coFinish" class="btn primary">He transferido / Finalizar</button>
+          <div class="flex" style="gap:8px">
+            <button id="btnDownloadCSV" class="btn">Descargar pedidos (CSV)</button>
+            <button id="coFinish" class="btn primary">Confirmar Compra</button>
+          </div>
         </div>
       </div>
     </div>
@@ -255,14 +273,24 @@ window.addEventListener('DOMContentLoaded', () => {
   const $=s=>document.querySelector(s),
         fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0),
         uniq=(arr)=>Array.from(new Set(arr.map(x=>(x||'').trim()).filter(Boolean))),
-        // FIX: regex compatible (sin \\p{Diacritic})
         nlatin=s=>(s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(),
         esc=s=>(s??'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 
+  /* ====== BLOQUEA SCROLL FONDO AL ABRIR OVERLAYS ====== */
+  const lockBody = (on)=>{ document.body.classList.toggle('is-locked', !!on); };
+
   let PRODUCTS=[], CART=JSON.parse(localStorage.getItem('mh_cart')||'[]');
 
-  /* ====== DATOS BANCARIOS ====== */
-  const BANK = { holder:'MasterHit SpA', rut:'77.777.777-7', bank:'Banco Falabella', type:'Cuenta Vista', number:'12345678', email:'pagos@masterhit.cl', whatsapp:'+56975121963' };
+  /* ====== DATOS BANCARIOS (JORGE) ====== */
+  const BANK = {
+    holder:'Jorge Galvez',
+    rut:'18.041.726-5',
+    bank:'Banco de Chile',
+    type:'Cuenta Corriente',
+    number:'580520907',
+    email:'jorge@shoppernerds.com',
+    whatsapp:'+56982082071'
+  };
 
   /* ====== Etiquetas desde "source" (preventa/oferta) ====== */
   function getBadgesFromSource(p){
@@ -287,9 +315,9 @@ window.addEventListener('DOMContentLoaded', () => {
         coStep1=$('#coStep1'),coStep2=$('#coStep2'),
         coName=$('#coName'),coPhone=$('#coPhone'),coEmail=$('#coEmail'),
         rowLang=$('#rowLang'),btnClear=$('#btnClear'),
-        coSummary=$('#coSummary'),coBank=$('#coBank'),
+        coSummary=$('#coSummary'),coBank=$('#coBank'),coTotal=$('#coTotal'),coOrderHuman=$('#coOrderHuman'),
         btnCopySummary=$('#btnCopySummary'),btnCopyBank=$('#btnCopyBank'),btnWA=$('#btnWA'),
-        coBack=$('#coBack'),coNext=$('#coNext'),coFinish=$('#coFinish');
+        coBack=$('#coBack'),coNext=$('#coNext'),coFinish=$('#coFinish'),btnDownloadCSV=$('#btnDownloadCSV');
 
   /* Fallback demo */
   const FALLBACK=[
@@ -369,9 +397,9 @@ window.addEventListener('DOMContentLoaded', () => {
         <img src="${l.image}" alt="${esc(l.name)}" loading="lazy">
         <div>
           <div style="display:flex;justify-content:space-between;gap:8px"><strong>${esc(l.name)}</strong><span>${fmt(l.price)}</span></div>
-          <div class="qty" style="margin-top:6px">
+          <div class="qty" style="margin-top:6px;display:flex;gap:6px;align-items:center;flex-wrap:nowrap">
             <button class="btn" data-plus data-id="${esc(l.id)}">+</button>
-            <input class="input" style="width:60px;text-align:center" type="number" min="1" value="${l.qty}" data-q="${esc(l.id)}">
+            <input class="input" style="width:60px;max-width:60px;text-align:center" type="number" min="1" value="${l.qty}" data-q="${esc(l.id)}">
             <button class="btn" data-minus data-id="${esc(l.id)}">−</button>
             <button class="btn" style="margin-left:auto" data-del data-id="${esc(l.id)}">🗑️</button>
           </div>
@@ -386,13 +414,13 @@ window.addEventListener('DOMContentLoaded', () => {
   function setQty(id,qty){qty=Math.max(1,qty|0);const p=PRODUCTS.find(x=>x.id===id),line=CART.find(x=>x.id===id); if(!line||!p) return;
     line.qty=Math.min(qty,p.stock|0||qty); saveCart();updateBadge();drawCart();}
   function removeFromCart(id){CART=CART.filter(x=>x.id!==id);saveCart();updateBadge();drawCart();}
-  function openCart(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');drawCart()}
-  function closeCart(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true')}
+  function openCart(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');drawCart();lockBody(true)}
+  function closeCart(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');lockBody(false)}
 
   /* ====== Checkout (transferencia) ====== */
   function openCheckout(){
     if(CART.length===0){alert('Tu carrito está vacío.');return;}
-    drawer.classList.remove('open');
+    drawer.classList.remove('open'); lockBody(true);
     coStep1.style.display='block'; coStep2.style.display='none'; coModal.classList.add('open');
     const last=JSON.parse(localStorage.getItem('mh_buyer_simple')||'{}');
     coName.value=last.name||''; coPhone.value=last.phone||''; coEmail.value=last.email||'';
@@ -400,7 +428,7 @@ window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('input[name="coOpt"]').forEach(r=>{ r.checked = (r.value===prev); });
     buildBankBlock();
   }
-  function closeCheckout(){coModal.classList.remove('open')}
+  function closeCheckout(){coModal.classList.remove('open');lockBody(false)}
 
   function validateStep1(){
     const phoneOk=/^\+?56\s?9\s?\d{4}\s?\d{4}$/.test(coPhone.value.trim()) || /^\+?569\d{8}$/.test(coPhone.value.trim());
@@ -413,7 +441,19 @@ window.addEventListener('DOMContentLoaded', () => {
     return [true,''];
   }
 
-  function orderId(){ const n=Date.now().toString(36).toUpperCase(); return `MH-${n.slice(-6)}`; }
+  /* ====== ORDER ID: #0165 en adelante ====== */
+  function getNextHumanOrder(){
+    let seq = parseInt(localStorage.getItem('mh_order_seq')||'165',10);
+    const num = seq;
+    seq = seq + 1;
+    localStorage.setItem('mh_order_seq', String(seq));
+    const human = '#'+String(num).padStart(4,'0');
+    return {human, numeric:num};
+  }
+
+  function orderIdTech(){ // id técnico
+    const n=Date.now().toString(36).toUpperCase(); return `MH-${n.slice(-6)}`;
+  }
 
   function optText(opt){
     if(opt==='rm') return 'Despacho Región Metropolitana — 1 a 3 días (18:00–21:00)';
@@ -422,10 +462,10 @@ window.addEventListener('DOMContentLoaded', () => {
     return '';
   }
 
-  function buildSummary(id,opt){
+  function buildSummary(humanId,opt){
     const items=cartLines().map(l=>`• ${l.name} x${l.qty} — ${fmt(l.price)} c/u = ${fmt(l.lineTotal)}`).join('\n');
     const total=fmt(cartSubtotal());
-    return `Pedido ${id}
+    return `Pedido ${humanId}
 ------------------
 ${items}
 Total: ${total}
@@ -446,7 +486,49 @@ Email envío comprobante: ${BANK.email}`;
   }
   function toWA(text){ return `https://wa.me/${BANK.whatsapp.replace(/[^0-9]/g,'')}?text=${encodeURIComponent(text)}`; }
 
+  /* ====== STORAGE de pedidos ====== */
+  function getOrders(){ try{return JSON.parse(localStorage.getItem('mh_orders')||'[]')}catch{return[]} }
+  function setOrders(list){ localStorage.setItem('mh_orders', JSON.stringify(list)); }
+  function pushOrder(o){ const list=getOrders(); list.push(o); setOrders(list); }
+
+  function downloadCSV(){
+    const orders=getOrders();
+    const head=['createdAt','orderHuman','orderTech','customerName','phone','email','delivery','items','totalCLP'].join(',');
+    const rows=orders.map(o=>{
+      const items=o.items.map(i=>`${i.name} x${i.qty} @ ${i.price}`).join(' | ');
+      return [
+        new Date(o.createdAt).toISOString(),
+        `"${o.orderHuman}"`,
+        `"${o.orderTech}"`,
+        `"${o.customerName}"`,
+        `"${o.phone}"`,
+        `"${o.email}"`,
+        `"${o.delivery}"`,
+        `"${items}"`,
+        o.total
+      ].join(',');
+    });
+    const csv=[head].concat(rows).join('\n');
+    const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    a.download='pedidos-masterhit.csv';
+    document.body.appendChild(a);
+    a.click();
+    URL.revokeObjectURL(a.href);
+    a.remove();
+  }
+
   /* ====== Eventos ====== */
+  // Previene scroll de fondo si se hace scroll/touch fuera del modal
+  document.addEventListener('touchmove', (e)=>{
+    if(document.body.classList.contains('is-locked')){
+      const withinDrawer = e.target.closest('.drawer');
+      const withinModal  = e.target.closest('.checkout-card');
+      if(!withinDrawer && !withinModal){ e.preventDefault(); }
+    }
+  }, {passive:false});
+
   btnCart.addEventListener('click',openCart);
   btnClose.addEventListener('click',closeCart);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCart();closeCheckout()}});
@@ -475,9 +557,28 @@ Email envío comprobante: ${BANK.email}`;
     localStorage.setItem('mh_buyer_simple', JSON.stringify({
       name:coName.value.trim(), phone:coPhone.value.trim(), email:coEmail.value.trim(), opt
     }));
-    const oid=orderId(); coSummary.dataset.orderId=oid; coSummary.dataset.opt=opt;
-    coSummary.textContent=buildSummary(oid,opt);
-    btnWA.href = toWA(`Hola, acabo de realizar un pedido y pagar por transferencia.\n\n${coSummary.textContent}\n\nAdjunto comprobante.`);
+
+    const {human, numeric} = getNextHumanOrder();
+    const techId = orderIdTech();
+    coSummary.dataset.orderHuman=human; coSummary.dataset.orderTech=techId; coSummary.dataset.opt=opt;
+    coOrderHuman.textContent = human;
+
+    // Resumen y totales
+    coSummary.textContent=buildSummary(human,opt);
+    coTotal.textContent = fmt(cartSubtotal());
+
+    // WhatsApp preconfigurado (según tu texto)
+    const lines=cartLines().map(l=>`${l.name} x${l.qty} — ${fmt(l.price)} c/u = ${fmt(l.lineTotal)}`).join('\n');
+    const waMsg =
+`Hola Jorge, soy ${coName.value.trim()}, y acabo de transferir el pago del pedido: ${human}, donde compré:
+${lines}
+Total: ${fmt(cartSubtotal())}.
+Elegí la opción: ${optText(opt)}.
+Favor confirmar si recibió bien la transferencia o necesita que envíe el comprobante.`;
+
+    btnWA.href = toWA(waMsg);
+
+    // Muestra Paso 2
     coStep1.style.display='none'; coStep2.style.display='block';
   });
 
@@ -485,11 +586,33 @@ Email envío comprobante: ${BANK.email}`;
 
   btnCopySummary.addEventListener('click',async()=>{await navigator.clipboard.writeText(coSummary.textContent);alert('Resumen copiado.')});
   btnCopyBank.addEventListener('click',async()=>{await navigator.clipboard.writeText(coBank.textContent);alert('Datos bancarios copiados.')});
+  btnDownloadCSV.addEventListener('click',downloadCSV);
 
   coFinish.addEventListener('click',()=>{
-    const oid=coSummary.dataset.orderId||orderId();
-    alert(`¡Gracias! Pedido ${oid} registrado. Te contactaremos por WhatsApp/Email.`);
-    CART=[]; saveCart(); updateBadge(); drawCart(); closeCheckout();
+    // Guarda pedido
+    const human = coSummary.dataset.orderHuman || '#????';
+    const tech   = coSummary.dataset.orderTech || orderIdTech();
+    const opt    = coSummary.dataset.opt || 'rm';
+    const items  = cartLines().map(l=>({id:l.id,name:l.name,qty:l.qty,price:l.price,lineTotal:l.lineTotal}));
+    const total  = cartSubtotal();
+
+    pushOrder({
+      createdAt: Date.now(),
+      orderHuman: human,
+      orderTech: tech,
+      customerName: coName.value.trim(),
+      phone: coPhone.value.trim(),
+      email: coEmail.value.trim(),
+      delivery: optText(opt),
+      items,
+      total
+    });
+
+    alert(`¡Gracias! Pedido ${human} confirmado. Te contactaremos por WhatsApp/Email.`);
+
+    // Limpia carrito
+    CART=[]; saveCart(); updateBadge(); drawCart();
+    closeCheckout();
   });
 
   // Filtro idioma
@@ -508,7 +631,7 @@ Email envío comprobante: ${BANK.email}`;
   });
   btnClear.addEventListener('click',()=>{ACTIVE_LANG='ALL'; buildLangChips(); render();});
 
-  // Init
+  // Carga catálogo
   (async()=>{await loadCatalog()})();
 });
 </script>
