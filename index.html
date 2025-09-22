@@ -68,7 +68,7 @@ a{color:inherit;text-decoration:none}img{max-width:100%;display:block}
 .row{display:grid;grid-template-columns:64px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:12px;padding:8px}
 .row img{width:64px;height:64px;object-fit:contain;background:#fff}
 
-/* Modal genérico (queda para el checkout) */
+/* Modal genérico (para checkout) */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:90}
 .modal.open{display:grid}
 
@@ -255,7 +255,8 @@ window.addEventListener('DOMContentLoaded', () => {
   const $=s=>document.querySelector(s),
         fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP',maximumFractionDigits:0}).format(n||0),
         uniq=(arr)=>Array.from(new Set(arr.map(x=>(x||'').trim()).filter(Boolean))),
-        nlatin=s=>(s||'').toString().normalize('NFD').replace(/\\p{Diacritic}/gu,'').toLowerCase(),
+        // FIX: regex compatible (sin \\p{Diacritic})
+        nlatin=s=>(s||'').toString().normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase(),
         esc=s=>(s??'').toString().replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 
   let PRODUCTS=[], CART=JSON.parse(localStorage.getItem('mh_cart')||'[]');
@@ -267,7 +268,7 @@ window.addEventListener('DOMContentLoaded', () => {
   function getBadgesFromSource(p){
     const out=[]; const src=(p?.source||'').toString().trim();
     if(src){
-      const mPre=src.match(/preventa\\s*(\\d{1,2}\\/\\d{1,2})?/i);
+      const mPre=src.match(/preventa\s*(\d{1,2}\/\d{1,2})?/i);
       if(mPre){ const label=mPre[1]?`Preventa ${mPre[1]}`:'Preventa'; out.push({type:'preorder',text:label,title:label}); }
       if(/oferta/i.test(src)){ out.push({type:'cost',text:src}); }
     }
@@ -395,17 +396,15 @@ window.addEventListener('DOMContentLoaded', () => {
     coStep1.style.display='block'; coStep2.style.display='none'; coModal.classList.add('open');
     const last=JSON.parse(localStorage.getItem('mh_buyer_simple')||'{}');
     coName.value=last.name||''; coPhone.value=last.phone||''; coEmail.value=last.email||'';
-    // opción previa
     const prev = last.opt || 'rm';
-    const radios = document.querySelectorAll('input[name="coOpt"]');
-    radios.forEach(r=>{ r.checked = (r.value===prev); });
+    document.querySelectorAll('input[name="coOpt"]').forEach(r=>{ r.checked = (r.value===prev); });
     buildBankBlock();
   }
   function closeCheckout(){coModal.classList.remove('open')}
 
   function validateStep1(){
-    const phoneOk=/^\\+?56\\s?9\\s?\\d{4}\\s?\\d{4}$/.test(coPhone.value.trim()) || /^\\+?569\\d{8}$/.test(coPhone.value.trim());
-    const emailOk=/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(coEmail.value.trim());
+    const phoneOk=/^\+?56\s?9\s?\d{4}\s?\d{4}$/.test(coPhone.value.trim()) || /^\+?569\d{8}$/.test(coPhone.value.trim());
+    const emailOk=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(coEmail.value.trim());
     if(!coName.value.trim()) return [false,'Ingresa tu nombre.'];
     if(!phoneOk) return [false,'WhatsApp inválido.'];
     if(!emailOk) return [false,'Email inválido.'];
@@ -424,7 +423,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function buildSummary(id,opt){
-    const items=cartLines().map(l=>`• ${l.name} x${l.qty} — ${fmt(l.price)} c/u = ${fmt(l.lineTotal)}`).join('\\n');
+    const items=cartLines().map(l=>`• ${l.name} x${l.qty} — ${fmt(l.price)} c/u = ${fmt(l.lineTotal)}`).join('\n');
     const total=fmt(cartSubtotal());
     return `Pedido ${id}
 ------------------
@@ -459,8 +458,8 @@ Email envío comprobante: ${BANK.email}`;
 
   cartBody.addEventListener('click',e=>{
     const plus=e.target.closest('[data-plus]'),minus=e.target.closest('[data-minus]'),del=e.target.closest('[data-del]');
-    if(plus){const id=plus.dataset.id;const inp=cartBody.querySelector(\`[data-q="\${id}"]\`); if(inp){inp.value=parseInt(inp.value||'1',10)+1; setQty(id,+inp.value)}}
-    if(minus){const id=minus.dataset.id;const inp=cartBody.querySelector(\`[data-q="\${id}"]\`); if(inp){inp.value=Math.max(1,parseInt(inp.value||'1',10)-1); setQty(id,+inp.value)}}
+    if(plus){const id=plus.dataset.id;const inp=cartBody.querySelector(`[data-q="${id}"]`); if(inp){inp.value=parseInt(inp.value||'1',10)+1; setQty(id,+inp.value)}}
+    if(minus){const id=minus.dataset.id;const inp=cartBody.querySelector(`[data-q="${id}"]`); if(inp){inp.value=Math.max(1,parseInt(inp.value||'1',10)-1); setQty(id,+inp.value)}}
     if(del){removeFromCart(del.dataset.id)}
   });
   cartBody.addEventListener('change',e=>{const i=e.target.closest('[data-q]'); if(i){setQty(i.dataset.q,+i.value||1)}});
@@ -478,7 +477,7 @@ Email envío comprobante: ${BANK.email}`;
     }));
     const oid=orderId(); coSummary.dataset.orderId=oid; coSummary.dataset.opt=opt;
     coSummary.textContent=buildSummary(oid,opt);
-    btnWA.href = toWA(\`Hola, acabo de realizar un pedido y pagar por transferencia.\\n\\n\${coSummary.textContent}\\n\\nAdjunto comprobante.\`);
+    btnWA.href = toWA(`Hola, acabo de realizar un pedido y pagar por transferencia.\n\n${coSummary.textContent}\n\nAdjunto comprobante.`);
     coStep1.style.display='none'; coStep2.style.display='block';
   });
 
@@ -489,15 +488,15 @@ Email envío comprobante: ${BANK.email}`;
 
   coFinish.addEventListener('click',()=>{
     const oid=coSummary.dataset.orderId||orderId();
-    alert(\`¡Gracias! Pedido \${oid} registrado. Te contactaremos por WhatsApp/Email.\`);
+    alert(`¡Gracias! Pedido ${oid} registrado. Te contactaremos por WhatsApp/Email.`);
     CART=[]; saveCart(); updateBadge(); drawCart(); closeCheckout();
   });
 
   // Filtro idioma
   function buildLangChips(){
     const langs = uniq(PRODUCTS.map(p=>p.type)).sort((a,b)=>a.localeCompare(b));
-    const chips = [\`<button class="chip \${ACTIVE_LANG==='ALL'?'active':''}" data-lang="ALL">Todos</button>\`]
-      .concat(langs.map(l=>\`<button class="chip \${nlatin(ACTIVE_LANG)===nlatin(l)?'active':''}" data-lang="\${l}">\${l}</button>\`));
+    const chips = [`<button class="chip ${ACTIVE_LANG==='ALL'?'active':''}" data-lang="ALL">Todos</button>`]
+      .concat(langs.map(l=>`<button class="chip ${nlatin(ACTIVE_LANG)===nlatin(l)?'active':''}" data-lang="${l}">${l}</button>`));
     rowLang.innerHTML = chips.join('');
   }
   rowLang.addEventListener('click',e=>{
@@ -515,4 +514,3 @@ Email envío comprobante: ${BANK.email}`;
 </script>
 </body>
 </html>
-
