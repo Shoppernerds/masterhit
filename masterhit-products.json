@@ -11,7 +11,7 @@
         "image":  "img/spc-prismatic-en.webp",
         "tags":  "[\u0027SPC",
         "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Oferta Flash"
     },
     {
         "id":  "special-garchomp-en",
@@ -21,11 +21,11 @@
         "category":  "SPECIAL",
         "price":  "25000",
         "compareAtPrice":  "34990",
-        "stock":  "10",
+        "stock":  "5",
         "image":  "img/special-garchomp-en.webp",
         "tags":  "[\u0027SPECIAL",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Oferta Flash"
     },
     {
         "id":  "etb-destined-es",
@@ -39,7 +39,7 @@
         "image":  "img/etb-destined-es.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Oferta Flash"
     },
     {
         "id":  "special-charizardex-en",
@@ -49,11 +49,11 @@
         "category":  "SPECIAL",
         "price":  "25000",
         "compareAtPrice":  "34990",
-        "stock":  "10",
+        "stock":  "5",
         "image":  "img/special-charizardex-en.webp",
         "tags":  "[\u0027SPECIAL",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Oferta Flash"
     },
     {
         "id":  "etb-prismatic-es",
@@ -63,11 +63,11 @@
         "category":  "ETB",
         "price":  "55000",
         "compareAtPrice":  "69990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/etb-prismatic-es.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "special-charizardex-en",
@@ -77,11 +77,11 @@
         "category":  "SPECIAL",
         "price":  "28000",
         "compareAtPrice":  "34990",
-        "stock":  "10",
+        "stock":  "5",
         "image":  "img/special-charizardex-en.webp",
         "tags":  "[\u0027SPECIAL",
         "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "poster-prismatic-en",
@@ -91,11 +91,11 @@
         "category":  "POSTER",
         "price":  "18000",
         "compareAtPrice":  "19990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/poster-prismatic-en.webp",
         "tags":  "[\u0027POSTER",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "special-garchomp-en",
@@ -105,11 +105,11 @@
         "category":  "SPECIAL",
         "price":  "28000",
         "compareAtPrice":  "35990",
-        "stock":  "10",
+        "stock":  "5",
         "image":  "img/special-garchomp-en.webp",
         "tags":  "[\u0027SPECIAL",
         "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "spc-prismatic-en",
@@ -119,11 +119,11 @@
         "category":  "SPC",
         "price":  "120000",
         "compareAtPrice":  "179990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/spc-prismatic-en.webp",
         "tags":  "[\u0027SPC",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "surprisebox-en",
@@ -133,11 +133,11 @@
         "category":  "SURPRISE BOX",
         "price":  "35000",
         "compareAtPrice":  "39990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/surprisebox-en.webp",
         "tags":  "[\u0027SURPRISE BOX",
         "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "surprisebox-en",
@@ -147,11 +147,11 @@
         "category":  "SURPRISE BOX",
         "price":  "30000",
         "compareAtPrice":  "34990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/surprisebox-en.webp",
         "tags":  "[\u0027SURPRISE BOX",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "etb-megalucario-en",
@@ -165,7 +165,7 @@
         "image":  "img/etb-megalucario-en.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Preventa 26/09"
     },
     {
         "id":  "etb-megalucario-en",
@@ -179,7 +179,7 @@
         "image":  "img/etb-megalucario-en.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Preventa 26/10"
     },
     {
         "id":  "etb-megagardevoir-en",
@@ -193,7 +193,7 @@
         "image":  "img/etb-megagardevoir-en.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Preventa 26/11"
     },
     {
         "id":  "etb-megagardevoir-en",
@@ -207,7 +207,7 @@
         "image":  "img/etb-megagardevoir-en.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Preventa 26/12"
     },
     {
         "id":  "etb-white-flare-en",
@@ -217,11 +217,11 @@
         "category":  "ETB",
         "price":  "74990",
         "compareAtPrice":  "79990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/etb-white-flare-en.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "etb-white-flare-en",
@@ -231,11 +231,11 @@
         "category":  "ETB",
         "price":  "69990",
         "compareAtPrice":  "79990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/etb-white-flare-en.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "etb-black-bolt-en",
@@ -245,11 +245,11 @@
         "category":  "ETB",
         "price":  "74990",
         "compareAtPrice":  "79990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/etb-black-bolt-en.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "etb-black-bolt-es",
@@ -259,11 +259,11 @@
         "category":  "ETB",
         "price":  "69990",
         "compareAtPrice":  "79990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/etb-black-bolt-es.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "etb-aventuras-es",
@@ -273,11 +273,11 @@
         "category":  "ETB",
         "price":  "74990",
         "compareAtPrice":  "79990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/etb-aventuras-es.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027INGLÉS\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "etb-aventuras-es",
@@ -287,11 +287,11 @@
         "category":  "ETB",
         "price":  "69990",
         "compareAtPrice":  "79990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/etb-aventuras-es.webp",
         "tags":  "[\u0027ETB",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "bin-white-flare-es",
@@ -301,11 +301,11 @@
         "category":  "BINDER",
         "price":  "34990",
         "compareAtPrice":  "34990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/bin-white-flare-es.webp",
         "tags":  "[\u0027BINDER",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     },
     {
         "id":  "bin-black-bolt-es",
@@ -315,10 +315,10 @@
         "category":  "BINDER",
         "price":  "34990",
         "compareAtPrice":  "34990",
-        "stock":  "10",
+        "stock":  "2",
         "image":  "img/bin-black-bolt-es.webp",
         "tags":  "[\u0027BINDER",
         "source":  "\u0027ESPAÑOL\u0027]",
-        "createdAt":  "1"
+        "createdAt":  "Últimas Unidades"
     }
 ]
