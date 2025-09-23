@@ -69,7 +69,7 @@ body.is-locked{overflow:hidden;touch-action:none;-ms-touch-action:none}
 /* PRECIOS */
 .price-wrap{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
 .price-new{font-weight:900;font-size:1.05rem;color:#fff}
-.price-old{color:var(--muted);text-decoration:line-through}
+.price-old{color:#9aa2ae;text-decoration:line-through}
 .save-tag{background:rgba(230,0,0,.15);color:#fff;border:1px solid rgba(230,0,0,.35);padding:2px 8px;border-radius:999px;font-size:.75rem}
 
 /* Drawer carrito (mejorado) */
@@ -85,30 +85,29 @@ body.is-locked{overflow:hidden;touch-action:none;-ms-touch-action:none}
 .cart-price{font-weight:800;font-size:1rem;text-align:right}
 
 /* Drawer footer */
-.drawer footer, .drawer-footer{padding:12px;border-top:1px solid var(--line)}
+.drawer-footer{padding:12px;border-top:1px solid var(--line)}
 .drawer-footer .totals{display:grid;gap:4px;margin-bottom:10px}
 .drawer-footer .label{color:#cdd3dd}
 
-/* Modal genérico (para checkout) */
+/* Modal genérico */
 .modal{position:fixed;inset:0;background:rgba(0,0,0,.6);display:none;place-items:center;z-index:90;overscroll-behavior:contain}
 .modal.open{display:grid}
 
 /* CHECKOUT modal */
 .checkout-card{width:min(820px,95vw);background:#111;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
+.checkout-card header{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line);background:#111}
 .checkout-body{padding:16px;display:grid;gap:16px}
 .section{border:1px solid var(--line);border-radius:12px;padding:12px}
 .section h3{margin:0 0 8px 0;font-size:1rem}
-.input, select, textarea{width:100%;max-width:100%;border-radius:10px;border:1px solid var(--line);background:#0f1116;color:#fff;padding:10px}
+.input, select, textarea{width:100%;max-width:100%;border-radius:10px;border:1px solid var(--line);background:#0f1116;color:#fff;padding:12px}
 .input::placeholder, textarea::placeholder{color:#9aa2ae}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .help{font-size:.85rem;color:#9aa2ae}
 .flex{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
 .code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#0f1116;border:1px dashed var(--line);padding:10px;border-radius:8px;white-space:pre-wrap}
 
-/* Footer */
-footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
-.footer-inner{max-width:1200px;margin:0 auto;display:grid;gap:6px}
-.footer-title{font-weight:800;font-size:1.1rem}
+/* Acciones sticky en paso 2 */
+.actions-sticky{position:sticky;bottom:0;z-index:2;background:linear-gradient(180deg,rgba(17,17,17,0),rgba(17,17,17,.85) 30%,#111 60%);padding-top:8px}
 
 /* Desktop */
 @media (min-width:768px){
@@ -116,14 +115,16 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   .footer-btn{justify-self:end}
 }
 
-/* Mobile ≤640 */
+/* Mobile ≤640: checkout full-screen y scroll interno */
 @media (max-width:640px){
   .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .product img{height:150px}
   .pad{padding:10px}
-  .footer-inner{grid-template-columns:1fr;gap:10px;text-align:center}
-  .footer-btn{grid-row:1;justify-self:center;margin-bottom:10px}
-  .footer-info{grid-row:2}
+  .drawer{width:100%}
+  .checkout-card{width:100vw;height:100dvh;border-radius:0}
+  .checkout-card header{position:sticky;top:0;z-index:3}
+  .checkout-body{padding:12px;height:auto;max-height:calc(100dvh - 56px);overflow:auto}
+  .grid-2{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -150,8 +151,6 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
 <!-- CONTROLS -->
 <div class="controls container">
   <span id="counter" class="counter">Sellados Disponibles:</span>
-
-  <!-- SOLO FILTRO DE IDIOMA -->
   <div class="filters-row" role="toolbar" aria-label="Filtros">
     <span class="label">Idioma:</span>
     <div id="rowLang"></div>
@@ -183,10 +182,10 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
   </div>
 </aside>
 
-<!-- MODAL CHECKOUT (Transferencia) -->
+<!-- MODAL CHECKOUT -->
 <div id="checkout" class="modal" role="dialog" aria-modal="true" aria-label="Checkout">
   <div class="checkout-card">
-    <header style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)">
+    <header>
       <strong>Finalizar compra</strong>
       <button id="coClose" class="btn" aria-label="Cerrar checkout">✕</button>
     </header>
@@ -246,7 +245,7 @@ footer{padding:24px 20px;background:#000;color:#fff;margin-top:30px}
           </div>
         </div>
 
-        <div class="flex" style="justify-content:space-between;margin-top:10px">
+        <div class="flex actions-sticky" style="justify-content:space-between;margin-top:10px">
           <button id="coBack" class="btn">Volver</button>
           <button id="coFinish" class="btn primary">Confirmar compra</button>
         </div>
@@ -295,7 +294,7 @@ window.addEventListener('DOMContentLoaded', () => {
     email:'jorge@shoppernerds.com'
   };
 
-  /* Etiquetas desde "source" (preventa/oferta) */
+  /* Etiquetas desde "source" */
   function getBadgesFromSource(p){
     const out=[]; const src=(p?.source||'').toString().trim();
     if(src){
@@ -528,6 +527,7 @@ Entrega: ${optText(opt)}`;
 
   coBack.addEventListener('click',()=>{coStep2.style.display='none';coStep1.style.display='block'});
 
+  /* WhatsApp SIN datos bancarios */
   coFinish.addEventListener('click',()=>{
     const human = coOrderHuman.textContent || '#????';
     const opt=(document.querySelector('input[name="coOpt"]:checked')||{}).value;
@@ -548,21 +548,13 @@ ${isRM?`Cargo despacho: ${fmt(fee)}\n`:''}Total a transferir: ${fmt(total)}
 Cliente: ${coName.value}
 WhatsApp: ${coPhone.value}
 Email: ${coEmail.value}
-Entrega: ${optText(opt)}
-
-Datos de transferencia:
-Titular: ${BANK.holder}
-RUT: ${BANK.rut}
-Banco: ${BANK.bank}
-Tipo: ${BANK.type}
-N° Cuenta: ${BANK.number}
-Email envío comprobante: ${BANK.email}`;
+Entrega: ${optText(opt)}`;
 
     const url = `https://wa.me/${WA_TARGET.replace(/[^0-9]/g,'')}?text=${encodeURIComponent(waMsg)}`;
     window.open(url,'_blank');
 
     // limpiar y cerrar
-    CART=[]; saveCart(); updateBadge(); drawCart(); closeCheckout();
+    CART=[]; localStorage.setItem('mh_cart','[]'); updateBadge(); drawCart(); closeCheckout();
   });
 
   // Filtro idioma
