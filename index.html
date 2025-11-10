@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Outlet TCG | Cartas Pokémon en Chile</title>
-<meta name="description" content="Outlet TCG: tienda de cartas Pokémon TCG. Envíos a todo Santiago." />
+<meta name="description" content="Outlet TCG: tienda de cartas Pokémon TCG. Envíos a todo Chile." />
 <meta property="og:title" content="Outlet TCG | Cartas Pokémon en Chile">
 <meta property="og:description" content="Cajas selladas, ETB, boosters y singles. Envíos a todo Chile.">
 <meta property="og:type" content="website">
@@ -12,8 +12,8 @@
 
 <style>
 :root{
-  --bg:#000000;--card:#111111;--muted:#9aa2ae;--line:#2a2a2a;--fg:#f5f7fb;
-  --accent:#FFD700;--accent-2:#fff;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.45)
+  --bg:#000;--card:#111;--muted:#9aa2ae;--line:#2a2a2a;--fg:#f5f7fb;
+  --accent:#FFD700;--radius:16px;--shadow:0 10px 30px rgba(0,0,0,.45)
 }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
@@ -36,34 +36,37 @@ img{max-width:100%;display:block}
 .hero h1{font-size:1.6rem;color:var(--accent);margin:0}
 .hero .hero-sub{margin:8px 0 0 0;font-size:1rem;color:#fff}
 
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;padding:20px}
+.product{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.product img{height:200px;object-fit:contain;background:#fff}
+.pad{padding:12px;flex:1;display:flex;flex-direction:column;gap:8px}
+.price-new{font-weight:900;font-size:1.05rem;color:#FFD700}
+.price-old{color:var(--muted);text-decoration:line-through}
+
 footer{padding:24px 20px;background:#000;color:#FFD700;margin-top:30px}
 .footer-inner{max-width:1200px;margin:0 auto;display:grid;gap:6px}
 .footer-title{font-weight:800;font-size:1.1rem;color:#FFD700}
 
-@media (min-width:768px){
-  .footer-inner{grid-template-columns:1fr auto;align-items:center}
-  .footer-btn{justify-self:end}
-}
-
-@media (max-width:640px){
-  .footer-inner{grid-template-columns:1fr;gap:10px;text-align:center}
-}
+@media (min-width:768px){.footer-inner{grid-template-columns:1fr auto;align-items:center}.footer-btn{justify-self:end}}
+@media (max-width:640px){.footer-inner{grid-template-columns:1fr;gap:10px;text-align:center}}
 </style>
 </head>
 <body>
 
 <nav class="nav" aria-label="Barra superior">
   <div class="nav-inner container">
-    <a href="#" class="brand" aria-label="Outlet TCG inicio"><span class="brand-badge"></span> OUTLET TCG</a>
-    <div class="toolbar">
-      <button id="btnCart" class="btn primary" aria-haspopup="dialog">🛒 Ver Carrito <span class="cart-count" id="cCount">0</span></button>
-    </div>
+    <a href="#" class="brand"><span class="brand-badge"></span> OUTLET TCG</a>
+    <button id="btnCart" class="btn primary">🛒 Ver Carrito <span class="cart-count" id="cCount">0</span></button>
   </div>
 </nav>
 
 <section class="hero" aria-label="Mensaje principal">
   <h1>Outlet TCG: cartas Pokémon al mejor precio en Chile</h1>
   <p class="hero-sub">Ofertas exclusivas, sellados y productos al costo por tiempo limitado.</p>
+</section>
+
+<section class="container">
+  <div id="grid" class="grid"></div>
 </section>
 
 <footer>
@@ -79,5 +82,18 @@ footer{padding:24px 20px;background:#000;color:#FFD700;margin-top:30px}
   </div>
 </footer>
 
+<script>
+const grid=document.getElementById('grid');
+const products=[
+  {name:'Prismatic Evolutions',price:139990,compare:179990,img:'https://dummyimage.com/800x500/fff/000&text=Prismatic+Evolutions'},
+  {name:'Garchomp EX',price:24990,compare:34990,img:'https://dummyimage.com/800x500/fff/000&text=Garchomp+EX'},
+  {name:'Rivales Predestinados',price:39990,compare:54990,img:'https://dummyimage.com/800x500/fff/000&text=Rivales+Predestinados'},
+  {name:'Charizard EX',price:24990,compare:34990,img:'https://dummyimage.com/800x500/fff/000&text=Charizard+EX'},
+  {name:'Mega Evolutions UPC',price:129990,compare:149990,img:'https://dummyimage.com/800x500/fff/000&text=Mega+Evolutions+UPC'}
+];
+const fmt=n=>new Intl.NumberFormat('es-CL',{style:'currency',currency:'CLP'}).format(n);
+function render(){grid.innerHTML=products.map(p=>`<article class='product'><img src='${p.img}' alt='${p.name}'><div class='pad'><strong>${p.name}</strong><div><span class='price-new'>${fmt(p.price)}</span> <span class='price-old'>${fmt(p.compare)}</span></div></div></article>`).join('');}
+render();
+</script>
 </body>
 </html>
