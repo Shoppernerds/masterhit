@@ -2,9 +2,8 @@
 # MasterHIT – Update & Deploy
 # ===========================
 # Requisitos:
-# - Guardar los CSV como UTF-8 (Excel: "CSV UTF-8 (delimitado por comas)")
-# - Tener git instalado y el repo configurado con origin/main
-# - Carpeta del proyecto debe contener /img/, /index.html, JSONs y CSVs
+# - Guardar el CSV como UTF-8 (Excel: "CSV UTF-8 (delimitado por comas)")
+# - Tener git instalado y el repo ya configurado con origin/main
 
 # ==== Configuración ====
 $ProjectPath = "C:\Users\jorgg\OneDrive\MasterHIT"
@@ -12,12 +11,10 @@ $Branch      = "main"
 $Remote      = "origin"
 $PagesUrl    = "https://shoppernerds.github.io/masterhit/"
 
-# Archivos que preferimos conservar locales en caso de conflicto
+# Archivos a los que daremos preferencia local si hay conflictos
 $PreferLocalOnConflict = @(
   "masterhit-products.csv",
-  "masterhit-products.json",
-  "masterhit-singles.csv",
-  "masterhit-singles.json"
+  "masterhit-products.json"
 )
 
 # ==== Utilidades ====
@@ -27,6 +24,7 @@ function Run($cmd) {
   if ($LASTEXITCODE -ne 0) { throw "Fallo al ejecutar: $cmd" }
 }
 
+# Mensaje visible
 function Info($msg) { Write-Host $msg -ForegroundColor Cyan }
 function Ok($msg)   { Write-Host $msg -ForegroundColor Green }
 function Warn($msg) { Write-Host $msg -ForegroundColor Yellow }
@@ -36,22 +34,15 @@ function Err($msg)  { Write-Host $msg -ForegroundColor Red }
 Set-Location $ProjectPath
 
 try {
-  Info "1) Convirtiendo masterhit-products.csv → JSON (UTF-8)…"
+  Info "1) Convirtiendo CSV → JSON (UTF-8)…"
   Get-Content masterhit-products.csv `
     | ConvertFrom-Csv `
     | ConvertTo-Json -Depth 5 `
     | Set-Content masterhit-products.json -Encoding UTF8
-  Ok "CSV de productos convertido a JSON."
+  Ok "CSV convertido a JSON."
 
-  Info "1b) Convirtiendo masterhit-singles.csv → JSON (UTF-8)…"
-  Get-Content masterhit-singles.csv `
-    | ConvertFrom-Csv `
-    | ConvertTo-Json -Depth 5 `
-    | Set-Content masterhit-singles.json -Encoding UTF8
-  Ok "CSV de singles convertido a JSON."
-
-  # ==== Validar imágenes en productos ====
-  Info "2) Validando imágenes referenciadas (productos)…"
+  # ==== Validación de imágenes ====
+  Info "2) Validando imágenes referenciadas…"
   $json = Get-Content masterhit-products.json -Raw | ConvertFrom-Json
   $missing = @()
   foreach ($p in $json) {
@@ -64,30 +55,10 @@ try {
   }
   if ($missing.Count -gt 0) {
     $unique = $missing | Sort-Object -Unique
-    Warn "Imágenes faltantes en /img/ (productos):"
+    Warn "Imágenes faltantes en /img/:"
     $unique | ForEach-Object { Warn " - $_" }
   } else {
-    Ok "Todas las imágenes de productos existen."
-  }
-
-  # ==== Validar imágenes en singles ====
-  Info "2b) Validando imágenes referenciadas (singles)…"
-  $jsonSingles = Get-Content masterhit-singles.json -Raw | ConvertFrom-Json
-  $missingSingles = @()
-  foreach ($p in $jsonSingles) {
-    if ($p.PSObject.Properties.Name -contains "image") {
-      $img = [string]$p.image
-      if ($img -and -not (Test-Path (Join-Path $ProjectPath $img))) {
-        $missingSingles += $img
-      }
-    }
-  }
-  if ($missingSingles.Count -gt 0) {
-    $uniqueS = $missingSingles | Sort-Object -Unique
-    Warn "Imágenes faltantes en /img/ (singles):"
-    $uniqueS | ForEach-Object { Warn " - $_" }
-  } else {
-    Ok "Todas las imágenes de singles existen."
+    Ok "Todas las imágenes referenciadas existen."
   }
 
   # ==== Git add / commit (solo si hay cambios) ====
@@ -103,23 +74,26 @@ try {
     Run "git commit -m 'Actualización completa ($fecha)'"
   }
 
-  # ==== Sincronizar con remoto ====
+  # ==== Sincronizar con remoto (rebase + autostash) ====
   Info "5) Sincronizando con remoto ($Remote/$Branch)…"
   try {
     Run "git pull $Remote $Branch --rebase --autostash"
   } catch {
-    Warn "Conflictos detectados, aplicando tu versión local en archivos clave…"
+    Warn "Se detectaron conflictos durante el rebase. Intentando resolver con tu versión local…"
+    # Resolver conflictos automáticamente para los archivos preferidos
     foreach ($file in $PreferLocalOnConflict) {
       if (Test-Path $file) {
+        # Si está en conflicto, preferimos nuestra versión local
         & git checkout --ours -- $file *>$null
         & git add $file *>$null
       }
     }
+    # Continuar rebase (si queda algo sin resolver se detendrá)
     Run "git rebase --continue"
   }
 
   # ==== Push ====
-  Info "6) Subiendo cambios a remoto…"
+  Info "6) Publicando (git push)…"
   $push = & git push $Remote $Branch 2>&1
   if ($LASTEXITCODE -ne 0) {
     Warn "Push normal rechazado, reintentando con --force-with-lease…"
@@ -127,19 +101,18 @@ try {
   } else {
     $push | Out-Null
   }
-  Ok "Cambios subidos correctamente a $Remote/$Branch."
+  Ok "Cambios subidos correctamente."
 
-  # ==== Abrir sitio (sin caché) ====
+  # ==== Abrir sitio con cache-buster ====
   $ts = [int][double]::Parse((Get-Date -UFormat %s))
   $url = "$PagesUrl?_=$ts"
-  Info "7) Abriendo sitio en navegador sin caché…"
-  Start-Process "cmd" "/c start msedge --inprivate $url"
-
-  Ok "✅ Deploy completado exitosamente."
+  Info "7) Abriendo sitio: $url"
+  Start-Process $url
 
 } catch {
   Err "❌ Error: $($_.Exception.Message)"
-  Err "Si el rebase quedó a medias, ejecuta: git rebase --abort"
+  Err "Revisa los pasos anteriores. Si el rebase quedó a medias, puedes abortarlo con: git rebase --abort"
   exit 1
 }
+
 
